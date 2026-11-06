@@ -1,8 +1,8 @@
-# 验收报告：0.1.0 / Ultimate-Model 1.4.3-review.6
+# 验收报告：0.1.1 / Ultimate-Model 1.4.3-review.6
 
 验收日期：2026-11-07（Asia/Shanghai）。实现和本机部署由主集成者负责；最终插件 ZIP 由独立验收者重新解包、安装副本并运行 SDK/UI，官方管理器另由独立验收者验证。所有测试都在同一台用户 Windows x64 机器上；“独立”指职责、解压目录与 Home/profile 隔离，不代表另一台机器。
 
-[机器可读脱敏摘要](evidence/acceptance-summary.json)与本报告使用相同分层；未运行的真实模型专项明确标为 PREREQ，不纳入通过计数。
+[机器可读脱敏摘要](evidence/acceptance-summary.json)与本报告使用相同分层；首次真实模型专项标为失败并保留证据，不纳入通过计数。
 
 ## 已冻结的插件字节
 
@@ -36,13 +36,21 @@ SDK/UI 层的模型是离线 fixture，外部 Provider 请求为0；这是正式
 
 ## 真实模型专项
 
-**PREREQ / 未执行：真实主模型请求0次，不能判为通过。** 已准备自有隔离工作区、三个指定产物、保护文件和独立验收器；用户已批准当前账号模型、最多6次主请求/300秒。现役入口在发送前因路由标识检查拒绝，未创建真实任务，也未消费这项模型预算；该失败属于私有验收辅助的旧路由假设，不是插件验收通过或真实Provider失败的证据。
+**完整自主任务未通过；两轮累计12次SDK主请求，第二轮生成2/3产物，代码独立验证通过。** 首轮为6次SDK、0产物。 用户补充批准保留当前订阅适配器既有内部HTTP重试；主请求上限仍为6次、首次起300秒。实际在39.929秒后触及上限，第7次在发送前拒绝，turn/end为aborted。内部HTTP次数和实际费用未统计，不能把SDK计数当作wire计数。
 
-随后发现本机既有订阅适配器可在一次SDK主请求内进行账号轮换、输出预算恢复并直接重发HTTP；离线执行实际版本的纯恢复函数，严格复现“SDK gate计数1、生成fetch计数2”。公开的 llm/stream 门可以限制SDK主请求数和300秒，找不到逐次provider发送前的会话预算入口，因此不能承诺内部HTTP生成请求也不超过6次。没有修改订阅插件、账号、默认路由或全局fetch来绕过。
+独立读取该自有会话的真实journal：6条settled主attempt、0个SDK retry marker、7次原生工具调用（skill两次，以及glob/read/pwsh/working_directory/progress_update各一次），全部返回`Error: tool result must be losslessly JSON-serializable`。最终工作区仍精确只有原3文件，字节、SHA256和mtime均不变；函数、测试、VIBECODING均未生成，缺失文件的测试未执行。状态为`FAIL_BUDGET_EXHAUSTED_NO_ARTIFACTS`，不计通过。
 
-这项额外重发/额度边界仍待用户裁定；未获扩展授权前保持0请求。临时验收row已经移除，DSH正常重启恢复。离线fixture的工具、测试与完成链均真实执行，但不证明当前真实Provider能完成本任务；后续若另获适用授权实测，需单独更新回执与本段，不能把此PREREQ当PASS。
+源码审查定位到临时辅助把SDK同步tools.guard注册为async，Promise流入结果准入路径；这是验收辅助的契约缺陷，不能归因于模型或Provider不执行。此前只测辅助函数而未重验最终SDK注册路径，遗漏了这一缺陷。该辅助未进入分享ZIP或长期DSH配置；产品hook守卫保持同步。具体首红、修复验收方法及后续结果见[真实模型验收记录](real-model-validation.md)。首轮6次的失败记录保留，补跑另获额外6次授权；两轮预算没有重置或覆盖。
 
-本机恢复后记录三个启动健康事件，另有一条既有 `[deepseek-account] account read failed` renderer日志；同类记录早于本次review.6部署。没有读取或修写该账号凭据，也不将“宿主已ready”解释为该账号或全部控制台已无错误。当前任务路由、该独立账号插件与包回归证据分别看待。
+临时row已移除，Home patch恢复原字节，DSH正常重启。当前会话还独立证实：全局工作流和Node EPERM说明位于durable user/message seq15，UM目标提醒位于system/message。system-only探针漏看user-role指令，不能据false判定全局配置缺失；这仍不冒充完整HTTP请求快照。现役Vision Router active/entrySeen/fiberSeen均true，证明宿主已采用持久已读设置。
+
+修正后的最终同步辅助通过原装SDK实际注册RED/GREEN、15项策略测试，以及最终源码在独占Host的完整离线任务（6个fixture请求、真实工具、只读Node4/4、保护文件拒绝、网络0）。这些离线结果没有覆盖掉首轮失败。
+
+额外获准的第二次真实执行用了6次SDK主请求，45.802秒后触限；8/10个工具调用成功，生成函数和测试文件。edit及带输出/退出码后缀的pwsh命令被临时辅助拒绝。独立运行模型生成的测试为13/13、exit0，并额外通过5正+18非法输入用例；原3文件哈希/字节/mtime不变。但VIBECODING仍缺失、模型自身未执行测试，状态为`FAIL_BUDGET_EXHAUSTED_PARTIAL_ARTIFACTS`，不记完整任务PASS。本轮不再追加模型请求，临时rows已全部清理；正常DSH没有这个6次验收上限。
+
+移除临时辅助的全新owned原装SDK环境也实际通过正常read→edit和原样带退出码后缀的pwsh命令：模型代码副本13/13、exit0，read-only测试期间保护文件不变，0模型/0网络。保留两条ConstrainedLanguage启动stderr；没有将其当作无错误运行或关闭语言限制。这个窄验证用于区分辅助限制与正常工具能力，不把它算成模型自主交付通过。
+
+本机恢复后记录三个启动健康事件，另有既有`[deepseek-account] account read failed` renderer日志，同类记录早于review.6部署；未读取或修写该账号凭据，不将Host ready解释为所有账号或控制台无错误。
 
 ## 修复依据与失败保留
 

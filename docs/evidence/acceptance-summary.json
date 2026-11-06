@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "dateLocal": "2026-11-07",
-  "releaseVersion": "0.1.0",
+  "releaseVersion": "0.1.1",
   "pluginVersion": "1.4.3-review.6",
   "machine": "user Windows x64, same machine with isolated independent homes/profiles",
   "frozenPlugin": {
@@ -87,16 +87,90 @@
     "globalWorkflowOriginalPrefixBytes": 13587,
     "globalWorkflowInstalledBytes": 15830,
     "globalWorkflowBackupReadbackMatches": true,
-    "globalWorkflowReadOnlyPlan": "KEEP"
+    "globalWorkflowReadOnlyPlan": "KEEP",
+    "visionRouterRuntime": {
+      "active": true,
+      "entrySeen": true,
+      "fiberSeen": true
+    }
   },
   "realModel": {
-    "status": "PREREQ_NOT_RUN",
-    "ownedMainRequestsSent": 0,
-    "sdkDispatchLimit": 6,
-    "secondsFromFirstMain": 300,
-    "providerInternalWireRetryBoundProven": false,
-    "additionalCostBoundaryPending": true,
-    "notCountedAsPass": true
+    "status": "PARTIAL_REAL_GENERATION_INDEPENDENT_TESTS_PASS_FULL_TASK_NOT_PASSED",
+    "totalSdkMainRequestsSent": 12,
+    "providerInternalWireRequests": "NOT_COUNTED_ALLOWED_FOR_EACH_EXPLICITLY_APPROVED_RUN",
+    "firstAttempt": {
+      "sdkMainRequests": 6,
+      "elapsedSeconds": 39.929,
+      "toolCalls": 7,
+      "toolErrors": 7,
+      "error": "Error: tool result must be losslessly JSON-serializable",
+      "cause": "temporary async guard violated synchronous SDK contract",
+      "newArtifacts": 0,
+      "journalSha256": "3da732c60cc521b62d026f8c761837728e342dc69ef5d16ac840554a88c321ba"
+    },
+    "offlineRepair": {
+      "unitPassed": 15,
+      "sdkOriginalAsyncRedExit": 1,
+      "sdkFinalSyncGreenExit": 0,
+      "finalHostExit": 0,
+      "hostModel": "deterministic offline fixture",
+      "fixtureMainCalls": 6,
+      "readonlyNodeTests": 4,
+      "networkAttempts": 0,
+      "registeredFinalSourceMatches": true
+    },
+    "secondAttempt": {
+      "additional6ExplicitlyAuthorized": true,
+      "sdkMainRequests": 6,
+      "elapsedSeconds": 45.802,
+      "terminal": "aborted at request limit before seventh dispatch",
+      "toolCalls": 10,
+      "toolSuccess": 8,
+      "toolErrors": 2,
+      "extraHelperRejections": [
+        "edit not allowlisted",
+        "test command stdout/exit suffix not exact allowlisted string"
+      ],
+      "newArtifacts": 2,
+      "expectedArtifacts": 3,
+      "missing": "VIBECODING.md",
+      "modelRanTests": false,
+      "independentModelTests": {
+        "passed": 13,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      "independentExtraCases": {
+        "positive": 5,
+        "invalid": 18,
+        "allPassed": true
+      },
+      "journalSha256": "0ab2be55545de44219bbaf1be29de05f9bc7857f72e4c6fa82bba2d01e077d5e"
+    },
+    "protectedOriginalFiles": 3,
+    "protectedHashBytesMtimeUnchanged": true,
+    "temporaryHelperBundled": false,
+    "temporaryRowsRemoved": true,
+    "normalDshSixRequestCap": false,
+    "fullAutonomousTaskPassed": false,
+    "furtherPaidRunAuthorized": false,
+    "globalWorkflowDurableUserMessage": true,
+    "globalWorkflowSdkRequestRole": "user",
+    "umResidentSdkRequestRole": "system",
+    "completeWireContextExported": false,
+    "normalSdkCompatibility": {
+      "noTemporaryHelper": true,
+      "modelCalls": 0,
+      "networkCalls": 0,
+      "readThenEdit": true,
+      "originalPwshSuffixExecuted": true,
+      "readonlyNodeTests": 13,
+      "testExit": 0,
+      "protectedAndOriginalSourcesUnchanged": true,
+      "constrainedLanguageStartupStderr": 2,
+      "notAutonomousTaskProof": true
+    }
   },
   "source": {
     "qoderVersion": "v0.0.30",
@@ -104,7 +178,7 @@
     "qoderLocalRemoteSameAt": "2026-11-06T18:33:47Z"
   },
   "unverified": [
-    "real provider completion",
+    "successful real-model task completion",
     "cross-platform matrix",
     "other core versions",
     "UNC paths",
