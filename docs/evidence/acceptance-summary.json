@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "dateLocal": "2026-11-07",
+  "releaseVersion": "0.1.0",
+  "pluginVersion": "1.4.3-review.6",
+  "machine": "user Windows x64, same machine with isolated independent homes/profiles",
+  "frozenPlugin": {
+    "name": "Ultimate-Model-1.4.3-review.6.zip",
+    "bytes": 705119,
+    "sha256": "9938562f6691e67a35c40fe83b37cf5d496c4953ee388e4e8a882396ca4266ab",
+    "members": 215,
+    "manifestFiles": 214
+  },
+  "regressions": {
+    "pluginIndependent": {
+      "pass": 311,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "exitCode": 0
+    },
+    "globalWorkflow": {
+      "pass": 16,
+      "fail": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "hostLegacyGuard": {
+      "pass": 27,
+      "fail": 0
+    }
+  },
+  "isolatedSdkUi": {
+    "status": "PASS",
+    "model": "deterministic offline fixture",
+    "actualToolRoundtrip": true,
+    "userCancellation": true,
+    "noPersistenceDenied": true,
+    "previousPersistenceBytesHashMtimeUnchanged": true,
+    "refreshPreserved": true,
+    "journalRows": 64,
+    "journalSha256": "5cb907841a0abe5828467b8243552e961167a5d32e40fe8fdbf052b68f3495be",
+    "pageErrorsObserved": 0,
+    "consoleErrorListenerInstalled": false,
+    "recordedSseAbortOnRefresh": 1,
+    "realProviderCalls": 0,
+    "ownedHostResidual": 0
+  },
+  "officialManager": {
+    "status": "PASS_ISOLATED_OFFICIAL_MANAGER",
+    "sdk": "0.2.1-rc.3",
+    "pnpm": "11.7.0 JavaScript",
+    "offline": true,
+    "buildScriptsApproved": false,
+    "installExit": 0,
+    "installWarnings": [],
+    "application": "restart-required/no-hmr",
+    "localDirectoryMode": "link",
+    "materializedPathsValid": 8,
+    "uninstallExit": 0,
+    "sourceBytesPreserved": true,
+    "firstUninstallHarnessFlagsFailureRetained": true
+  },
+  "windowsNodeSingleFile": {
+    "node": "24.19.0",
+    "sandbox": "read-only, unchanged",
+    "originalCommand": "node --test calculator.test.mjs",
+    "originalExit": 1,
+    "originalError": "spawn EPERM",
+    "compatibleCommand": "node --test --test-isolation=none calculator.test.mjs",
+    "compatibleTests": 4,
+    "compatibleFail": 0,
+    "compatibleExit": 0,
+    "protectedWriteNegativeTestPassed": true,
+    "multiFileEquivalenceClaimed": false
+  },
+  "liveDeployment": {
+    "dsh": "2.0.20-next",
+    "core": "0.2.1-rc.3",
+    "plugin": "1.4.3-review.6",
+    "normalRestart": true,
+    "forcedShutdown": false,
+    "healthyBootEvents": 3,
+    "knownEarlierRendererAccountReadError": 1,
+    "temporaryAcceptanceRowsRemoved": true,
+    "globalWorkflowOriginalPrefixBytes": 13587,
+    "globalWorkflowInstalledBytes": 15830,
+    "globalWorkflowBackupReadbackMatches": true,
+    "globalWorkflowReadOnlyPlan": "KEEP"
+  },
+  "realModel": {
+    "status": "PREREQ_NOT_RUN",
+    "ownedMainRequestsSent": 0,
+    "sdkDispatchLimit": 6,
+    "secondsFromFirstMain": 300,
+    "providerInternalWireRetryBoundProven": false,
+    "additionalCostBoundaryPending": true,
+    "notCountedAsPass": true
+  },
+  "source": {
+    "qoderVersion": "v0.0.30",
+    "qoderSha": "33386f97bba86a852d90c9ade14222024d91adaa",
+    "qoderLocalRemoteSameAt": "2026-11-06T18:33:47Z"
+  },
+  "unverified": [
+    "real provider completion",
+    "cross-platform matrix",
+    "other core versions",
+    "UNC paths",
+    "file/tgz/registry copy installs",
+    "all native pnpm locking cases",
+    "real business long tasks",
+    "arbitrary parallel writes",
+    "all external plugin combinations"
+  ]
+}

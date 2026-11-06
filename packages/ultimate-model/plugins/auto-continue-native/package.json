@@ -1,0 +1,8 @@
+{
+  "name": "dsh-auto-continue-native",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "description": "轮次失败自动接续：agent/error 后按退避排下一轮，默认 8 次上限，取消/凭据/配额类不接续"
+}

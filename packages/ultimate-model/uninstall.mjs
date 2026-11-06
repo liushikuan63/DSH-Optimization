@@ -1,0 +1,3 @@
+// Never restore entire user configs or remove directories containing user additions.
+if(process.argv.includes('--apply')){console.error('REFUSED: legacy file-deleting uninstall is disabled. List bundles, then remove @local/ultimate-model with plugin_manager. User rules/skills/experience are not deleted.');process.exitCode=2}
+else console.log(JSON.stringify({dryRun:true,writes:[],removes:[],next:'plugin_manager list_bundles, then remove_bundle with the exact installed identifier',notice:'Removal does not restore old config snapshots, recursively delete user additions or erase learning data.'},null,2))

@@ -1,0 +1,54 @@
+{
+  "name": "@local/ultimate-model",
+  "version": "1.4.3-review.6",
+  "private": true,
+  "type": "module",
+  "description": "Optional Ultimate-Model preset addon, rebranded for the share pack; sourced from Jizhi mode 1.4.2.",
+  "engines": {
+    "dsh": ">=0.2.1-rc.2 <0.3.0"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./mode-runtime.mjs",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./local-memory": "./plugins/local-memory/index.mjs",
+    "./local-memory/locale/*.json": "./plugins/local-memory/locale/*.json",
+    "./local-memory/icon": "./plugins/local-memory/icon.svg"
+  },
+  "files": [
+    "package.json",
+    "mode-runtime.mjs",
+    "cordis.patch.yml",
+    "locale",
+    "icon.svg",
+    "README.md",
+    "RESTORE.md",
+    "CHANGELOG.md",
+    "INSTALL-AI.md",
+    "manifest.json",
+    "rules",
+    "preset",
+    "plugins",
+    "hooks",
+    "scripts",
+    "skills",
+    "agents",
+    "mcp",
+    "vendor",
+    "tests",
+    "selfcheck.ps1",
+    "install.mjs",
+    "install.ps1",
+    "uninstall.mjs",
+    "FILES.sha256",
+    "materialize.mjs",
+    "cordis.patch.template.yml",
+    "SOURCES.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

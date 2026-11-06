@@ -1,0 +1,6 @@
+interface:
+  display_name: "GitHub CI 取证"
+  short_description: "用实际执行证据区分 CI 失败原因，并评估成本与门禁影响"
+  default_prompt: "使用 $github-ci-evidence 诊断这个项目的 CI 问题，并依据当前证据给出或完成适当修复。"
+policy:
+  allow_implicit_invocation: true

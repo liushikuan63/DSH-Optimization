@@ -1,0 +1,6 @@
+interface:
+  display_name: "Windows 项目工作流"
+  short_description: "覆盖本机全工作区的多版本工具链、worktree 与跨端验证"
+  default_prompt: "使用 $windows-project-workflow 检查当前项目环境，完成这次修改并执行相关验证。"
+policy:
+  allow_implicit_invocation: true

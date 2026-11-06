@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "taskType": "change",
+  "scope": "replace-with-task-scope",
+  "revision": "replace-with-current-revision",
+  "claim": "partial",
+  "checks": [
+    {
+      "id": "normal-behavior",
+      "kind": "positive",
+      "requiredLayer": "isolated",
+      "expected": true
+    },
+    {
+      "id": "invalid-input-rejected",
+      "kind": "negative",
+      "requiredLayer": "isolated",
+      "expected": true
+    },
+    {
+      "id": "actual-user-outcome",
+      "kind": "outcome",
+      "requiredLayer": "user-path",
+      "expected": true
+    }
+  ],
+  "observations": []
+}

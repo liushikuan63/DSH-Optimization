@@ -1,0 +1,8 @@
+{
+  "name": "dsh-hook-guards-native",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "description": "原生 Cordis 守卫：替代 dsh-hooks-claude-code 的 PreToolUse 四类硬拦（pwsh 路径当前每个钩子都超时）"
+}

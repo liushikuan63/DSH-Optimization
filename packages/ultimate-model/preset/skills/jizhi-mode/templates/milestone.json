@@ -1,0 +1,15 @@
+{
+  "action": "save",
+  "note": {
+    "objective": "填写当前用户目标",
+    "acceptance": [],
+    "constraints": [],
+    "decisions": [],
+    "rejectedApproaches": [],
+    "evidence": [],
+    "changedFiles": [],
+    "openItems": [],
+    "nextSteps": [],
+    "status": "active"
+  }
+}

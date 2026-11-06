@@ -1,0 +1,27 @@
+# Disabled reference rows only. Not loaded by cordis.patch.yml.
+# Replace each placeholder with a verified target-machine absolute entry point;
+# then use the supported plugin/bundle workflow with explicit authorization.
+- id: ultimate-model-memory-example
+  name: '@deepseek-ai/dsh-mcp-client'
+  disabled: true
+  config:
+    serverName: memory
+    transport: stdio
+    command: node
+    args:
+      - '<VERIFIED_MEMORY_SERVER_ENTRY>'
+    env:
+      MEMORY_FILE_PATH: '<APPROVED_MEMORY_DATA_FILE>'
+    toolCallTimeoutMs: 60000
+    failOnStartupError: true
+- id: ultimate-model-playwright-example
+  name: '@deepseek-ai/dsh-mcp-client'
+  disabled: true
+  config:
+    serverName: playwright
+    transport: stdio
+    command: node
+    args:
+      - '<VERIFIED_PLAYWRIGHT_MCP_ENTRY>'
+    toolCallTimeoutMs: 180000
+    failOnStartupError: true

@@ -1,0 +1,8 @@
+node_modules/
+.dsh/
+.env*
+*.log
+*.tmp
+*.bak
+__pycache__/
+dist/

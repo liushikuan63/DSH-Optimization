@@ -1,0 +1,8 @@
+{
+  "name": "dsh-ask-user-auto-pick",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "description": "问题弹窗无操作超时后自动提交推荐项：接住 user-questions/request 的 ASK_TIMED_OUT，按首项 (Recommended)/（推荐）标记作答并留痕"
+}
