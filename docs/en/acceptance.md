@@ -1,12 +1,71 @@
-# Acceptance report — 0.1.4 runtime repair edition / Ultimate-Model 1.4.3-review.7
+# Acceptance report — 0.1.5 post-maintenance edition / Ultimate-Model 1.4.3-review.7
 
 [简体中文](../acceptance.md) · English
+
+The live Ultimate-Model was updated to `1.4.3-review.7` in this explicitly approved maintenance window. Only five metadata/document files changed; the other 210 files and all execution code retain review.6 bytes. The 0.1.4 statements “live review.6 / maintenance HOLD” describe that earlier snapshot; see [acceptance](acceptance.md) for the later approval and completed maintenance. This is not standing approval for further maintenance or an extension of the spent diagnostic budget.
 
 The recorded acceptance work took place on 2026-11-07 (Asia/Shanghai). The main integrator implemented and deployed the changes. Separate validators unpacked the final plugin ZIP, prepared isolated copies, exercised the SDK/UI, and checked the official bundle manager. All environments were on the same user's Windows x64 machine. “Independent” describes responsibility, extraction directories, and isolated Home/profile directories; it does not mean a second computer.
 
 Version 0.1.4 adds optional narrowly scoped Bili CORS and desktop-footer repairs with current regression/browser/native acceptance. Review.7 changes five metadata/document files; its other210 files and the existing workflow installer/rules retain their bytes. Historical311/16/SDK/UI suites describe review.6 and the same unchanged code; they are not claimed as rerun. The new fixed-source archive receives independent artifact acceptance.
 
 The [sanitized machine-readable summary](../evidence/acceptance-summary.json) uses the same evidence layers. The third controlled continuation task passed; the first two attempts remain recorded as failures. See the [real model record](real-model-validation.md) and [deployment guide](deployment.md).
+
+## 0.1.5: readback after an approved maintenance window
+
+This section adds later facts without rewriting the frozen 0.1.4 account403, failed production zero-RO gate or active-task maintenance HOLD. The user subsequently approved one maintenance window; the preceding instance ended normally at 2026-11-07T07:23:11.575Z. That approval covers this controlled window only, not standing permission to interrupt other active tasks or broaden diagnosis.
+
+The temporary instance carrying the bounded private RO metadata probe was observed from 07:23:55.727Z until its normal stop at 07:28:04.663Z. The ASAR containing the previously adopted footer repair was restored by 07:28:41Z, before the five-minute deadline. READY, diagnostic and RO log counts were all zero. The result is **NO_READY / observer owner UNVERIFIED**, not a successful probe or a repaired production cause. Without an observed READY, the diagnostic output chain has not been established. Independent readback found the existing developerLogging=false setting, under which the actual main process filters console.info. This visibility condition is established, but it does not prove that the probe executed, uniquely explain the missing output or identify an observer owner. Developer logging was not enabled for diagnosis; zero logs alone do not prove that the code did not execute. The probe and temporary diagnostic code are excluded from the public distribution.
+
+At 07:29:22Z, per-file CAS updated the live UM from review.6 to review.7, with separate backups and transaction receipts for the five metadata/document files. Execution code and the materialized patch bytes were unchanged. Independent readback matched all 214 manifest entries; the live FILES.sha256 digest is `8e1e6ef30bc2e170c670ec10b794fe878ae6ad1ac3d19e3bda9b78fcd1818be1`. A normal startup followed. The normal carrier remains ASAR `1c3bc0c92100688532e43173e51d93bcc07350dbcb18a9be65e5346504203fe4`, client `680d4dbd4594145c92a7a571ce044862f8bd326bc839873ff13653c4e8e50f46`, and Bili repaired bytes `7a4185d855452c04bd15e7a63b490780f5f1ee8f550658b6953283037ecab611`.
+
+This edition adds no controlled model-acceptance requests. Ordinary live business traffic was not counted; the historical three-run 23-request record is unchanged. The unchanged 311/16/SDK/UI evidence remains associated with its recorded bytes and is not advertised as rerun. New native adoption and final observation are separate layers; RO recurred in the later window, so the earlier failed gate and unresolved production cause remain recorded.
+
+### Historical observation of the normal instance after the first window
+
+The normal instance started at 2026-11-07T07:29:23.960Z. Native visibility was recorded at 07:31:36Z; independent observation continued through 07:33:54.585Z, covering a further 138.585 seconds. The run contained three error records: one account read and two RO notices. The RO pair recurred during the native-visible phase at 07:33:41.348Z and 07:33:41.352Z. CORS, unknown, tool-error, module-error and crash counts were zero, with all three startup health events present. **The production zero-RO gate therefore still fails, and the account problem remains unresolved.** Maintenance completion, UM7 installation and readable Bili status do not establish that every runtime problem passed.
+
+Independent source readback at 07:35:40Z again confirmed stable normal ASAR/client/executable and Bili repair bytes. All 214 UM7 manifest entries, the five metadata backups and current files, the other 210 files and the materialized patch matched. The six previously agreed protected configuration/data hashes also matched. Credentials were checked only as opaque bytes; this is not a claim that all user data or subsequent business writes were unchanged. The original business task showed paused/resume controls; the coordinator did not resume generation for the user.
+
+### Identity check for the two UM entries
+
+The native plugin page's two “View Ultimate Model” entries do not represent two simultaneously enabled presets. The legacy Home entry is disabled; the managed review.7 bundle entry is enabled. Exactly one row for the preset configuration ID is enabled, no external row overrides the managed row, and UM declares zero native providers. The user's disabled choice was retained; no row was toggled or removed to “clean up duplicates.” This checks registration and enable-state identity. It does not replace evidence from a new mode selection, session fiber or model request.
+
+### Second approved probe: READY visible, deadline gate failed
+
+After the first window had been spent, the user explicitly approved a new 180-second window, at most three total log records including READY, and 8192 bytes. Private v4 only adjusts diagnostic visibility and does not enable developerLogging. Its nine actual-main bridge checks and forty Chrome fixture checks passed; they do not replace the installed timing gate.
+
+An actual READY was recorded at 07:45:53.936Z, establishing visibility at that instance's setup-record point, not identification of the RO owner. ERROR-level V4 diagnostic markers must be counted separately from real application errors. The collector snapshot through 07:48:33.902Z did not cover the remaining interval through process exit. Subsequent readback of the complete ended run covered 103 records and confirmed one READY, 28 bytes, DIAG0/RO0. The 103 are total run records, not errors. The RO owner was not reproduced.
+
+| Installed timing item | Confirmed value | Result |
+| --- | --- | --- |
+| Newly authorized runtime | 180 seconds; three total logs/8192 bytes | Separate from the spent first window, without automatic extension |
+| Temporary instance lifecycle | 07:45:46.527Z–07:48:56.948Z; run.end marked clean:true, without Host shutdown ACK (see shutdown boundary) | 190.421 seconds, exceeding the runtime allowance by 10.421 seconds |
+| Planned hard deadline | 07:48:46.000Z | Planned early shutdown was missed; deadline gate FAIL |
+| Normal carrier restored | 07:49:02.128Z | 16.128 seconds after the planned hard deadline |
+
+**This maintenance cannot be summarized as wholly compliant or wholly passing.** Visible READY and the deadline overrun are separate outcomes. A low log count or green private fixture must not override the actual overrun. The first RED and restoration receipts are retained, the overrun was disclosed to the user, and no further probe will run. The previously adopted footer repair ASAR `1c3bc0c92100688532e43173e51d93bcc07350dbcb18a9be65e5346504203fe4` was restored, live UM7 was retained, and a normal instance started at 07:50:16.761Z. Adoption and at least 120 seconds of independent observation for that final normal instance require their own start/end window; previous-instance results are not reused.
+
+### Shutdown receipt and data-protection scope
+
+The complete V4 run records a Host exit at 07:48:56.933Z with `expected:true`, `acknowledged:false`, `signal:SIGTERM` and `exitCode:null`, classified as **EXPECTED_HOST_EXIT_WITHOUT_SHUTDOWN_ACK**. The coordinator used the official quit entry, not a separate operating-system kill command. However, the installed SDK's `stop(false)` path can send SIGTERM after waiting about three seconds; strict `requireGraceful:true` rejects a missing acknowledgement instead. Thus `run.end clean:true` is a lifecycle marker, not proof of a fully graceful Host shutdown or durable preservation of every task's state.
+
+The original exit record and raw error count are retained. This does not infer another independent product defect, classify the expected exit as a crash or claim complete graceful-shutdown acceptance. The six opaque configuration/data checks and UM7 byte checks are bounded preservation evidence, not verification of all user data or every task's integrity. No blind core patch, log suppression or additional probe follows from this record.
+
+The complete 103-record V4 run retains three raw ERROR-level records: one dedicated READY diagnostic, one account read and one expected Host exit without ACK. DIAG, RO and unclassified counts are zero. READY is not treated as another application defect or silently removed from the raw error total.
+
+### Native Bili status path in the final normal instance
+
+The normal instance started at 07:50:16.761Z. At 07:51:53Z, the actual `dsh-app://app/` renderer opened the identified Bili context view (`bili-context`) from the conversation's additional views and read HTTP404 without Failed to fetch. This establishes the affected Bili view, rather than a generic context-insights sidebar. HTTP-origin Chrome and Node header controls are not substituted for native adoption. No Bili model task was run.
+
+Normal-carrier/UM7 manifest readback passed at 07:52:19Z. The original conversation tab was restored at 07:52:27Z; the original task still offered a resume control, and the coordinator neither resumed generation nor sent a new prompt. **A new preset-fiber selection was not retested.** Complete SDK/UI mode behavior remains associated with the historical evidence for the same execution code, not a newly claimed session or model run. Final independent log counts covering at least 120 seconds after this native Bili proof are recorded separately.
+
+### Independent observation of the final normal instance
+
+Starting from the actual native Bili proof at 07:51:53Z, independent observation continued through 07:54:41.886Z, covering 168.886 seconds. The complete frozen log contains 93 records, including three errors: one account read and two RO notices. The 168.886-second native phase itself contains two RO notices and zero account records; the startup account record is not counted again in that phase. The RO pair recurred at 07:54:41.546Z and 07:54:41.550Z. CORS, unknown, tool-error, module-error and crash counts were zero, with all three startup health events present. **The final normal instance still fails the zero-RO gate, and the account problem remains unresolved.** The native Bili status-path result does not mean that all runtime problems passed.
+
+The normal ASAR/client/executable and Bili repair bytes, all 214 live UM7 manifest entries and the six previously agreed protected configuration/data hashes are checked in the final independent receipt. Credentials are checked only as opaque bytes. This scope does not establish verification of all user data, every task's state or subsequent business writes. Dedicated V4 ERROR markers are separated from actual faults, and counts or windows from different instances are not merged.
+
+Final independent source readback occurred at 07:57:14.076Z. Log counts still end strictly at 07:54:41.886Z and are not extrapolated to later time.
 
 ## Frozen plugin artifact
 
@@ -109,7 +168,7 @@ The coordinator added zero controlled model acceptance requests in this phase. O
 
 ## review.7 compatibility boundary
 
-Official DSH NEXT2.0.22-next uses core0.2.2-rc.1 and introduces breaking SDK changes. Actual SDK includePrerelease semantics made the old range overbroad. Review.7 narrows support to`>=0.2.1-rc.2 <0.2.2-0`;`<0.2.2` would still admit prereleases. The official manager checks after dependency installation and before enable, and startup checks again. This is not a guarantee of zero installation writes before rejection; no allow-version exemption is created. The live DSH was not upgraded, and review.7 live adoption is held for the active task. Historical311 regression, SDK/UI and real-model results remain associated with review.6;210 unchanged files provide byte-level association, while review.7 metadata/archive/supported-SDK installation are separately checked.
+Official DSH NEXT2.0.22-next uses core0.2.2-rc.1 and introduces breaking SDK changes. Actual SDK includePrerelease semantics made the old range overbroad. Review.7 narrows support to`>=0.2.1-rc.2 <0.2.2-0`;`<0.2.2` would still admit prereleases. The official manager checks after dependency installation and before enable, and startup checks again. This is not a guarantee of zero installation writes before rejection; no allow-version exemption is created. The live DSH was not upgraded, and review.7 adoption was held in the frozen0.1.4 snapshot; the later approved adoption is recorded in0.1.5 above. Historical311 regression, SDK/UI and real-model results remain associated with review.6;210 unchanged files provide byte-level association, while review.7 metadata/archive/supported-SDK installation are separately checked.
 
 Review.7 exact ZIP acceptance used the official0.2.1-rc.3 CLI SDK: manifest/prepare checks exit0, offline/no-script official install→list→bundle enable→disable→remove passed, all eight materialized paths existed under the owned link source, and removal left no dependency/selection/link/lock/reservation. All operations remained restart-required/no-HMR; no Host, Agent, Provider, account or model was started. The CLI app-boot and installed desktop app-boot report the same core version but have different source hashes; this is an isolated supported-SDK manager check, not same-byte desktop SDK activation. A harness first used id/name instead of official rowId/moduleName; that first failure remains and its fixture was removed through the official manager.
 

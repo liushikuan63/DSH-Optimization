@@ -8,13 +8,13 @@ You need a compatible DSH installation: core **>=0.2.1-rc.2 <0.2.2-0**, with **N
 
 ## 1. Choose, verify, and place the package
 
-Download `DSH-Optimization-0.1.4.zip` and its matching `.zip.sha256` file from [this release](https://github.com/liushikuan63/DSH-Optimization/releases/tag/v0.1.4). If you only need the preset, choose the standalone `Ultimate-Model-1.4.3-review.7.zip`. That standalone archive does not contain the root-level global-workflow installer or this guide; follow its own README and INSTALL-AI instead.
+Download `DSH-Optimization-0.1.5.zip` and its matching `.zip.sha256` file from [this release](https://github.com/liushikuan63/DSH-Optimization/releases/tag/v0.1.5). If you only need the preset, choose the standalone `Ultimate-Model-1.4.3-review.7.zip`. That standalone archive does not contain the root-level global-workflow installer or this guide; follow its own README and INSTALL-AI instead.
 
 In Windows PowerShell, run these commands from the download directory:
 
 ```powershell
-Get-FileHash -LiteralPath '.\DSH-Optimization-0.1.4.zip' -Algorithm SHA256
-Get-Content -LiteralPath '.\DSH-Optimization-0.1.4.zip.sha256'
+Get-FileHash -LiteralPath '.\DSH-Optimization-0.1.5.zip' -Algorithm SHA256
+Get-Content -LiteralPath '.\DSH-Optimization-0.1.5.zip.sha256'
 node --version
 ```
 
@@ -23,7 +23,7 @@ Compare the 64 hexadecimal digits; letter case does not matter. Stop if the hash
 Extract the full distribution into a directory you intend to keep, on any writable local drive. Quote paths that contain spaces. Do not extract over an existing installation. The layout should include:
 
 ```text
-DSH-Optimization-0.1.4/
+DSH-Optimization-0.1.5/
   README.md
   VERSION
   docs/                         # Installation, usage, recovery, acceptance, and history

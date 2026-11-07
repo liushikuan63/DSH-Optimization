@@ -66,3 +66,21 @@
 分享包review.7只改5个元数据/说明，210文件保持review.6；兼容上限为<0.2.2-0。源码固定提交e7e2a3575242fa76ea4a4efd0024779b0f6abf95，独立克隆构建UM7 ZIP为705741B/215成员/SHA 8c54ee1dcc743da180531166a2ac7f29d76a2b46319daf0078805506a150da0b。现役仍UM6，未直接升级新SDK。
 
 06:17:38Z正式footer修复已正常部署，精确源与原payload/EXE/unpacked/保护配置核对通过；独立Chrome14+VM6及源码4/归档4/完整归档8通过。实际新实例至06:25:30Z仍RO8+账号1，CORS0，零RO门禁失败。06:52:25原生读回仍停止生成，保护活跃任务，不重启/改现役探针或UM。私有探针总3条日志/8192B/300秒，经复核后仍须明确当前维护条件，且永不分发。协调者新受控模型调用0，正常业务流量未计数。
+
+## P6 / 0.1.5：获准维护、探针边界与UM7采用
+
+用户后续明确批准一次维护窗口，原活跃实例正常结束后才执行。有限私有探针未观察到READY或诊断，按NO_READY/来源未验证保留，正常停机并在期限内恢复正常ASAR；不把0条输出算成修复成功，不全局吞RO错误。实际main对console.info的收集存在developerLogging条件，原因判断须保留配置读回和执行采用边界，不能只凭无日志猜测。
+
+现役UM7仅五项元数据/说明经备份、逐文件CAS应用，正常重启并独立读回214项清单；执行代码和物化patch未改。0.1.4的HOLD是已冻结的当时状态，此次获准维护已完成；新的维护仍按当前任务和权限判断。旧生产RO门禁失败、账号403及311/16/SDK/UI的历史范围不改写。新原生采用与最终观察见验收报告；未新增受控模型请求，现役正常业务流量未计数。旧ZIP/tag不覆盖。
+
+One later explicitly approved window allowed maintenance after the active instance ended normally. The private probe is NO_READY/owner unverified, not a successful diagnosis; the normal carrier was restored within the deadline. Live UM7 adoption changes only five metadata/document files, with backups/CAS and 214 matching manifest entries. The earlier 0.1.4 HOLD, failed production RO gate, account403 and unchanged-code evidence remain historical records. New native registration and bounded observation are separate; RO recurred after this maintenance. No new controlled model acceptance is claimed, and earlier assets/tags remain immutable. Further private diagnosis requires a new explicit time/log budget rather than an extension of the spent window.
+
+### 第二窗口截止首红
+
+用户另批180秒/含READY总3条/8192B；v4实际READY可见，但正常结束前运行190.421秒，超预算10.421秒，恢复比07:48:46.000Z硬截止晚16.128秒。协调者未按计划提早停机，保留FAIL与恢复回执，不将私有9/40夹具通过当实装时间门禁通过；已说明且不再探针。正常1c3b载体/UM7恢复后新实例的观察另列，不能沿用前一实例绿色。
+
+The second explicitly approved 180-second window recorded READY but exceeded the runtime allowance by 10.421 seconds and restored 16.128 seconds after its planned hard deadline. The deadline gate is FAIL, independently of fixture success. No further probe will run; final normal-instance evidence is a separate layer.
+
+最终normal全run为93条记录、error3=账号1+RO2；其中原生Bili07:51:53Z至07:54:41.886Z共168.886秒，阶段内账号0+RO2，CORS/未知/工具/模块/crash0；RO未解决。V4退出expectedtrue但ACKfalse/SIGTERM，保留EXPECTED_HOST_EXIT_WITHOUT_SHUTDOWN_ACK；官方quit和run.end clean不冒充完整graceful/全任务数据保全。六项opaque保护和UM7清单是有限范围，无新增受控模型轮次或后续探针。
+
+The complete final normal run has93 records and3 errors: account1/RO2. Its168.886-second native-Bili phase contains account0/RO2. V4's expected Host exit lacked a shutdown ACK and used SIGTERM; the clean marker is not complete graceful-shutdown or all-task-data assurance. Scoped hashes and UM7 manifest checks remain separate evidence.

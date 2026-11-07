@@ -1,6 +1,6 @@
 # 部署、升级与恢复
 
-当前0.1.4增加可选Bili CORS/footer定点修复和review.7兼容边界，详见[运行修复](runtime-repairs.md)及[验收](acceptance.md)。DSH NEXT2.0.22-next/core0.2.2-rc.1尚未适配，不直接升级现役或添加版本豁免。账号403和实际周期RO仍开放，活跃任务运行时暂停维护。
+现役Ultimate-Model已在本次明确获准的维护中更新为`1.4.3-review.7`；仅五项元数据/说明变化，其余210文件及全部执行代码保持review.6字节。0.1.4中记录的“现役review.6 / 维护HOLD”是当时的快照，后续批准及本次完成事实见[验收报告](acceptance.md)。这不构成后续维护的长期许可，也不自动延长已经使用的诊断预算。
 
 [English](en/deployment.md) | 简体中文
 

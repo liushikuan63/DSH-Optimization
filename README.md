@@ -2,7 +2,7 @@
 
 **Goal-directed work, on-demand capabilities, and evidence-backed delivery for DSH.** 让DSH按目标推进，按需使用能力，把结果和证据一起交付。
 
-[![Version](https://img.shields.io/badge/version-0.1.4-blue.svg)](VERSION)
+[![Version](https://img.shields.io/badge/version-0.1.5-blue.svg)](VERSION)
 [![Plugin](https://img.shields.io/badge/Ultimate--Model-1.4.3--review.7-blue.svg)](packages/ultimate-model/package.json)
 [![Node](https://img.shields.io/badge/Node.js-22%2B-green.svg)](https://nodejs.org/)
 [![Verified platform](https://img.shields.io/badge/verified-Windows%20x64-lightgrey.svg)](docs/acceptance.md)
@@ -17,14 +17,14 @@ DSH-Optimization is a community toolkit for DeepSeek Harness / DSH NEXT. It prov
 
 ### Downloads and packages
 
-Start with the **full share pack**; cloning is optional. The current release is **v0.1.4, a pre-release**. The component is **1.4.3-review.7**, a metadata-only compatibility revision with unchanged review.6 execution code. Both archives have separate SHA256 sidecars.
+Start with the **full share pack**; cloning is optional. The current release is **v0.1.5, a pre-release**. The component is **1.4.3-review.7**, a metadata-only compatibility revision with unchanged review.6 execution code. Both archives have separate SHA256 sidecars.
 
 | Download | Contents | Choose this when |
 | --- | --- | --- |
-| [Full share pack](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.4/DSH-Optimization-0.1.4.zip) · [SHA256](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.4/DSH-Optimization-0.1.4.zip.sha256) | Plugin, optional workflow installer and Bili compatibility utility, bilingual README and English/Chinese setup, use, recovery, history and acceptance guides; tests and sanitized evidence | Installing for the first time, sharing with others, or adding shared rules across modes |
-| [Plugin only](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.4/Ultimate-Model-1.4.3-review.7.zip) · [SHA256](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.4/Ultimate-Model-1.4.3-review.7.zip.sha256) | The frozen Ultimate-Model component and its original package documentation | You only need the preset and already manage shared rules; use the linked English guides online |
+| [Full share pack](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.5/DSH-Optimization-0.1.5.zip) · [SHA256](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.5/DSH-Optimization-0.1.5.zip.sha256) | Plugin, optional workflow installer and Bili compatibility utility, bilingual README and English/Chinese setup, use, recovery, history and acceptance guides; tests and sanitized evidence | Installing for the first time, sharing with others, or adding shared rules across modes |
+| [Plugin only](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.5/Ultimate-Model-1.4.3-review.7.zip) · [SHA256](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.5/Ultimate-Model-1.4.3-review.7.zip.sha256) | The frozen Ultimate-Model component and its original package documentation | You only need the preset and already manage shared rules; use the linked English guides online |
 
-[Release notes](https://github.com/liushikuan63/DSH-Optimization/releases/tag/v0.1.4) · [All releases](https://github.com/liushikuan63/DSH-Optimization/releases) · [Changelog](docs/en/changelog.md)
+[Release notes](https://github.com/liushikuan63/DSH-Optimization/releases/tag/v0.1.5) · [All releases](https://github.com/liushikuan63/DSH-Optimization/releases) · [Changelog](docs/en/changelog.md)
 
 GitHub's automatic Source code downloads are source snapshots. Use the named release assets above for the exact audited bytes and sidecars. Published archives and tags are immutable; changes ship in a new version. The full pack contains the bilingual user guides. Original skill bodies and third-party component documents retain their source languages and notices.
 
@@ -58,6 +58,10 @@ Requirements: an installed compatible DSH, core **>=0.2.1-rc.2 <0.2.2-0**, and *
 Try a small owned workspace before relying on a larger project. Ask DSH to state the goal, create a small function and test, execute it, record the exit and verify protected files. [Usage](docs/en/usage.md) includes long-task, skill selection, prompt, parallel-work and no-persistence examples. Real model use consumes your existing account allowance.
 
 ### What was actually verified
+
+Version 0.1.5 records backup/CAS adoption of the five live UM7 metadata files and two separately approved private diagnostic windows. The first was NO_READY/owner unverified. The second recorded an actual READY, but the temporary instance ran for 190.421 seconds, exceeding its 180-second allowance by 10.421 seconds, and restoration also missed the planned hard deadline: **deadline gate FAIL**. The normal footer repair carrier was restored and restarted normally; no further probe will run. This maintenance is not wholly compliant or wholly passing. Execution code is unchanged. The earlier 0.1.4 account403 and failed production RO gate remain recorded, and RO also recurred after the first maintenance. See [acceptance](docs/en/acceptance.md) for the final normal instance's observation and native adoption. Unchanged code tests are not presented as rerun; no controlled model-acceptance requests were added, and ordinary business traffic was not counted.
+
+V4 shutdown also recorded an expected Host exit without a shutdown acknowledgement and with SIGTERM. A `clean:true` marker does not prove a fully graceful exit or preservation of every task. See the shutdown boundary in acceptance.
 
 **The third controlled autonomous continuation passed.** Within an additional 20-main-request / 300-second allowance, the model used 11 requests and 103.662 seconds. Starting from two existing DSH-authored code files, it ran tests, injected and restored a fault, completed VIBECODING and ended normally. The coordinator supplied no mid-run prompt or artifact edits. Independent verification passed 13 tests plus 5 positive and 18 invalid-input cases; the original three protected files retained bytes, hashes and mtimes.
 
@@ -115,14 +119,14 @@ This is a community adaptation, not an official DSH, Qoder or OpenAI release. Th
 
 ### 下载与选包
 
-首次使用推荐下载**完整分享包**，无需克隆仓库。当前版本为 **v0.1.4 预发布**；插件为兼容边界元数据修订版 **1.4.3-review.7**。完整包带版本化顶层目录，两个 ZIP 都有独立 SHA256 文件。
+首次使用推荐下载**完整分享包**，无需克隆仓库。当前版本为 **v0.1.5 预发布**；插件为兼容边界元数据修订版 **1.4.3-review.7**。完整包带版本化顶层目录，两个 ZIP 都有独立 SHA256 文件。
 
 | 下载 | 包含内容 | 适合谁 |
 | --- | --- | --- |
-| [完整分享包 ZIP](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.4/DSH-Optimization-0.1.4.zip) · [SHA256](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.4/DSH-Optimization-0.1.4.zip.sha256) | 插件、通用工作规则安装器、可选Bili兼容修复、双语使用文档、测试与验收摘要 | 首次安装、分享给他人，或希望各模式采用通用工作规则 |
-| [独立插件 ZIP](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.4/Ultimate-Model-1.4.3-review.7.zip) · [SHA256](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.4/Ultimate-Model-1.4.3-review.7.zip.sha256) | 仅 Ultimate-Model 及其自带技能、脚本、清单和说明 | 已有独立工作规则，只需安装或更新该预设 |
+| [完整分享包 ZIP](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.5/DSH-Optimization-0.1.5.zip) · [SHA256](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.5/DSH-Optimization-0.1.5.zip.sha256) | 插件、通用工作规则安装器、可选Bili兼容修复、双语使用文档、测试与验收摘要 | 首次安装、分享给他人，或希望各模式采用通用工作规则 |
+| [独立插件 ZIP](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.5/Ultimate-Model-1.4.3-review.7.zip) · [SHA256](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.5/Ultimate-Model-1.4.3-review.7.zip.sha256) | 仅 Ultimate-Model 及其自带技能、脚本、清单和说明 | 已有独立工作规则，只需安装或更新该预设 |
 
-[本版发布说明](https://github.com/liushikuan63/DSH-Optimization/releases/tag/v0.1.4) · [全部版本](https://github.com/liushikuan63/DSH-Optimization/releases) · [历史记录](docs/changelog.md)
+[本版发布说明](https://github.com/liushikuan63/DSH-Optimization/releases/tag/v0.1.5) · [全部版本](https://github.com/liushikuan63/DSH-Optimization/releases) · [历史记录](docs/changelog.md)
 
 GitHub 自动生成的 Source code 是源码快照；需要本轮固定字节、测试关联和配套校验文件时，选择上表明确命名的资产。已发布 ZIP 和 tag 保持不变，后续修复发新版本。
 
@@ -156,6 +160,10 @@ GitHub 自动生成的 Source code 是源码快照；需要本轮固定字节、
 安装后可在自己新建的小型工作区先验证一次：让 DSH 写明目标、创建一个小函数和测试、实际运行测试、记录退出码并核对保护文件。示例和长任务用法见[使用指南](docs/usage.md)；真实模型会消耗你的现有额度。
 
 ### 本版实际验证了什么
+
+0.1.5记录现役UM7五项元数据的备份/CAS采用，以及两次分别获准的私有诊断窗口：第一次NO_READY、来源未验证；第二次实际READY可见，但临时实例运行190.421秒，超过180秒预算10.421秒，恢复也晚于约定硬截止，**截止门禁FAIL**。正常页脚修复载体已恢复并正常重启，不再运行探针；不能将本次维护总括为全部合规或全部通过。执行代码未变，旧0.1.4账号403和生产RO门禁失败保留，第一次维护后窗口中RO也已复发。新的最终正常实例观察与原生采用见[验收报告](docs/acceptance.md)；未变代码测试未冒充重跑，未新增受控模型验收请求，正常业务流量未计数。
+
+V4退出还记录了预期Host退出但未收到关机ACK及SIGTERM；`clean:true`不证明完整优雅退出或全部任务数据保全。详见验收中的退出边界。
 
 **第三轮受控自主续任务完整通过。** 在新增20次主请求/300秒预算内，模型使用11次、103.662秒，从前轮已有的两份DSH代码继续，实际完成13项测试、故障注入→恢复、VIBECODING文档和最终交付；运行中没有协调者追加提示或代写产物。独立复测13/13，另5个正例+18个非法输入用例通过，原3个保护文件的字节、哈希和mtime均未变。
 

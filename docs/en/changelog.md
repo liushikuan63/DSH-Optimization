@@ -4,6 +4,19 @@
 
 The repository version describes the full distribution; the plugin has its own version. When plugin bytes do not change, retain its version and original ZIP. A report update must not replace a same-named plugin archive with different content. All dates use Asia/Shanghai.
 
+## 0.1.5 — 2026-11-07
+
+- Record the subsequently approved maintenance, normal shutdown/restoration and live UM7 metadata adoption. Only five metadata/document files were updated; execution code, public repair utilities, shared rules and the existing UM7 ZIP retain their bytes.
+- Preserve the bounded private probe's NO_READY/owner-unverified result. Zero output is not evidence of a repaired RO cause. Temporary code was removed and is excluded from the public distribution.
+- Add native registration evidence and a bounded observation window. Retain the 0.1.4 account403, failed production RO gate and then-current HOLD; RO also recurred after this maintenance. Later explicit approval and completed work are recorded separately.
+- Update bilingual current-state, download and acceptance documentation. Published 0.1.4 and earlier ZIPs/tags remain immutable; no controlled model acceptance or rerun of unchanged code tests is added.
+
+- The separately approved v4 window recorded an actual READY but ran for 190.421/180 seconds and restored after the hard deadline. The deadline gate failed; the overrun was disclosed, the normal carrier restored, and no further probe will run. Fixture success is not installed timing compliance.
+
+- Preserve the expected V4 Host exit without ACK and with SIGTERM; a clean marker and six scoped hash checks do not establish full graceful shutdown or preservation of every task.
+
+Status: prerelease. The remaining RO cause and upstream account denial remain outside the repair-PASS scope. [Release](https://github.com/liushikuan63/DSH-Optimization/releases/tag/v0.1.5).
+
 ## 0.1.4 — 2026-11-07
 
 - Classify the original twelve records as official account403, Bili polling CORS, and expected read-guard denial. Preserve original failures; a protection denial is not a Host crash.

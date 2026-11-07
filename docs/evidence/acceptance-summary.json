@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "dateLocal": "2026-11-07",
-  "releaseVersion": "0.1.4",
+  "releaseVersion": "0.1.5",
   "pluginVersion": "1.4.3-review.7",
   "machine": "user Windows x64, same machine with isolated independent homes/profiles",
   "frozenPlugin": {
@@ -79,50 +79,6 @@
     "compatibleExit": 0,
     "protectedWriteNegativeTestPassed": true,
     "multiFileEquivalenceClaimed": false
-  },
-  "liveDeployment": {
-    "dsh": "2.0.20-next",
-    "core": "0.2.1-rc.3",
-    "plugin": "1.4.3-review.6",
-    "normalRestart": true,
-    "forcedShutdown": false,
-    "healthyBootEvents": 3,
-    "knownEarlierRendererAccountReadError": 1,
-    "temporaryAcceptanceRowsRemoved": true,
-    "globalWorkflowOriginalPrefixBytes": 13587,
-    "globalWorkflowInstalledBytes": 15830,
-    "globalWorkflowBackupReadbackMatches": true,
-    "globalWorkflowReadOnlyPlan": "KEEP",
-    "visionRouterRuntime": {
-      "active": true,
-      "entrySeen": true,
-      "fiberSeen": true
-    },
-    "initialAcceptanceSnapshotRuntimeErrors": 1,
-    "additionalCurrentInstanceReadback": {
-      "observedAtUtc": "2026-11-07T00:25:04.281Z",
-      "sameExecutableVersion": "2.0.20-next",
-      "sameHomeAgentsGuardBytes": true,
-      "staticSelfcheckExit": 0,
-      "manifestFiles": 214,
-      "threeStartupHealthEventsObserved": true,
-      "temporaryRowsStillRemoved": true,
-      "previousInstanceCleanEndObserved": true,
-      "newInstanceNotStartedByThisFollowup": true,
-      "snapshotErrors": {
-        "accountRead": 1,
-        "otherRendererConsole": 10,
-        "hostSession": 1,
-        "total": 12
-      },
-      "technicalAttribution": "UNDETERMINED; no explicit UM/module-load/broken markers, insufficient to exclude association",
-      "journalOrChatBodiesRead": false,
-      "accountValuesRead": false,
-      "modelCalls": 0,
-      "networkCalls": 0,
-      "restarts": 0,
-      "notAZeroRuntimeErrorsClaim": true
-    }
   },
   "realModel": {
     "status": "PASS_CONTROLLED_REAL_MODEL_CONTINUATION",
@@ -431,12 +387,24 @@
       "nativeBiliRetestUtc": "2026-11-07T06:20:46.433Z",
       "protectedOpaqueByteHashesMatch": 6
     },
-    "maintenanceHold": {
+    "historicalMaintenanceHoldV014": {
       "activeGenerationObservedAtUtc": "2026-11-07T06:52:25Z",
       "timestampPrecision": "second, bounded before/after clock read and native UIA snapshot",
       "restartOrDiagnosticAfterActiveReadback": false,
       "privateProbeDistributed": false,
       "maintenanceQuestionPending": true
+    },
+    "maintenanceHold": {
+      "recordScope": "CURRENT_NEXT_MAINTENANCE_BOUNDARY_AFTER_ONE_APPROVED_WINDOW",
+      "priorApprovedWindowCompleted": true,
+      "um7DeploymentHeld": false,
+      "furtherProbeAuthorizedByThisRecord": false,
+      "additionalExplicitTimeAndTotalLogBudgetRequired": true,
+      "spentPriorWindowAutomaticallyExtended": false,
+      "businessResumedByCoordinator": false,
+      "secondExplicitWindowCompleted": true,
+      "deadlineGate": "FAIL_BUDGET_OVERRUN",
+      "furtherProbePlanned": false
     }
   },
   "historicalFrozenPluginReview6": {
@@ -451,7 +419,7 @@
     "frozenComponentSourceCommit": "e7e2a3575242fa76ea4a4efd0024779b0f6abf95",
     "changedFiles": 5,
     "unchangedFiles": 210,
-    "liveDeployment": "HELD_ACTIVE_BUSINESS_TASK_CURRENTLY_REVIEW6",
+    "liveDeployment": "APPLIED_5_METADATA_FILES_WITH_BACKUP_CAS_AND_NORMAL_RESTART; runtimeRO remainsunresolved.",
     "newCore022Adapted": false,
     "versionExemptionCreated": false,
     "officialManagerMayWriteInstallBeforeReject": true,
@@ -474,6 +442,262 @@
       "accountCalls": 0,
       "receiptSha256": "e1a65a47661ec83a70dbb056b71a42223b8255a243530fdc1f9d478870ced6d8",
       "firstHarnessFailurePreservedAndOfficiallyCleaned": true
+    }
+  },
+  "historicalLiveDeploymentReview6": {
+    "dsh": "2.0.20-next",
+    "core": "0.2.1-rc.3",
+    "plugin": "1.4.3-review.6",
+    "normalRestart": true,
+    "forcedShutdown": false,
+    "healthyBootEvents": 3,
+    "knownEarlierRendererAccountReadError": 1,
+    "temporaryAcceptanceRowsRemoved": true,
+    "globalWorkflowOriginalPrefixBytes": 13587,
+    "globalWorkflowInstalledBytes": 15830,
+    "globalWorkflowBackupReadbackMatches": true,
+    "globalWorkflowReadOnlyPlan": "KEEP",
+    "visionRouterRuntime": {
+      "active": true,
+      "entrySeen": true,
+      "fiberSeen": true
+    },
+    "initialAcceptanceSnapshotRuntimeErrors": 1,
+    "additionalCurrentInstanceReadback": {
+      "observedAtUtc": "2026-11-07T00:25:04.281Z",
+      "sameExecutableVersion": "2.0.20-next",
+      "sameHomeAgentsGuardBytes": true,
+      "staticSelfcheckExit": 0,
+      "manifestFiles": 214,
+      "threeStartupHealthEventsObserved": true,
+      "temporaryRowsStillRemoved": true,
+      "previousInstanceCleanEndObserved": true,
+      "newInstanceNotStartedByThisFollowup": true,
+      "snapshotErrors": {
+        "accountRead": 1,
+        "otherRendererConsole": 10,
+        "hostSession": 1,
+        "total": 12
+      },
+      "technicalAttribution": "UNDETERMINED; no explicit UM/module-load/broken markers, insufficient to exclude association",
+      "journalOrChatBodiesRead": false,
+      "accountValuesRead": false,
+      "modelCalls": 0,
+      "networkCalls": 0,
+      "restarts": 0,
+      "notAZeroRuntimeErrorsClaim": true
+    }
+  },
+  "liveDeployment": {
+    "recordScope": "CURRENT_POST_APPROVED_MAINTENANCE_V015; historicalinitialreview6 evidence preservedseparately.",
+    "plugin": "1.4.3-review.7",
+    "core": "0.2.1-rc.3",
+    "dsh": "2.0.20-next",
+    "normalRestart": true,
+    "manifestFilesMatched": 214,
+    "manifestSha256": "8e1e6ef30bc2e170c670ec10b794fe878ae6ad1ac3d19e3bda9b78fcd1818be1",
+    "metadataFilesUpdated": 5,
+    "otherFilesUnchanged": 210,
+    "executionCodeChanged": false,
+    "nativeAffectedPath": "PASS_ACTUAL_BILI_HTTP404",
+    "newModelCallsForAcceptance": 0,
+    "ordinaryBusinessTrafficCounted": false,
+    "finalNormalReadback": "SOURCE_MANIFEST_AND168.886SECOND_WINDOW_COMPLETE_RO_RECURRED",
+    "normalStartUtc": "2026-11-07T07:50:16.761Z",
+    "newPresetFiberSelectionRetested": false,
+    "fullGracefulShutdownOfPriorDiagnosticHostProven": false,
+    "sourceReadbackAtUtc": "2026-11-07T07:57:14.076Z",
+    "evidenceSha256": "ae4ca03d5b7f71053168e8fd32cee7348a80592351711569791a26c3cbe01599"
+  },
+  "postMaintenanceV015": {
+    "status": "NORMAL_RESTORATION_UM7_AND_PROTECTED_BYTES_PASS__V4_TIME_GATE_FAIL__RO_ACCOUNT_REMAIN",
+    "approvedWindow": {
+      "explicitlyApproved": true,
+      "priorRunCleanEndUtc": "2026-11-07T07:23:11.575Z",
+      "standingMaintenancePermission": false
+    },
+    "um7Live": {
+      "version": "1.4.3-review.7",
+      "appliedUtc": "2026-11-07T07:29:22Z",
+      "metadataFilesUpdated": 5,
+      "otherFilesUnchanged": 210,
+      "executionCodeChanged": false,
+      "backupsAndCasReceiptRetained": true,
+      "manifestFilesMatched": 214,
+      "manifestSha256": "8e1e6ef30bc2e170c670ec10b794fe878ae6ad1ac3d19e3bda9b78fcd1818be1",
+      "materializedPatchUnchanged": true
+    },
+    "observation": {
+      "receiptSha256": "263991f322ce947b493ebfc2c42cb920504b7f4df2663cf6eefe7e17e158dd4d",
+      "runStartedUtc": "2026-11-07T07:29:23.960Z",
+      "nativeVisibleProofUtc": "2026-11-07T07:31:36Z",
+      "untilUtc": "2026-11-07T07:33:54.585Z",
+      "secondsSinceVisibleProof": 138.585,
+      "health": 3,
+      "errors": 3,
+      "account": 1,
+      "ro": 2,
+      "roUtc": [
+        "2026-11-07T07:33:41.348Z",
+        "2026-11-07T07:33:41.352Z"
+      ],
+      "cors": 0,
+      "unknown": 0,
+      "tool": 0,
+      "module": 0,
+      "crash": 0,
+      "protectedOriginalHashesMatched": 6,
+      "sourceReadbackUtc": "2026-11-07T07:35:40Z"
+    },
+    "nativeAdoption": "PASS_FINAL_NORMAL_ACTUAL_BILI_HTTP404_NOT_NEW_PRESET_FIBER",
+    "protectedHashScope": "Six previously agreed configuration/data files checked asopaque bytes only; notalluserdata.",
+    "businessResumedByCoordinator": false,
+    "controlledModelAcceptanceCallsAdded": 0,
+    "ordinaryBusinessTrafficCounted": false,
+    "unchangedSuitesRerun": false,
+    "oldReleaseAssetsReplaced": false,
+    "nativeRegistration": {
+      "receiptSha256": "d608005c618a92b6dc65efb5313c754a5b9203f155f0f601ab555fb163b2bb1d",
+      "pluginPageToggles": [
+        false,
+        true
+      ],
+      "legacyHomeRowDisabled": true,
+      "managedReview7RowEnabled": true,
+      "enabledPresetRows": 1,
+      "externalManagedRowOverride": false,
+      "declaredNativeProviders": 0,
+      "togglesChangedByUs": false,
+      "actualNewModePickerOrFiberProven": false
+    },
+    "furtherPrivateProbe": "NO_FURTHER_PROBE",
+    "currentStatusAsOfUtc": "2026-11-07T07:57:14.076Z",
+    "privateProbeV3FirstWindow": {
+      "normalCleanStopUtc": "2026-11-07T07:28:04.663Z",
+      "normalAsarRestoredByUtc": "2026-11-07T07:28:41Z",
+      "restoredBeforeFiveMinuteDeadline": true,
+      "ready": 0,
+      "diagnostic": 0,
+      "ro": 0,
+      "result": "NO_READY_OWNER_UNVERIFIED",
+      "developerLogging": false,
+      "developerLoggingChanged": false,
+      "actualMainFiltersConsoleInfo": true,
+      "probeExecutionProven": false,
+      "observerOwnerIdentified": false,
+      "temporaryProbeDistributed": false,
+      "temporaryInstanceStartedUtc": "2026-11-07T07:23:55.727Z",
+      "timeScope": "Temporary instance lifecycle, notproof that theprefixexecuted."
+    },
+    "privateProbeV4SecondWindow": {
+      "explicitAdditionalApproval": true,
+      "approvedSeconds": 180,
+      "maxTotalLogsIncludingReady": 3,
+      "maxBytes": 8192,
+      "temporaryRunStartedUtc": "2026-11-07T07:45:46.527Z",
+      "actualReadyUtc": "2026-11-07T07:45:53.936Z",
+      "actualReadySeq": 39,
+      "partialCollectorUntilUtc": "2026-11-07T07:48:33.902Z",
+      "partialLogs": 1,
+      "partialBytes": 28,
+      "partialDiag": 0,
+      "partialRo": 0,
+      "fullEndedRunReadback": {
+        "records": 103,
+        "ready": 1,
+        "bytes": 28,
+        "diagnostic": 0,
+        "ro": 0,
+        "ownerReproduced": false,
+        "shutdownAcknowledgement": false,
+        "rawErrorLevelRecords": 3,
+        "diagnosticReadyErrorLevelRecords": 1,
+        "accountReadFailedRecords": 1,
+        "expectedHostExitWithoutAckRecords": 1,
+        "unknownAfterMetadataRefinement": 0
+      },
+      "actualRunSeconds": 190.421,
+      "runOverBudgetSeconds": 10.421,
+      "plannedHardDeadlineUtc": "2026-11-07T07:48:46.000Z",
+      "normalCarrierRestoredAtUtc": "2026-11-07T07:49:02.128Z",
+      "restoreLateAgainstPlannedHardDeadlineSeconds": 16.128,
+      "deadlineStatus": "FAIL_BUDGET_OVERRUN",
+      "furtherProbe": false,
+      "newNormalRunStartedUtc": "2026-11-07T07:50:16.761Z",
+      "newNormalMainPid": 926460,
+      "normalCarrier": "ASAR1c3b, UM7 retained",
+      "newNormalFinalWindow": "COMPLETE168.886S_NATIVE_PHASE_RO_RECURRED",
+      "runEndMarkedCleanUtc": "2026-11-07T07:48:56.948Z",
+      "shutdown": {
+        "eventUtc": "2026-11-07T07:48:56.933Z",
+        "classification": "EXPECTED_HOST_EXIT_WITHOUT_SHUTDOWN_ACK",
+        "expected": true,
+        "acknowledged": false,
+        "signal": "SIGTERM",
+        "exitCode": null,
+        "officialQuitEntryUsed": true,
+        "separateOsKillCommandUsedByCoordinator": false,
+        "cleanRunMarkerProvesFullGracefulShutdown": false,
+        "allTaskDataIntegrityVerified": false,
+        "rawErrorRecordRetained": true,
+        "independentNewProductBugInferred": false,
+        "sourceReceiptSha256": "ae4ca03d5b7f71053168e8fd32cee7348a80592351711569791a26c3cbe01599"
+      },
+      "normalRunIdentifierDistributed": false
+    },
+    "finalNormalInstance": {
+      "startedUtc": "2026-11-07T07:50:16.761Z",
+      "normalCarrierRestored": true,
+      "um7Retained": true,
+      "independentAtLeast120SecondWindow": {
+        "status": "BOUNDED_OBSERVATION_COMPLETE_RO_ACCOUNT_UNRESOLVED",
+        "sinceNativeProofUtc": "2026-11-07T07:51:53Z",
+        "untilUtc": "2026-11-07T07:54:41.886Z",
+        "seconds": 168.886,
+        "wholeRunErrorRecords": 3,
+        "account": 1,
+        "resizeObserver": 2,
+        "roUtc": [
+          "2026-11-07T07:54:41.546Z",
+          "2026-11-07T07:54:41.550Z"
+        ],
+        "cors": 0,
+        "unknown": 0,
+        "tool": 0,
+        "module": 0,
+        "crash": 0,
+        "startupHealthEvents": 3,
+        "productionZeroRoGate": "FAIL_REMAINING_PERIODIC_NOTICES",
+        "wholeRunLogRecords": 93,
+        "sourceReadbackAtUtc": "2026-11-07T07:57:14.076Z",
+        "nativePhaseErrorRecords": 2,
+        "nativePhaseAccount": 0,
+        "nativePhaseResizeObserver": 2,
+        "receiptSha256": "ae4ca03d5b7f71053168e8fd32cee7348a80592351711569791a26c3cbe01599",
+        "finalWindowSha256": "1ebef19b988d944da1754759b568f9947b2466d0c87448685fe390b0d3b58deb"
+      },
+      "nativeAffectedPath": {
+        "proofUtc": "2026-11-07T07:51:53Z",
+        "origin": "dsh-app://app/",
+        "view": "bili-context",
+        "menu": "MoreConversationViews",
+        "readableHttpStatus": 404,
+        "failedToFetchObserved": false,
+        "normalConversationTabRestoredUtc": "2026-11-07T07:52:27Z",
+        "userTaskResumed": false,
+        "newPromptSent": false,
+        "newPresetFiberSelectionRetested": false,
+        "sourceReadbackUtc": "2026-11-07T07:52:19Z",
+        "proofSha256": "2081c8c764afa295f5f6267267dc26e3a5314d9f4d9d310d2544a6dc1d1174d2"
+      },
+      "runStartEventUtc": "2026-11-07T07:50:16.761Z",
+      "sourceReadbackAtUtc": "2026-11-07T07:57:14.076Z"
+    },
+    "newPresetFiberSelectionRetested": false,
+    "provenance": {
+      "finalAggregateSha256": "ae4ca03d5b7f71053168e8fd32cee7348a80592351711569791a26c3cbe01599",
+      "finalWindowSha256": "1ebef19b988d944da1754759b568f9947b2466d0c87448685fe390b0d3b58deb",
+      "nativeBiliProofSha256": "2081c8c764afa295f5f6267267dc26e3a5314d9f4d9d310d2544a6dc1d1174d2"
     }
   }
 }
