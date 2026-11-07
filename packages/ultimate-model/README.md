@@ -1,5 +1,9 @@
 # Ultimate-Model (optional preset addon)
 
+本地社区正式版 **1.4.4**，由 review.7 晋级；预设、工具、运行代码、守卫与兼容范围保持相同。仅版本元数据和发布说明改变，真实部署结果以本版验收报告为准。
+
+Community stable release **1.4.4**, promoted from review.7. Preset IDs, tools, execution code, guards and compatibility are unchanged. Only version metadata and release documentation change; consult the version-specific acceptance report for actual deployment evidence.
+
 按需技能、原生工具分页、证据驱动交付、有边界持续学习与防压缩本地检查点。**只在显式选择 Ultimate-Model（preset id: ultimate-model）时装载**，不覆盖目标机规则、模型、凭据、现有预设或 MCP。
 
 > **换机安装必做一步**：归档内的 `cordis.patch.yml` 保持可移植表达式；导入宿主前必须生成**字面绝对路径**版（否则 bundle 行会被宿主兼容预检禁用）。把包放到新位置后运行

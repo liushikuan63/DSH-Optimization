@@ -1,7 +1,7 @@
 {
   "format": "dsh-bundle",
   "name": "@local/ultimate-model",
-  "version": "1.4.3-review.7",
+  "version": "1.4.4",
   "preset": "ultimate-model",
   "requires": {
     "dsh": ">=0.2.1-rc.2 <0.2.2-0"

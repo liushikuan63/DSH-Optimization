@@ -1,3 +1,92 @@
+# 验收报告：1.0.0 / Ultimate-Model 1.4.4
+
+[English](en/acceptance.md) | 简体中文
+
+**本报告为1.0.0发布前冻结快照，当前状态截止2026-11-07T12:39:18Z。现役ASAR仍为90c23；13a运行时候选已独立验收但未部署。第三次维护的历史native为a1a，现时native为另一正在进行任务的b446，用户已确认保留；不能把历史已验字节当作现时相同。实际Host关闭仍在3秒后SIGTERM、ACKfalse，Host门禁FAIL；账号HTTP403与ACP错误仍未解决，长期RO仍开放。** 源码组合79项门禁已通过；最终ZIP固定提交/独立解包及远端资产读回另列，不以源码测试替代。
+
+验收环境为同一台用户 Windows x64 机器，DSH NEXT 2.0.20-next / core 0.2.1-rc.3，Node 24；组件最低 Node 22，声明 core 范围 `>=0.2.1-rc.2 <0.2.2-0`。独立验收指不同职责、固定副本和隔离 Home/profile，不代表另一台机器。下述“当前现役”严格截止到列出的读回时间；后续维护结果另追加。
+
+## 当前证据分层
+
+| 项目 | 已确认结果 | 仍有影响的边界 |
+| --- | --- | --- |
+| Ultimate-Model 1.4.4 最终组件 | ZIP `df5e278f9339f6b0cee512a577db8ddcceda5687a04a02d15ec3fb09b1872c52`，706264B、215成员、214清单文件；独立重新解包及官方 CLI SDK 安装→选择→取消→移除通过 | 相对上一 1.4.4 只改 README 换行及清单；213文件相同。相对 review.7 有210文件相同。既有311回归、SDK/UI及真实模型证据按相同执行字节关联，不冒充重跑或新模型轮次 |
+| 维护前会话布局与账号分类窗口 | 正常 ASAR `e8a0fcbcafb0127e4005ed0cebd56568c6a46a56f20ed4bdb4e8b8316bf1815b` 和 UM1.4.4 已读回；截至2026-11-07T11:03:41Z约39分钟正常观察未见 RO 通知 | 此有限窗口属于维护前e8，不外推到新90c23实例。账号仍有2条读取错误及4条分类记录，分列记录不相加为6个独立缺陷。账号分类保留 failed，不错误标过期，不增加重试；账号/网络未恢复 |
+| 自动限时保护 | 一次另行获准的真实窗口在300000ms总限时内自动正常退出并恢复，elapsed=226649ms；200000ms定时停止点独立于主协调者推理 | 此 PASS 只证明该次时限、身份绑定与恢复。没有 OS 强杀 DSH；不证明 Host 已给出关闭 ACK，也不覆盖历史失败 |
+| 公共限时核心库 | 独立固定副本37/37、0失败/跳过，覆盖真实子进程、协调者失联、迟到、身份变化、取消与恢复失败，以及 fixture 清理边界 | 通用核心要求集成者提供预检、真实进程身份、官方正常退出、有限取消并确认结束、CAS恢复；不自动安装到DSH，不全机监听，不提供 OS 硬实时保证 |
+| Cordis 4.0.5 局部修复 | 原装两个generation反例均RED；最终 `a580c0f17ff210b5b80d48a888aa5e842de2c743a0a94f2d53f795803ada9d8d` 通过16项回归及4个真实Peer/Scope/Mux场景，已随90c23部署；保留实际API，不整体升级SDK | 等待依赖只针对实际消费的implementation generation。**现役Host关闭ACK仍FAIL**，不能将隔离反例通过当成所有关闭等待已修复或归咎某第三方插件；继续只做离线根因图 |
+| 正常运行时修复工具 | ASAR `90c23c91ddff8e1306cfeb17e4546e8e3e708721dd2fba5a82500d6655dc8f88`，193619745B；9/9单测、4语法检查及完整尺寸apply→KEEP→restore exit0。第三次维护中实际CAS提交约13.55秒，随后正常启动 | 原始/旧页脚/e8三输入收敛；相对e8仅Cordis成员变化。原payload、非目标header和unpacked声明保留。独立最终现役读回待补；实际Host ACK单独为FAIL |
+| Bili 固定18787修复 | 原装14项为10过4败；`a1a698829f0c2cb4ac487d1b667ce273cf737e21bf139f77cde6a0ff7bcc8ede` 同组14/14独立通过，另验bootstrap成功/失败。第三次维护已精确CAS安装，目标新inode/nlink1；守护新建独立18787共享代理 | 默认未固定端口行为保留，未知源码拒绝，CLI入口指纹未改。原代理经正式POST202正常退出，新代理健康并跨DSH退出存活；最终native接管/独立现场读回仍待补，不扩称所有冲突或崩溃场景通过 |
+| Bili 长期守护与计划任务 | 9eabad版本的12项范围/错误复位检查及37460.7009ms真实own guard自动恢复保留。最终守护 `e9575220eebc2020077365c8615dd3901c774085835ad88c34e916249af828f2` 只将CIM预算5→10秒，12项边界独立通过，已仅暂停/CAS/恢复守护；后窗口533746ms/9心跳，0BLOCK/0scanError | 旧RestartOnFailure-only恢复FAIL仍保留；没有把旧恢复注入重跑到e957。当前只做known-health-PID关联，socket owner未验，有限窗口不证明CIM根因或长期零错。任务为登录后10秒、每分钟无限重复、IgnoreNew、GlobalMutex、Interactive/Limited，无运行时长上限 |
+| 硬链接安全事务 | 16实现用例+3独立反例＝19/19、0跳过；真实2.4MB native替换/反向恢复通过。缓存别名字节保留，目标新inode/nlink1，提交后收尾失败保留committed=true | 该小库是私有部署工具，未加入公开包。未知目标、目录或回执变化均不覆盖；备份和恢复材料保留。实际安装结果仍单列 |
+| R3运行时候选（未部署） | ASAR `13a1ede091885c497bf7833464be356a649c19b243051fdfa394cadd21213210`，193654185B；独立11/11、0失败/跳过，4种可信前像收敛、5项恢复回执拒绝及owned CLI `90→13a→90`通过；source/实体冻结保持 | 相对90只追加subagent局部ownership修复；相关相同夹具在原Cordis与R4各14项通过。**nativeDeployment=NOT_DEPLOYED，nativeHostAckVerified=false**，不作为现役修复或新Host ACK通过；310B profile wrapper不是实际实现bundle |
+
+正式源码组合门禁为六文件 **79 PASS / 0 FAIL / 0 cancelled / 0 skipped / 0 todo，exit0，54864.0348ms**：42项focused与37项deadline实际执行。首轮78/1保留：marker负测把“两个PID存在”当成Host已读完owner，替换标记的缺名窗口可使尚未完成启动的Host退出。确定性实际子进程oldRED后，fixture新增nonce/PID/parentPID ready握手，再进行marker替换；目标测试与完整79项重验通过。core、backend、worker和marker保护门禁未改，未通过放宽身份检查换取绿色。
+
+R3独立交付摘要SHA为 `6d1ae00f181f858282be1e94b481ecabdb6a188980410f1700340251931e4bfa`，对应脱敏摘要SHA为 `562b5d512085f276579feb9de9e635c8e16363d90bfb17e26da55c5118bd17ff`。其结果仅涵盖同机独占复制件与CLI事务，不运行DSH EXE，不重跑相同字节的311套件，不验证真实Host ACK/账号恢复/原生RO归因。
+
+## 最后有限现役读回与并发归属
+
+12:39:18Z只读回执确认ASAR仍为90c23，当前正常实例继续运行且可见；日志最后记录为12:38:55.945Z，error级24条、toolExecuteFailed4条。24条按来源为renderer.console9、tools.execute.failed4、session.tool/result8及scope.log/community-market.log/agent.failed各1；4条工具执行失败仅acp_status1、progress_update1、其他2。它们不相加为24个独立缺陷。协调者对已查记录作ResizeObserver字面检索为0；摘要字典缺少该键不是零计数证据，也不外推长期稳定或所有布局异常为0。共享18787仍HTTP200、同一独立代理、armedfalse；本次读回没有新增模型请求或进程控制。
+
+R3工具另在当前live路径只读预览exit0，返回REPAIR `90→13a`、dryRun=true，没有写文件或应用动作；这证明可信前像可识别，不证明允许在活跃实例上apply，也不是13a现役采用。
+
+现时native SHA为 `b446cff5038c066e4bef7b1694c64de00dd1c1c1e66995eda9380f827f739f39`，与M3验证的a1a不同。用户确认它来自另一正在进行任务并要求保留，本任务不覆盖、回退或复制其私有诊断内容到分享包。a1a的14项隔离及M3安装事实仅关联当时字节；不据此给b446作同字节或完整功能通过。13a没有部署，新phase诊断也未部署或运行；未来仍需另有适用明确维护窗口。
+
+## 自动时限首红与后续修复
+
+首个独立自动守护 V1 的正常停止定时器按时触发，但恢复门禁因实际结束记录不含 `started` 而报 `RUN_IDENTITY_CHANGED`：`normalRestored=false`、elapsed=211143ms，**整体仍为 FAIL**。协调者后来核对同轮身份、合理结束时间、所有相关进程退出和精确CAS后手动恢复；手动补救不改写为自动成功。
+
+V2 后续修复真实 ended schema：仅同run/同pid、`clean:true`、结束时间合法且不在未来、已观测进程祖先身份保持且所有目标进程消失时接受结束记录。缺 started 并不放松其余条件。相反身份、cleanfalse、异常时间和Host仍存活均有拒绝反例。后来另行获准的正常窗口完成226649ms自动恢复PASS。原0.1.5中180秒窗口实际190.421秒、恢复迟16.128秒的失败也完整保留于下方历史，不混为同一轮或相互覆盖。
+
+## Bili守护真实恢复：先失败，后有界通过
+
+首次仅设计划任务 `RestartOnFailure=PT1M/999`。在2026-11-07T11:23:40.119Z只停止本任务所属守护后，截至11:27:25.603Z、225487.9042ms仍未观察到自动恢复，结果为 **FAIL_NO_AUTOMATIC_GUARD_RESTART_OBSERVED**。本次没有停止DSH或Bili，也不由此推断所有Windows失败重启策略均失效。
+
+随后保留失败记录，为任务增加每分钟无限重复触发，并以IgnoreNew和GlobalMutex防止多个本守护并存。2026-11-07T11:29:59.308Z第二次仅停止own guard，任务在37460.7009ms内自动创建新守护，没有手动Start；记录于11:33:53.090Z完成读回，判定 **PASS_PERIODIC_TASK_RECOVERS_OWN_GUARD**。原Bili进程保持、HTTP健康200，DSH未停止。因此该PASS针对真实计划任务恢复守护，不冒充代理崩溃后的重建。
+
+现役守护的健康进程关联采用精确PID范围。实际WMI查询曾出现CimException，守护安全进入BLOCK_UNKNOWN，下一轮正常查询恢复；没有把不确定性当成“进程不存在”而另起代理。5秒查询预算、健康关联和后续恢复不构成零查询错误、内核socket owner确认或全机唯一性保证。
+
+之后于11:57:57.941Z仅对守护进行正常pause/CAS/resume，将CIM预算从5秒改为10秒，DSH和Bili未停止；其余字节保持，最终source为e957。12:08:01Z只读回执覆盖11:57:59.818Z—12:06:53.565Z，跨度533746ms，共9条心跳，0BLOCK_UNKNOWN、0scanError，动作仅known-health-PID关联。它不建立内核socket owner确认，不解释此前CIM错误根因，也不外推长期稳定或新版本真实崩溃注入通过。
+
+同次Node HTTP对照确认18787健康200、共享代理身份保持且armedfalse；可信`dsh-app://app`来源的缺id状态请求400、自有无会话标识404均有精确ACAO，foreign Origin为403且无ACAO。未导出响应正文、未加模型请求。这是节点HTTP检查，不冒充当前renderer已读取该路径或acp_status工具执行成功。
+
+## 现场验收待补项
+
+11:36:36Z曾因活跃生成控件而HOLD；用户随后明确批准本轮维护，主集成者才执行。窗口起点为2026-11-07T11:39:35.362Z，五分钟截止为11:44:35.362Z。旧正常应用在11:40:00.594Z结束；旧Bili收到正式`POST /__bili/shutdown` HTTP202后，于11:40:06.842Z确认退出，没有OS强杀。停机阶段另外对4个session文件、12567900B作opaque备份，并建立7项配置/数据保护快照；未解码凭据或会话正文。
+
+native、仅三个安全配置字段及旧DSH watchdog安全monitor的源事务约25.999秒完成，三项均备份及CAS提交；monitor代码为 `a96107957b91ba36e84aaab498d604b41c4dee1580f39b5b7d585d64dce17fbc`。运行时90c23随后约13.55秒提交。守护新建独立共享Bili，18787健康、代理报告`armed:false`；其外部守护由已采用的计划任务承担。正常应用于11:41:02.717Z启动。最终独立配置/数据读回与采用验收尚待补，备份存在不外推为全部数据完整性证明。
+
+本轮唯一一次正常关闭验证从11:44:01.537Z开始。Host在11:44:02.489Z收到shutdown request，约3秒后11:44:05.491Z内部升级为SIGTERM；退出记录为`expected:true, acknowledged:false, signal:SIGTERM, exitCode:null`。应用于11:44:05.540Z记录clean结束，所有同EXE进程消失，**Host ACK门禁仍FAIL**。正式正常退出入口和安全停机并不等于Host完整优雅确认；协调者未额外OS强杀。
+
+共享Bili在这次DSH关闭前后为同一进程并持续HTTP健康200，跨退出存活通过。最终正常应用于11:44:10.521Z重启，距维护起点275159ms，早于截止24841ms。限时和共享代理结果与ACK失败分列，维护不总括为全通过。该阶段没有新增私有探针或受控模型请求；不再追加现役停机或诊断，后续Host排查仅在离线实际SDK图中继续。
+
+最终独立验收将另核对实际ASAR/native/组件清单、配置三个字段及非目标保护范围、共享Bili来源与正常实例观察。已证明“主动正常停旧代理后由守护新建”和“跨DSH退出存活”，不把它们与任意进程崩溃、端口争用和全机唯一性混为一项。Host优雅退出失败及账号403保持未解决。
+
+12:03Z的后续只读原生UI仍可见modelSelector及停止生成控件，正常应用保持运行，未改变模式或控制活跃任务。另有acp_status工具错误，13项实际函数隔离检查只界定路由/会话失败路径，现役原因仍未归因；progress_update的INVALID_ARGS按实际拒绝记录。standing subagent在原装和Cordis修复版本均复现composition卸载漏agent-owned inject fiber，R3局部候选已独立验收但未部署；完整HTTP图root disposal快速释放的反例也保留，尚未证明该泄漏导致本机Host ACK失败。不将这些问题写为全部通过，不增加现役停止或诊断。
+
+## Qoder参考版本边界
+
+参考Qoder方法时，区分旧09Z取样与已用官方GitHub连接器核对的当前main `0100c5abd4eb25405a6c6dc2e6c095e2319fa5cd`。该提交说明为规则同步5.7.0，但固定commit的VERSION文件仍为`v0.0.30`（2026-11-06）；**不宣称5.7已发布为release**，也不把旧取样视为当前main。只按DSH已验证的SDK、权限和执行链吸纳按需索引、模型判断、分段检验、提示词/VibeCoding与并行归属方法，不照搬Qoder安装命令或整个配置。[固定Qoder来源](https://github.com/liushikuan63/Qoder-Optimization/commit/0100c5abd4eb25405a6c6dc2e6c095e2319fa5cd)、[固定VERSION](https://github.com/liushikuan63/Qoder-Optimization/blob/0100c5abd4eb25405a6c6dc2e6c095e2319fa5cd/VERSION)。
+
+账号403保持 **UNRESOLVED_EXTERNAL_ACCESS_BOUNDARY**。已安装与官方近期公开账号模块在正规产品host/profile路径、授权头和请求协议上未发现可正当补上的变更；匿名访问对照也不足以区分WAF、源站策略或其他上游原因。未伪造Origin/cookie/指纹，未改token、自动登录、全局代理或扩大重试。
+
+本阶段没有新增受控模型验收请求；正常业务流量未统计。历史第三轮受控小任务11/20次主请求、103.662/300秒的真实交付PASS继续按原范围保留，前两轮失败、默认Node子进程EPERM及兼容命令边界均不改写。此报告不保证任意长任务、所有插件组合或所有平台零错误。
+
+## 分享内容与最终包门禁
+
+公开分享包应包含插件、可选工作流、经过清理的运行时修复源/有限测试、双语说明和脱敏证据；不包含完整第三方ASAR/编译源码、私有诊断探针/Windows backend、账号数据、会话正文、真实runID/PID、本机绝对路径、凭据哈希或原生日志。技术源SHA和有限UTC窗口用于区分确切字节与观察范围，不作为来源可信性的替代。
+
+最终完整ZIP的提交关联、SHA sidecar、独立重新解包/安装及远端发行资产读回仍为待完成门禁。机器摘要采用schema2建议，当前事实置于 `current`，旧schema1对象完整置于 `history`；下方0.1.5文字为冻结历史，不再充当当前状态。
+
+---
+
+## 冻结历史：原0.1.5全文
+
+以下原文逐字保留，描述当时的字节、窗口和失败；与当前前言不一致时，以各自明确的UTC窗口及制品身份理解，不把历史状态外推到现在。
+
+
+<!-- BEGIN FROZEN 0.1.5 ORIGINAL sha256=dca68f246317f3ad055dfa31e21da795a6f8e4eb62e78bbf04afb7263b74f31d -->
 # 验收报告：0.1.5 / Ultimate-Model 1.4.3-review.7
 
 [English](en/acceptance.md) | 简体中文
@@ -173,3 +262,5 @@ review.7精确ZIP另用官方0.2.1-rc.3 CLI SDK验收：清单/prepare均exit0�
 311项回归包含注入的失败/并发反例，不能证明所有机器的间歇性EPERM永远消失；真实部署与受控任务提供本机当前证据。有限形式的递归删除/凭据/读取守卫不能覆盖任意脚本、间接调用和逻辑错误。工作规则改善行为，不承诺模型永不提前结束、误判或改错。
 
 未执行跨平台矩阵、真实业务项目长任务、任意多代理并发写、远程数据库/支付/生产环境、额外付费服务、CI及所有第三方插件组合测试。未验项不计通过。个人Home、profile、账号、经验库、原始journal、含短期本机token的Host/ready日志及单次真实模型runner不随仓库或ZIP公开。
+
+<!-- END FROZEN 0.1.5 ORIGINAL -->

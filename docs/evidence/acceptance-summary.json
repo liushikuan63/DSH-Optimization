@@ -1,703 +1,1270 @@
 {
-  "schema": 1,
-  "dateLocal": "2026-11-07",
-  "releaseVersion": "0.1.5",
-  "pluginVersion": "1.4.3-review.7",
-  "machine": "user Windows x64, same machine with isolated independent homes/profiles",
-  "frozenPlugin": {
-    "name": "Ultimate-Model-1.4.3-review.7.zip",
-    "bytes": 705741,
-    "sha256": "8c54ee1dcc743da180531166a2ac7f29d76a2b46319daf0078805506a150da0b",
-    "members": 215,
-    "manifestFiles": 214
+  "schema": 2,
+  "semantics": {
+    "current": "Current1.0.0 evidence with explicit cutoffs; unrun is not pass",
+    "history": "Frozen prior snapshots; preserved failures are never rewritten",
+    "statusVocabulary": [
+      "PASS_ISOLATED",
+      "PASS_NATIVE_BOUNDED",
+      "FAIL",
+      "UNVERIFIED",
+      "PENDING",
+      "UNRESOLVED",
+      "HOLD_ACTIVE"
+    ],
+    "countsFromDifferentScopesMustNotBeSummed": true
   },
-  "regressions": {
-    "pluginIndependent": {
-      "pass": 311,
-      "fail": 0,
-      "cancelled": 0,
-      "skipped": 0,
-      "todo": 0,
-      "exitCode": 0,
-      "artifactVersion": "1.4.3-review.6",
-      "rerunForReview7": false
+  "current": {
+    "releaseVersion": "1.0.0",
+    "pluginVersion": "1.4.4",
+    "documentState": "FROZEN_PRE_RELEASE_SOURCE_SNAPSHOT_NATIVE_ISSUES_OPEN",
+    "dateUtc": "2026-11-07",
+    "environment": {
+      "machine": "same user Windows x64 machine; independent fixed copies and isolated homes/profiles",
+      "desktop": "DSH NEXT 2.0.20-next",
+      "core": "0.2.1-rc.3",
+      "nodeMajor": 24,
+      "supportedCoreRange": ">=0.2.1-rc.2 <0.2.2-0"
     },
-    "globalWorkflow": {
-      "pass": 16,
-      "fail": 0,
-      "skipped": 0,
-      "exitCode": 0
+    "component": {
+      "status": "PASS_EXACT_ZIP_INDEPENDENT_OFFICIAL_CLI_MANAGER",
+      "sha256": "df5e278f9339f6b0cee512a577db8ddcceda5687a04a02d15ec3fb09b1872c52",
+      "bytes": 706264,
+      "members": 215,
+      "uncompressedBytes": 1677239,
+      "crcPathCaseTypeAndWindowsReservedNames": "PASS",
+      "hashManifestEntries": 214,
+      "hashManifestExactCoverage": true,
+      "version": "1.4.4",
+      "coreRange": ">=0.2.1-rc.2 <0.2.2-0",
+      "unchangedAfterAcceptance": true,
+      "deltaFromPrior144": {
+        "changedFiles": [
+          "FILES.sha256",
+          "README.md"
+        ],
+        "byteIdenticalFiles": 213
+      },
+      "deltaFromReview7": {
+        "changedFiles": [
+          "CHANGELOG.md",
+          "FILES.sha256",
+          "README.md",
+          "manifest.json",
+          "package.json"
+        ],
+        "byteIdenticalFiles": 210
+      },
+      "historicalExecutionEvidenceRerun": false
     },
-    "hostLegacyGuard": {
-      "pass": 27,
-      "fail": 0
+    "liveBeforeFinalMaintenance": {
+      "status": "BOUNDED_OBSERVATION",
+      "asOfUtc": "2026-11-07T11:03:41Z",
+      "normalArchiveSha256": "e8a0fcbcafb0127e4005ed0cebd56568c6a46a56f20ed4bdb4e8b8316bf1815b",
+      "pluginVersion": "1.4.4",
+      "observation": {
+        "approxMinutes": 39,
+        "resizeObserverNotifications": 0,
+        "accountReadErrors": 2,
+        "accountClassificationRecords": 4,
+        "classificationRecordsAreNotAdditionalIndependentDefects": true
+      },
+      "accountAccess": "UNRESOLVED_HTTP403",
+      "hostShutdownAck": "UNVERIFIED"
     },
-    "evidenceReuseBoundary": "Existing UM/workflow/guard byte-identical gates retained; new repair unit and portable/browser/native evidence recorded separately"
-  },
-  "isolatedSdkUi": {
-    "status": "PASS",
-    "model": "deterministic offline fixture",
-    "actualToolRoundtrip": true,
-    "userCancellation": true,
-    "noPersistenceDenied": true,
-    "previousPersistenceBytesHashMtimeUnchanged": true,
-    "refreshPreserved": true,
-    "journalRows": 64,
-    "journalSha256": "5cb907841a0abe5828467b8243552e961167a5d32e40fe8fdbf052b68f3495be",
-    "pageErrorsObserved": 0,
-    "consoleErrorListenerInstalled": false,
-    "recordedSseAbortOnRefresh": 1,
-    "realProviderCalls": 0,
-    "ownedHostResidual": 0,
-    "artifactVersion": "1.4.3-review.6"
-  },
-  "officialManager": {
-    "status": "PASS_ISOLATED_OFFICIAL_MANAGER",
-    "sdk": "0.2.1-rc.3",
-    "pnpm": "11.7.0 JavaScript",
-    "offline": true,
-    "buildScriptsApproved": false,
-    "installExit": 0,
-    "installWarnings": [],
-    "application": "restart-required/no-hmr",
-    "localDirectoryMode": "link",
-    "materializedPathsValid": 8,
-    "uninstallExit": 0,
-    "sourceBytesPreserved": true,
-    "firstUninstallHarnessFlagsFailureRetained": true,
-    "artifactVersion": "1.4.3-review.6"
-  },
-  "windowsNodeSingleFile": {
-    "node": "24.19.0",
-    "sandbox": "read-only, unchanged",
-    "originalCommand": "node --test calculator.test.mjs",
-    "originalExit": 1,
-    "originalError": "spawn EPERM",
-    "compatibleCommand": "node --test --test-isolation=none calculator.test.mjs",
-    "compatibleTests": 4,
-    "compatibleFail": 0,
-    "compatibleExit": 0,
-    "protectedWriteNegativeTestPassed": true,
-    "multiFileEquivalenceClaimed": false
-  },
-  "realModel": {
-    "status": "PASS_CONTROLLED_REAL_MODEL_CONTINUATION",
-    "totalSdkMainRequestsSent": 23,
-    "providerInternalWireRequests": "NOT_COUNTED_ALLOWED_FOR_EACH_EXPLICITLY_APPROVED_RUN",
-    "firstAttempt": {
-      "sdkMainRequests": 6,
-      "elapsedSeconds": 39.929,
-      "toolCalls": 7,
-      "toolErrors": 7,
-      "error": "Error: tool result must be losslessly JSON-serializable",
-      "cause": "temporary async guard violated synchronous SDK contract",
-      "newArtifacts": 0,
-      "journalSha256": "3da732c60cc521b62d026f8c761837728e342dc69ef5d16ac840554a88c321ba"
+    "deadline": {
+      "status": "PASS_NATIVE_AUTOMATIC_RESTORE_BOUNDED_WINDOW",
+      "maxWallMs": 300000,
+      "observeMs": 200000,
+      "reserveMs": 100000,
+      "elapsedMs": 226649,
+      "normalRestored": true,
+      "withinDeadline": true,
+      "forceKillDsh": false,
+      "coordinatorRequiredAfterArm": false,
+      "provesHostShutdownAck": false,
+      "publicCore": {
+        "status": "PASS_ISOLATED_INDEPENDENT",
+        "pass": 37,
+        "fail": 0,
+        "skip": 0,
+        "automaticDshInstallation": false,
+        "machineWideMonitoring": false,
+        "osHardRealtimeGuarantee": false
+      }
     },
-    "offlineRepair": {
-      "unitPassed": 15,
-      "sdkOriginalAsyncRedExit": 1,
-      "sdkFinalSyncGreenExit": 0,
-      "finalHostExit": 0,
-      "hostModel": "deterministic offline fixture",
-      "fixtureMainCalls": 6,
-      "readonlyNodeTests": 4,
-      "networkAttempts": 0,
-      "registeredFinalSourceMatches": true
-    },
-    "secondAttempt": {
-      "additional6ExplicitlyAuthorized": true,
-      "sdkMainRequests": 6,
-      "elapsedSeconds": 45.802,
-      "terminal": "aborted at request limit before seventh dispatch",
-      "toolCalls": 10,
-      "toolSuccess": 8,
-      "toolErrors": 2,
-      "extraHelperRejections": [
-        "edit not allowlisted",
-        "test command stdout/exit suffix not exact allowlisted string"
-      ],
-      "newArtifacts": 2,
-      "expectedArtifacts": 3,
-      "missing": "VIBECODING.md",
-      "modelRanTests": false,
-      "independentModelTests": {
-        "passed": 13,
+    "runtimeCandidate": {
+      "status": "LIVE_CAS_COMMITTED_HOST_ACK_FAIL",
+      "archiveSha256": "90c23c91ddff8e1306cfeb17e4546e8e3e708721dd2fba5a82500d6655dc8f88",
+      "bytes": 193619745,
+      "cordisSha256": "a580c0f17ff210b5b80d48a888aa5e842de2c743a0a94f2d53f795803ada9d8d",
+      "cordis": {
+        "originalRed": {
+          "tests": 2,
+          "passed": 0,
+          "failed": 2,
+          "skipped": 0,
+          "expectedExitCode": 1
+        },
+        "candidateGreen": {
+          "tests": 16,
+          "passed": 16,
+          "failed": 0,
+          "skipped": 0
+        },
+        "peerGreen": {
+          "scenarios": 4,
+          "passed": 4,
+          "failed": 0,
+          "skips": 0
+        }
+      },
+      "unit": {
+        "passed": 9,
         "failed": 0,
         "skipped": 0,
         "exitCode": 0
       },
-      "independentExtraCases": {
-        "positive": 5,
-        "invalid": 18,
-        "allPassed": true
+      "fullsize": {
+        "applyExit": 0,
+        "keepExit": 0,
+        "restoreExit": 0,
+        "inputVariantsConverge": [
+          "original",
+          "footer",
+          "previous"
+        ],
+        "originalPayloadExact": true,
+        "unrelatedHeaderMetadataExact": true,
+        "copiedExeExecuted": false
       },
-      "journalSha256": "0ab2be55545de44219bbaf1be29de05f9bc7857f72e4c6fa82bba2d01e077d5e"
+      "nativeHostAckVerified": false,
+      "nativeHostAckAttemptObserved": true,
+      "nativeHostAckResult": "FAIL_ACK_FALSE_SIGTERM"
     },
-    "protectedOriginalFiles": 3,
-    "protectedHashBytesMtimeUnchanged": true,
-    "temporaryHelperBundled": false,
-    "temporaryRowsRemoved": true,
-    "normalDshSixRequestCap": false,
-    "fullAutonomousTaskPassed": true,
-    "furtherPaidRunAuthorized": false,
-    "globalWorkflowDurableUserMessage": true,
-    "globalWorkflowSdkRequestRole": "user",
-    "umResidentSdkRequestRole": "system",
-    "completeWireContextExported": false,
-    "normalSdkCompatibility": {
-      "noTemporaryHelper": true,
-      "modelCalls": 0,
-      "networkCalls": 0,
-      "readThenEdit": true,
-      "originalPwshSuffixExecuted": true,
-      "readonlyNodeTests": 13,
-      "testExit": 0,
-      "protectedAndOriginalSourcesUnchanged": true,
-      "constrainedLanguageStartupStderr": 2,
-      "notAutonomousTaskProof": true
-    },
-    "fullAutonomousTaskScope": "Small owned continuation using two existing DSH-authored code files; one human task message, no coordinator mid-run intervention",
-    "normalDshTwentyRequestCap": false,
-    "noFurtherModelCallsForThisTask": true,
-    "thirdAttempt": {
-      "additionalMaxSdkMainAuthorized": 20,
-      "maxElapsedSeconds": 300,
-      "sdkMainRequests": 11,
-      "unusedMainAllowance": 9,
-      "elapsedSeconds": 103.662,
-      "firstMainUtc": "2026-11-06T23:56:18.489Z",
-      "completedUtc": "2026-11-06T23:58:02.151Z",
-      "status": "PASS_CONTROLLED_REAL_MODEL_CONTINUATION",
-      "terminal": "completed",
-      "terminalSeq": 127,
-      "abortReasonAtCompletion": null,
-      "disposedAfterCompletionIsCleanup": true,
-      "inflight": false,
-      "humanUserMessages": 1,
-      "coordinatorMidRunPrompts": 0,
-      "coordinatorArtifactWrites": 0,
-      "existingCodeFilesAtStart": 2,
-      "requiredArtifacts": 3,
-      "finalArtifacts": 3,
-      "exactFinalFiles": 6,
-      "originalThreeHashBytesMtimeUnchanged": true,
-      "calculatorAndTestsFinalHashMatchContinuationBaseline": true,
-      "toolCalls": 22,
-      "toolSuccess": 20,
-      "toolErrors": 2,
-      "recoveredToolErrors": [
-        "initial VIBECODING read before creation",
-        "Get-FileHash outside exact temporary allowlist"
-      ],
-      "actualModelTests": {
-        "executed": true,
-        "greenBeforeDefaultDiagnostic": true,
-        "initialGreen": {
-          "tests": 13,
-          "pass": 13,
-          "fail": 0,
-          "exitCode": 0
-        },
-        "defaultIsolationDiagnostic": {
-          "tests": 1,
-          "pass": 0,
-          "fail": 1,
-          "exitCode": 1,
-          "spawnEperm": true
-        },
-        "faultInjectionRed": {
-          "tests": 13,
-          "pass": 9,
-          "fail": 4,
+    "bili": {
+      "selectedPort": 18787,
+      "alternatePortAllowed": false,
+      "native": {
+        "status": "CURRENT_EXTERNAL_SOURCE_PRESERVED_HISTORICAL_A1_EVIDENCE_SEPARATE",
+        "original": {
+          "passed": 10,
+          "failed": 4,
+          "skipped": 0,
           "exitCode": 1
         },
-        "restoredGreen": {
-          "tests": 13,
-          "pass": 13,
-          "fail": 0,
+        "candidate": {
+          "passed": 14,
+          "failed": 0,
+          "skipped": 0,
           "exitCode": 0
         },
-        "skipped": 0,
-        "cancelled": 0
+        "bootstrapCases": 2,
+        "realSocketsOpened": 0,
+        "daemonsSpawned": 0,
+        "historicalM3Sha256": "a1a698829f0c2cb4ac487d1b667ce273cf737e21bf139f77cde6a0ff7bcc8ede",
+        "isolatedDecisionEvidenceSourceSha256": "a1a698829f0c2cb4ac487d1b667ce273cf737e21bf139f77cde6a0ff7bcc8ede",
+        "currentSha256": "b446cff5038c066e4bef7b1694c64de00dd1c1c1e66995eda9380f827f739f39",
+        "currentSourceOwnership": "OTHER_ACTIVE_TASK_USER_CONFIRMED_PRESERVE",
+        "currentMatchesHistoricalM3": false,
+        "currentCompleteFunctionalityClaimed": false,
+        "historicalM3InstalledSingleLink": true,
+        "isolatedA1EntryFingerprintUnchanged": true
       },
-      "independentTests": {
-        "pass": 13,
+      "guard": {
+        "sha256": "e9575220eebc2020077365c8615dd3901c774085835ad88c34e916249af828f2",
+        "status": "PASS_BOUNDED_FINAL_SOURCE_READBACK_NOT_LONG_TERM_CIM_CAUSE",
+        "scopeCases": {
+          "pass": 12,
+          "fail": 0,
+          "skip": 0,
+          "exitCode": 0
+        },
+        "unchangedFunctionsRerun": false,
+        "sourceCasUpdated": true,
+        "taskRegistered": true,
+        "taskSettings": {
+          "logonDelaySeconds": 10,
+          "restartOnFailureMinutes": 1,
+          "restartOnFailureCount": 999,
+          "periodicTriggerMinutes": 1,
+          "periodicDuration": "indefinite",
+          "multipleInstances": "IgnoreNew",
+          "mutexScope": "Global",
+          "logonType": "Interactive",
+          "runLevel": "Limited",
+          "executionTimeLimit": "unlimited"
+        },
+        "realTaskAdoption": "PASS_BOUNDED_OBSERVATION",
+        "realGuardRecovery": {
+          "status": "PASS_PERIODIC_TASK_RECOVERS_OWN_GUARD",
+          "injectedAtUtc": "2026-11-07T11:29:59.3079231Z",
+          "receiptAtUtc": "2026-11-07T11:33:53.0901014Z",
+          "elapsedMs": 37460.7009,
+          "manualStartIssued": false,
+          "proxyUnchanged": true,
+          "dshStopped": false,
+          "sourceSha256": "9eabad331972f6dd2b2eb49290f72924c37145b3690eb7c30c6536d2fb99d231"
+        },
+        "realProxyRecovery": {
+          "status": "PASS_NEW_PROXY_AFTER_GRACEFUL_OLD_EXIT_NOT_ARBITRARY_CRASH_TEST",
+          "oldProxyShutdownAcceptedHttp": 202,
+          "oldProxyExitUtc": "2026-11-07T11:40:06.842Z",
+          "newProxyStartedUtc": "2026-11-07T11:40:55.829Z",
+          "port": 18787,
+          "healthHttp": 200,
+          "watchdogArmed": false,
+          "externalSupervision": "adopted scheduled guardian",
+          "sameProxySurvivedDshQuit": true
+        },
+        "kernelSocketOwnerVerified": false,
+        "machineWideUniqueness": "UNVERIFIED",
+        "wmi": {
+          "queryBudgetMs": 10000,
+          "cimExceptionObserved": true,
+          "uncertaintyDecision": "BLOCK_UNKNOWN",
+          "laterNormalRecoveryObserved": true,
+          "zeroErrorClaimed": false,
+          "previousQueryBudgetMs": 5000
+        },
+        "previousSourceSha256": "9eabad331972f6dd2b2eb49290f72924c37145b3690eb7c30c6536d2fb99d231",
+        "finalDelta": {
+          "onlyChange": "CIM query timeout5s→10s",
+          "guardOnlyPauseCasResumeUtc": "2026-11-07T11:57:57.941Z",
+          "dshStopped": false,
+          "biliStopped": false,
+          "independentBoundaryCases": 12,
+          "fail": 0,
+          "skip": 0,
+          "realRecoveryInjectionRerunForFinalSource": false
+        },
+        "boundedObservation": {
+          "readbackAtUtc": "2026-11-07T12:08:01.894Z",
+          "firstUtc": "2026-11-07T11:57:59.8180205Z",
+          "lastUtc": "2026-11-07T12:06:53.5645495Z",
+          "durationMs": 533746,
+          "heartbeats": 9,
+          "blockUnknown": 0,
+          "scanErrors": 0,
+          "actions": [
+            "HEALTH_ASSOCIATED_PORT_OWNER_UNVERIFIED"
+          ],
+          "sourceScope": "known health PID association only",
+          "kernelSocketOwnerVerified": false,
+          "longTermGuarantee": false,
+          "priorCimCauseProven": false
+        }
+      },
+      "hardlinkTransaction": {
+        "status": "PASS_PRIVATE_OWNED_WINDOWS_FS",
+        "sourceSha256": "20ffd3608a51a3849348deb7649b89ba2b004aa2aa810d5053eaef2ca0f965e0",
+        "pass": 19,
         "fail": 0,
-        "skipped": 0,
-        "cancelled": 0,
-        "exitCode": 0
+        "skip": 0,
+        "actualNativeSizedData": true,
+        "cacheAliasPreserved": true,
+        "newTargetSingleLink": true,
+        "privateToolBundled": false
       },
-      "independentExtraCases": {
-        "positive": 5,
-        "invalid": 18,
-        "allPassed": true
+      "nodeStatusControls": {
+        "status": "PASS_NODE_HTTP_BOUNDED_NOT_RENDERER",
+        "observedAtUtc": "2026-11-07T12:08:01.894Z",
+        "cases": [
+          {
+            "label": "health",
+            "status": 200,
+            "acao": null
+          },
+          {
+            "label": "trusted-missing",
+            "status": 400,
+            "acao": "dsh-app://app"
+          },
+          {
+            "label": "trusted-empty",
+            "status": 404,
+            "acao": "dsh-app://app"
+          },
+          {
+            "label": "foreign-denied",
+            "status": 403,
+            "acao": null
+          }
+        ],
+        "sharedProxyIdentityUnchanged": true,
+        "armed": false,
+        "bodiesExported": false,
+        "modelRequests": 0,
+        "currentRendererAcceptance": false,
+        "acpToolExecutionAcceptance": false
+      }
+    },
+    "finalMaintenance": {
+      "status": "DEPLOYMENT_COMMITTED_HOST_ACK_FAIL_INDEPENDENT_READBACK_PENDING",
+      "authorization": "NEW_EXPLICIT_CONSENT_AFTER_ACTIVE_TASK_HOLD",
+      "startUtc": "2026-11-07T11:39:35.362Z",
+      "deadlineUtc": "2026-11-07T11:44:35.362Z",
+      "oldNormalEndUtc": "2026-11-07T11:40:00.594Z",
+      "sourceTransaction": {
+        "committed": true,
+        "items": 3,
+        "elapsedApproxMs": 25999,
+        "nativeSha256": "a1a698829f0c2cb4ac487d1b667ce273cf737e21bf139f77cde6a0ff7bcc8ede",
+        "nativeNewInodeSingleLink": true,
+        "configOnlyThreeSafeFields": true,
+        "configHashExcludedFromPublicSummary": true,
+        "oldWatchdogMonitorSha256": "a96107957b91ba36e84aaab498d604b41c4dee1580f39b5b7d585d64dce17fbc",
+        "backupReceiptsRetained": true
       },
-      "modelLedgerBytes": 6773,
-      "modelLedgerSha256": "2c6750f72ea41a03f09f0a5b19a69a3e7bb87d3b2022c82f87de46edb2d6ec2c",
-      "journalSha256": "86cd2450afa2911396abaaa4d4789a55f6ff2384599fe596309c0f7da54acc66",
-      "finalHelperPolicyTests": 16,
-      "finalHelperActualSdkRedGreen": true,
-      "finalHelperFullHostOfflineChainPassed": true,
-      "independentValidatorModelNetworkWorkspaceLiveWrites": 0
-    }
-  },
-  "source": {
-    "qoderVersion": "v0.0.30",
-    "qoderSha": "33386f97bba86a852d90c9ade14222024d91adaa",
-    "qoderLocalRemoteSameAt": "2026-11-07T00:15:30.352995+00:00",
-    "qoderReadmeReference": "Download selection, capabilities, guided setup, documentation navigation and immutable release verification; adapted to DSH interfaces and license boundaries"
-  },
-  "unverified": [
-    "fresh-from-zero arbitrary-project autonomous completion and long-term stability",
-    "cross-platform matrix",
-    "other core versions",
-    "UNC paths",
-    "file/tgz/registry copy installs",
-    "all native pnpm locking cases",
-    "real business long tasks",
-    "arbitrary parallel writes",
-    "all external plugin combinations"
-  ],
-  "changeScope": "v0.1.4 optional pinned Bili CORS and desktop-footer repairs; review.7 changes5 metadata/document files, other210 files byte-identical to review.6; existing workflow/host guard unchanged. Original review.6 release immutable.",
-  "documentationLanguages": [
-    "en",
-    "zh-CN"
-  ],
-  "runtimeRepair": {
-    "status": "CORS_REPAIRED_ACCOUNT403_UNRESOLVED_EXPECTED_GUARD_RETAINED",
-    "original12": {
-      "officialAccount403": 1,
-      "biliCors": 10,
-      "expectedReadGuardDenial": 1,
-      "historicalBiliHttpStatuses": "NOT_RECORDED"
-    },
-    "bundleVersion": "0.1.212",
-    "originalSha256": "e512ccc1880ac2ed82657b779a5e4b518f88ff700baa8a04e399b908e5119599",
-    "repairedSha256": "7a4185d855452c04bd15e7a63b490780f5f1ee8f550658b6953283037ecab611",
-    "newUnit": {
-      "pass": 7,
-      "fail": 0,
-      "skipped": 0,
-      "exitCode": 0
-    },
-    "portableActualSource": {
-      "pass": 15,
-      "fail": 0,
-      "notRun": 0,
-      "exitCode": 0,
-      "sourceUnchanged": true
-    },
-    "formalPostimageBrowser": {
-      "extractedFunctions": 11,
-      "browserAssertions": 10,
-      "nodeGateAssertions": 14,
-      "get": 24,
-      "options": 0,
-      "pageerror": 0,
-      "expectedHttpResourceErrors": 2,
-      "nativeElectron": false
-    },
-    "localApply": {
-      "appliedAtUtc": "2026-11-07T05:38:16.062Z",
-      "newTargetNlink": 1,
-      "hardlinkAliasBytesAndMtimeUnchanged": true,
-      "syntaxExit": 0,
-      "permanentBackup": true,
-      "normalShutdown": true,
-      "forcedTermination": false,
-      "activeTasksBeforeFirstQuit": "UNOBSERVED"
-    },
-    "nativeAffectedPath": {
-      "observedAtUtc": "2026-11-07T05:45:54.037Z",
-      "origin": "dsh-app://app/",
-      "actualEmptyStatus404Readable": true,
-      "failedToFetchTextObserved": false,
-      "biliModelTaskRun": false
-    },
-    "account": {
-      "profileRpcCalls": 1,
-      "rpcHttpStatus": 200,
-      "rpcOk": true,
-      "valueStatus": "failed",
-      "originalDiagnosticHttpStatus": 403,
-      "errorCode": "network",
-      "freshness": "Actual failing profile request observed; RPC200 is not platform200",
-      "fixed": false,
-      "credentialsClearedByUs": false,
-      "exactRejectingNetworkHop": "UNDETERMINED; status is from the normal account request chain"
-    },
-    "temporaryBridge": {
-      "homeOriginalShaRestored": true,
-      "exactOpaqueUrlFileRemoved": true,
-      "normalCleanupRestart": true,
-      "includedInPackage": false
-    },
-    "allRuntimeErrorsEliminated": false,
-    "earlierSnapshotRetained": true,
-    "desktopFooter": {
-      "sourceBeforeSha256": "1ae5f487d7d8304c5b20321280bc76b11fc8500ad1b599237e00858b38061e0c",
-      "sourceAfterSha256": "680d4dbd4594145c92a7a571ce044862f8bd326bc839873ff13653c4e8e50f46",
-      "archiveBeforeSha256": "54983f84d351499c90a5be50957065d9bd8b5188c30fc85eb0c67ef2eba0354e",
-      "archiveAfterSha256": "1c3bc0c92100688532e43173e51d93bcc07350dbcb18a9be65e5346504203fe4",
-      "exeSha256": "af7bb5a976c658fef1627743943599053ee47316e668e2fd0ac053ece5d8dcc5",
-      "sourcePinningTests": 4,
-      "syntheticArchiveTests": 4,
-      "fullArchiveFixtureCases": 8,
-      "independentBrowserChecks": 14,
-      "independentVmBoundaryChecks": 6,
-      "originalBrowserRoNotices": 7,
-      "repairedBrowserRoNotices": 0,
-      "originalPayloadBytesRetained": 186919466,
-      "executableOrFuseModified": false,
-      "installedAtUtc": "2026-11-07T06:17:38.480Z",
-      "newModelCalls": 0,
-      "productionZeroRoGate": "FAIL_REMAINING_PERIODIC_NOTICES"
-    },
-    "postCorsPreLayoutObservation": {
-      "sinceUtc": "2026-11-07T05:46:44.779Z",
-      "untilUtc": "2026-11-07T05:52:08.191Z",
-      "healthyBootEvents": 3,
-      "shutdownOrCrash": 0,
-      "cors": 0,
-      "errorRecords": 9,
-      "errorCategories": {
-        "ACCOUNT_READ_FAILED": 1,
-        "RESIZE_OBSERVER_NOTIFICATION": 8
+      "runtimeTransaction": {
+        "committed": true,
+        "installedSha256": "90c23c91ddff8e1306cfeb17e4546e8e3e708721dd2fba5a82500d6655dc8f88",
+        "elapsedApproxMs": 13550
       },
-      "unknown": 0,
-      "configurationAndDataHashesMatch": 6,
-      "credentialsCheckedAsOpaqueBytesOnly": true,
-      "originalViewRestored": true,
-      "periodicResizeObserverNotificationsFixed": false,
-      "nativeNoHelperRetestAtUtc": "2026-11-07T05:50:38.397Z"
-    },
-    "controlledModelAcceptanceCallsAdded": 0,
-    "normalBusinessTrafficCounted": false,
-    "postFooterObservation": {
-      "sinceUtc": "2026-11-07T06:17:46.403Z",
-      "untilUtc": "2026-11-07T06:25:30.475Z",
-      "errorRecords": 9,
-      "account": 1,
-      "resizeObserver": 8,
-      "cors": 0,
-      "unknown": 0,
-      "crash": 0,
-      "healthyBootEvents": 3,
-      "nativeBiliRetestUtc": "2026-11-07T06:20:46.433Z",
-      "protectedOpaqueByteHashesMatch": 6
-    },
-    "historicalMaintenanceHoldV014": {
-      "activeGenerationObservedAtUtc": "2026-11-07T06:52:25Z",
-      "timestampPrecision": "second, bounded before/after clock read and native UIA snapshot",
-      "restartOrDiagnosticAfterActiveReadback": false,
-      "privateProbeDistributed": false,
-      "maintenanceQuestionPending": true
-    },
-    "maintenanceHold": {
-      "recordScope": "CURRENT_NEXT_MAINTENANCE_BOUNDARY_AFTER_ONE_APPROVED_WINDOW",
-      "priorApprovedWindowCompleted": true,
-      "um7DeploymentHeld": false,
-      "furtherProbeAuthorizedByThisRecord": false,
-      "additionalExplicitTimeAndTotalLogBudgetRequired": true,
-      "spentPriorWindowAutomaticallyExtended": false,
-      "businessResumedByCoordinator": false,
-      "secondExplicitWindowCompleted": true,
-      "deadlineGate": "FAIL_BUDGET_OVERRUN",
-      "furtherProbePlanned": false
-    }
-  },
-  "historicalFrozenPluginReview6": {
-    "name": "Ultimate-Model-1.4.3-review.6.zip",
-    "bytes": 705119,
-    "sha256": "9938562f6691e67a35c40fe83b37cf5d496c4953ee388e4e8a882396ca4266ab",
-    "members": 215,
-    "manifestFiles": 214
-  },
-  "compatibilityReview7": {
-    "coreRange": ">=0.2.1-rc.2 <0.2.2-0",
-    "frozenComponentSourceCommit": "e7e2a3575242fa76ea4a4efd0024779b0f6abf95",
-    "changedFiles": 5,
-    "unchangedFiles": 210,
-    "liveDeployment": "APPLIED_5_METADATA_FILES_WITH_BACKUP_CAS_AND_NORMAL_RESTART; runtimeRO remainsunresolved.",
-    "newCore022Adapted": false,
-    "versionExemptionCreated": false,
-    "officialManagerMayWriteInstallBeforeReject": true,
-    "officialSupportedSdkManager": {
-      "status": "PASS_EXACT_ZIP_ISOLATED_OFFICIAL_MANAGER",
-      "sdkCore": "0.2.1-rc.3",
-      "cliAppBootSha256": "5135179ac810e4f626f32ec3bdc3293dc7d2028e8aa92e5e0c006f1a33b78e76",
-      "sameBytesAsInstalledDesktopAppBoot": false,
-      "installExit": 0,
-      "removeExit": 0,
-      "officialBundleEnabledThenDisabled": true,
-      "rootRows": 4,
-      "materializedReferences": 8,
-      "leftoversAfterOfficialRemove": 0,
-      "application": "restart-required",
-      "noHmr": true,
-      "agentPresetRuntimeActivated": false,
-      "hostStarted": false,
-      "modelCalls": 0,
-      "accountCalls": 0,
-      "receiptSha256": "e1a65a47661ec83a70dbb056b71a42223b8255a243530fdc1f9d478870ced6d8",
-      "firstHarnessFailurePreservedAndOfficiallyCleaned": true
-    }
-  },
-  "historicalLiveDeploymentReview6": {
-    "dsh": "2.0.20-next",
-    "core": "0.2.1-rc.3",
-    "plugin": "1.4.3-review.6",
-    "normalRestart": true,
-    "forcedShutdown": false,
-    "healthyBootEvents": 3,
-    "knownEarlierRendererAccountReadError": 1,
-    "temporaryAcceptanceRowsRemoved": true,
-    "globalWorkflowOriginalPrefixBytes": 13587,
-    "globalWorkflowInstalledBytes": 15830,
-    "globalWorkflowBackupReadbackMatches": true,
-    "globalWorkflowReadOnlyPlan": "KEEP",
-    "visionRouterRuntime": {
-      "active": true,
-      "entrySeen": true,
-      "fiberSeen": true
-    },
-    "initialAcceptanceSnapshotRuntimeErrors": 1,
-    "additionalCurrentInstanceReadback": {
-      "observedAtUtc": "2026-11-07T00:25:04.281Z",
-      "sameExecutableVersion": "2.0.20-next",
-      "sameHomeAgentsGuardBytes": true,
-      "staticSelfcheckExit": 0,
-      "manifestFiles": 214,
-      "threeStartupHealthEventsObserved": true,
-      "temporaryRowsStillRemoved": true,
-      "previousInstanceCleanEndObserved": true,
-      "newInstanceNotStartedByThisFollowup": true,
-      "snapshotErrors": {
-        "accountRead": 1,
-        "otherRendererConsole": 10,
-        "hostSession": 1,
-        "total": 12
-      },
-      "technicalAttribution": "UNDETERMINED; no explicit UM/module-load/broken markers, insufficient to exclude association",
-      "journalOrChatBodiesRead": false,
-      "accountValuesRead": false,
-      "modelCalls": 0,
-      "networkCalls": 0,
-      "restarts": 0,
-      "notAZeroRuntimeErrorsClaim": true
-    }
-  },
-  "liveDeployment": {
-    "recordScope": "CURRENT_POST_APPROVED_MAINTENANCE_V015; historicalinitialreview6 evidence preservedseparately.",
-    "plugin": "1.4.3-review.7",
-    "core": "0.2.1-rc.3",
-    "dsh": "2.0.20-next",
-    "normalRestart": true,
-    "manifestFilesMatched": 214,
-    "manifestSha256": "8e1e6ef30bc2e170c670ec10b794fe878ae6ad1ac3d19e3bda9b78fcd1818be1",
-    "metadataFilesUpdated": 5,
-    "otherFilesUnchanged": 210,
-    "executionCodeChanged": false,
-    "nativeAffectedPath": "PASS_ACTUAL_BILI_HTTP404",
-    "newModelCallsForAcceptance": 0,
-    "ordinaryBusinessTrafficCounted": false,
-    "finalNormalReadback": "SOURCE_MANIFEST_AND168.886SECOND_WINDOW_COMPLETE_RO_RECURRED",
-    "normalStartUtc": "2026-11-07T07:50:16.761Z",
-    "newPresetFiberSelectionRetested": false,
-    "fullGracefulShutdownOfPriorDiagnosticHostProven": false,
-    "sourceReadbackAtUtc": "2026-11-07T07:57:14.076Z",
-    "evidenceSha256": "ae4ca03d5b7f71053168e8fd32cee7348a80592351711569791a26c3cbe01599"
-  },
-  "postMaintenanceV015": {
-    "status": "NORMAL_RESTORATION_UM7_AND_PROTECTED_BYTES_PASS__V4_TIME_GATE_FAIL__RO_ACCOUNT_REMAIN",
-    "approvedWindow": {
-      "explicitlyApproved": true,
-      "priorRunCleanEndUtc": "2026-11-07T07:23:11.575Z",
-      "standingMaintenancePermission": false
-    },
-    "um7Live": {
-      "version": "1.4.3-review.7",
-      "appliedUtc": "2026-11-07T07:29:22Z",
-      "metadataFilesUpdated": 5,
-      "otherFilesUnchanged": 210,
-      "executionCodeChanged": false,
-      "backupsAndCasReceiptRetained": true,
-      "manifestFilesMatched": 214,
-      "manifestSha256": "8e1e6ef30bc2e170c670ec10b794fe878ae6ad1ac3d19e3bda9b78fcd1818be1",
-      "materializedPatchUnchanged": true
-    },
-    "observation": {
-      "receiptSha256": "263991f322ce947b493ebfc2c42cb920504b7f4df2663cf6eefe7e17e158dd4d",
-      "runStartedUtc": "2026-11-07T07:29:23.960Z",
-      "nativeVisibleProofUtc": "2026-11-07T07:31:36Z",
-      "untilUtc": "2026-11-07T07:33:54.585Z",
-      "secondsSinceVisibleProof": 138.585,
-      "health": 3,
-      "errors": 3,
-      "account": 1,
-      "ro": 2,
-      "roUtc": [
-        "2026-11-07T07:33:41.348Z",
-        "2026-11-07T07:33:41.352Z"
-      ],
-      "cors": 0,
-      "unknown": 0,
-      "tool": 0,
-      "module": 0,
-      "crash": 0,
-      "protectedOriginalHashesMatched": 6,
-      "sourceReadbackUtc": "2026-11-07T07:35:40Z"
-    },
-    "nativeAdoption": "PASS_FINAL_NORMAL_ACTUAL_BILI_HTTP404_NOT_NEW_PRESET_FIBER",
-    "protectedHashScope": "Six previously agreed configuration/data files checked asopaque bytes only; notalluserdata.",
-    "businessResumedByCoordinator": false,
-    "controlledModelAcceptanceCallsAdded": 0,
-    "ordinaryBusinessTrafficCounted": false,
-    "unchangedSuitesRerun": false,
-    "oldReleaseAssetsReplaced": false,
-    "nativeRegistration": {
-      "receiptSha256": "d608005c618a92b6dc65efb5313c754a5b9203f155f0f601ab555fb163b2bb1d",
-      "pluginPageToggles": [
-        false,
-        true
-      ],
-      "legacyHomeRowDisabled": true,
-      "managedReview7RowEnabled": true,
-      "enabledPresetRows": 1,
-      "externalManagedRowOverride": false,
-      "declaredNativeProviders": 0,
-      "togglesChangedByUs": false,
-      "actualNewModePickerOrFiberProven": false
-    },
-    "furtherPrivateProbe": "NO_FURTHER_PROBE",
-    "currentStatusAsOfUtc": "2026-11-07T07:57:14.076Z",
-    "privateProbeV3FirstWindow": {
-      "normalCleanStopUtc": "2026-11-07T07:28:04.663Z",
-      "normalAsarRestoredByUtc": "2026-11-07T07:28:41Z",
-      "restoredBeforeFiveMinuteDeadline": true,
-      "ready": 0,
-      "diagnostic": 0,
-      "ro": 0,
-      "result": "NO_READY_OWNER_UNVERIFIED",
-      "developerLogging": false,
-      "developerLoggingChanged": false,
-      "actualMainFiltersConsoleInfo": true,
-      "probeExecutionProven": false,
-      "observerOwnerIdentified": false,
-      "temporaryProbeDistributed": false,
-      "temporaryInstanceStartedUtc": "2026-11-07T07:23:55.727Z",
-      "timeScope": "Temporary instance lifecycle, notproof that theprefixexecuted."
-    },
-    "privateProbeV4SecondWindow": {
-      "explicitAdditionalApproval": true,
-      "approvedSeconds": 180,
-      "maxTotalLogsIncludingReady": 3,
-      "maxBytes": 8192,
-      "temporaryRunStartedUtc": "2026-11-07T07:45:46.527Z",
-      "actualReadyUtc": "2026-11-07T07:45:53.936Z",
-      "actualReadySeq": 39,
-      "partialCollectorUntilUtc": "2026-11-07T07:48:33.902Z",
-      "partialLogs": 1,
-      "partialBytes": 28,
-      "partialDiag": 0,
-      "partialRo": 0,
-      "fullEndedRunReadback": {
-        "records": 103,
-        "ready": 1,
-        "bytes": 28,
-        "diagnostic": 0,
-        "ro": 0,
-        "ownerReproduced": false,
-        "shutdownAcknowledgement": false,
-        "rawErrorLevelRecords": 3,
-        "diagnosticReadyErrorLevelRecords": 1,
-        "accountReadFailedRecords": 1,
-        "expectedHostExitWithoutAckRecords": 1,
-        "unknownAfterMetadataRefinement": 0
-      },
-      "actualRunSeconds": 190.421,
-      "runOverBudgetSeconds": 10.421,
-      "plannedHardDeadlineUtc": "2026-11-07T07:48:46.000Z",
-      "normalCarrierRestoredAtUtc": "2026-11-07T07:49:02.128Z",
-      "restoreLateAgainstPlannedHardDeadlineSeconds": 16.128,
-      "deadlineStatus": "FAIL_BUDGET_OVERRUN",
-      "furtherProbe": false,
-      "newNormalRunStartedUtc": "2026-11-07T07:50:16.761Z",
-      "newNormalMainPid": 926460,
-      "normalCarrier": "ASAR1c3b, UM7 retained",
-      "newNormalFinalWindow": "COMPLETE168.886S_NATIVE_PHASE_RO_RECURRED",
-      "runEndMarkedCleanUtc": "2026-11-07T07:48:56.948Z",
-      "shutdown": {
-        "eventUtc": "2026-11-07T07:48:56.933Z",
-        "classification": "EXPECTED_HOST_EXIT_WITHOUT_SHUTDOWN_ACK",
+      "initialNormalStartUtc": "2026-11-07T11:41:02.717Z",
+      "normalAck": {
+        "status": "FAIL_ACK_FALSE_SIGTERM",
+        "requestedUtc": "2026-11-07T11:44:02.489Z",
+        "escalatedUtc": "2026-11-07T11:44:05.491Z",
+        "signal": "SIGTERM",
         "expected": true,
         "acknowledged": false,
-        "signal": "SIGTERM",
         "exitCode": null,
-        "officialQuitEntryUsed": true,
-        "separateOsKillCommandUsedByCoordinator": false,
-        "cleanRunMarkerProvesFullGracefulShutdown": false,
-        "allTaskDataIntegrityVerified": false,
-        "rawErrorRecordRetained": true,
-        "independentNewProductBugInferred": false,
-        "sourceReceiptSha256": "ae4ca03d5b7f71053168e8fd32cee7348a80592351711569791a26c3cbe01599"
+        "endedUtc": "2026-11-07T11:44:05.540Z",
+        "cleanEndMarker": true,
+        "allSameExeGone": true,
+        "cleanEndDoesNotProveGracefulAck": true
       },
-      "normalRunIdentifierDistributed": false
+      "finalNormalStartUtc": "2026-11-07T11:44:10.521Z",
+      "elapsedToFinalNormalStartMs": 275159,
+      "withinFiveMinutes": true,
+      "deadlineMarginMs": 24841,
+      "sharedProxySurvivedDshQuit": true,
+      "independentFinalReadback": "PENDING",
+      "protectedData": {
+        "status": "OPAQUE_BACKUPS_CAPTURED_FINAL_INDEPENDENT_COMPARISON_PENDING",
+        "sessionBackupFiles": 4,
+        "sessionBackupBytes": 12567900,
+        "protectionSnapshotItems": 7,
+        "credentialOrSessionContentDecoded": false,
+        "credentialHashesPublished": false,
+        "fullDataIntegrityClaimed": false
+      },
+      "controlledModelRequests": 0,
+      "privateProbes": 0,
+      "forceKillDsh": false,
+      "forceKillBili": false,
+      "furtherLiveShutdownOrDiagnostic": "NOT_ADDED_THIS_PHASE_OFFLINE_HOST_ANALYSIS_ONLY",
+      "laterNativeUi": {
+        "atUtc": "2026-11-07T12:03:00Z",
+        "timePrecision": "minute",
+        "modelSelectorVisible": true,
+        "stopGenerationControlVisible": true,
+        "modeChanged": false,
+        "taskControlled": false
+      }
     },
-    "finalNormalInstance": {
-      "startedUtc": "2026-11-07T07:50:16.761Z",
-      "normalCarrierRestored": true,
-      "um7Retained": true,
-      "independentAtLeast120SecondWindow": {
-        "status": "BOUNDED_OBSERVATION_COMPLETE_RO_ACCOUNT_UNRESOLVED",
-        "sinceNativeProofUtc": "2026-11-07T07:51:53Z",
-        "untilUtc": "2026-11-07T07:54:41.886Z",
-        "seconds": 168.886,
-        "wholeRunErrorRecords": 3,
-        "account": 1,
-        "resizeObserver": 2,
-        "roUtc": [
-          "2026-11-07T07:54:41.546Z",
-          "2026-11-07T07:54:41.550Z"
+    "modelEvidence": {
+      "newControlledAcceptanceMainRequests": 0,
+      "ordinaryBusinessTraffic": "NOT_COUNTED",
+      "historicalThirdContinuation": {
+        "status": "PASS_CONTROLLED_REAL_MODEL_CONTINUATION",
+        "mainRequests": 11,
+        "maxMainRequests": 20,
+        "elapsedMs": 103662,
+        "maxWallMs": 300000,
+        "earlierFailuresRetained": true,
+        "scope": "small owned continuation; no arbitrary long-task guarantee"
+      }
+    },
+    "releaseGates": {
+      "fixedCommitFullZip": "PENDING",
+      "exactFullZipIndependentAcceptance": "PENDING",
+      "remoteAssetReadback": "PENDING"
+    },
+    "privacy": {
+      "publicIncludesTechnicalSourceHashesAndBoundedUtc": true,
+      "publicExcludes": [
+        "local absolute paths",
+        "real run IDs",
+        "real PIDs",
+        "credential hashes",
+        "credentials",
+        "raw native logs",
+        "conversation content",
+        "complete third-party compiled sources and ASAR",
+        "private probes and Windows backend"
+      ]
+    },
+    "operatingIssues": {
+      "account403": "UNRESOLVED_EXTERNAL_ACCESS_BOUNDARY",
+      "hostAck": "FAIL_NATIVE_ACK_FALSE_SIGTERM",
+      "acpStatus": {
+        "status": "UNRESOLVED_LIVE_CAUSE",
+        "isolatedActualFunctionTests": 13,
+        "fail": 0,
+        "skip": 0,
+        "noNativeHttpRpcModelRequestsByReviewer": true,
+        "unarmedSharedProxyIsNotHandlerRefusalCondition": true
+      },
+      "progressUpdate": {
+        "status": "INVALID_ARGS_REFUSAL_RETAINED"
+      },
+      "standingSubagent": {
+        "status": "OFFLINE_LEAK_REPRODUCED_ORIGINAL_AND_REPAIRED",
+        "scope": "composition unload leaves agent-owned inject fibers",
+        "candidate": "ISOLATED_R3_ACCEPTED_NOT_DEPLOYED",
+        "hostAckCausalityProven": false,
+        "completeHttpRootDisposalCounterexampleRetained": true
+      },
+      "longTermResizeObserver": "OPEN_BOUNDED_LITERAL_ZERO_IS_NOT_LONG_TERM_PROOF"
+    },
+    "asOfUtc": "2026-11-07T12:39:18.908838+00:00",
+    "runtimeR3": {
+      "archiveSha256": "13a1ede091885c497bf7833464be356a649c19b243051fdfa394cadd21213210",
+      "archiveBytes": 193654185,
+      "nativeDeployment": "NOT_DEPLOYED",
+      "nativeHostAckVerified": false,
+      "status": "PASS_INDEPENDENT_RUNTIME_R3_OWNED_ENTITY_AND_CLI_NOT_NATIVE",
+      "subagentSha256": "315ab11c1d2afb831a451b3cfc126a7686e9d09fe5012295fe64990a4c021082",
+      "transformSha256": "359ebe6e7e9cfc6068693e10a47da7d60ffe92eebfcdece66ae79cdcb71bbbcf",
+      "independent": {
+        "pass": 11,
+        "fail": 0,
+        "skip": 0,
+        "supportedPreimageConversions": 4,
+        "restoreReceiptRejections": 5,
+        "ownedCliRoundtrip": "90 -> 13a -> 90",
+        "deliverySha256": "6d1ae00f181f858282be1e94b481ecabdb6a188980410f1700340251931e4bfa",
+        "publicSummarySha256": "562b5d512085f276579feb9de9e635c8e16363d90bfb17e26da55c5118bd17ff",
+        "productionTouched": false,
+        "exeExecuted": false,
+        "unchanged311SuiteRerun": false
+      },
+      "liveReadOnlyPreview": {
+        "exitCode": 0,
+        "action": "REPAIR",
+        "beforeArchiveSha256": "90c23c91ddff8e1306cfeb17e4546e8e3e708721dd2fba5a82500d6655dc8f88",
+        "nextArchiveSha256": "13a1ede091885c497bf7833464be356a649c19b243051fdfa394cadd21213210",
+        "dryRun": true,
+        "writes": 0,
+        "applicationActions": 0,
+        "doesNotProveApplyWhileActive": true
+      }
+    },
+    "sourceCombinedGate": {
+      "status": "PASS_79_SOURCE_GATE",
+      "focusedPass": 42,
+      "deadlinePass": 37,
+      "pass": 79,
+      "fail": 0,
+      "cancelled": 0,
+      "skip": 0,
+      "todo": 0,
+      "exitCode": 0,
+      "elapsedMs": 54864.0348,
+      "sourceBytesNotFinalZipEvidence": true,
+      "firstAttempt": {
+        "pass": 78,
+        "fail": 1,
+        "status": "FAIL_RETAINED",
+        "cause": "Fixture Host PID-alive preceded initial owner-marker read; marker replacement gap could end Host"
+      },
+      "fixtureRepair": {
+        "hostNoncePidParentReadyHandshake": true,
+        "markerGateUnchanged": true,
+        "coreBackendWorkerByteIdentical": true,
+        "deterministicRealOldRed": true,
+        "targetedGreen": true,
+        "fullGateRerun": true
+      }
+    },
+    "latestLiveReadback": {
+      "atUtc": "2026-11-07T12:39:18.908838+00:00",
+      "lastRecordAtUtc": "2026-11-07T12:38:55.945Z",
+      "archiveSha256": "90c23c91ddff8e1306cfeb17e4546e8e3e708721dd2fba5a82500d6655dc8f88",
+      "normalInstanceStillRunning": true,
+      "normalInstanceVisible": true,
+      "selectedErrorLevelRecords": 24,
+      "toolExecuteFailed": 4,
+      "errorGroups": {
+        "rendererConsole": 9,
+        "toolsExecuteFailed": 4,
+        "sessionToolResult": 8,
+        "scopeLog": 1,
+        "communityMarketLog": 1,
+        "agentFailed": 1
+      },
+      "executeFailedTools": {
+        "acpStatus": 1,
+        "progressUpdate": 1,
+        "other": 2
+      },
+      "recordsAreNotIndependentDefects": true,
+      "resizeObserverLiteralCheck": {
+        "count": 0,
+        "scope": "coordinator literal check of inspected current-run records through lastRecordAtUtc; not inferred from missing dictionary key",
+        "longTermGuarantee": false
+      },
+      "health": {
+        "status": 200,
+        "version": "0.1.212",
+        "watchdogArmed": false,
+        "sameSharedProxyIdentity": true
+      },
+      "controlledModelRequestsAdded": 0,
+      "processControlAdded": false
+    },
+    "qoderReference": {
+      "repository": "liushikuan63/Qoder-Optimization",
+      "currentMainCommit": "0100c5abd4eb25405a6c6dc2e6c095e2319fa5cd",
+      "versionFile": "v0.0.30\n2026-11-06",
+      "oldSnapshotLabel": "09Z",
+      "version57ReleaseClaimed": false,
+      "methodsAdaptedToVerifiedDshSdk": true
+    }
+  },
+  "history": {
+    "release015": {
+      "frozen": true,
+      "schema": 1,
+      "summary": {
+        "schema": 1,
+        "dateLocal": "2026-11-07",
+        "releaseVersion": "0.1.5",
+        "pluginVersion": "1.4.3-review.7",
+        "machine": "user Windows x64, same machine with isolated independent homes/profiles",
+        "frozenPlugin": {
+          "name": "Ultimate-Model-1.4.3-review.7.zip",
+          "bytes": 705741,
+          "sha256": "8c54ee1dcc743da180531166a2ac7f29d76a2b46319daf0078805506a150da0b",
+          "members": 215,
+          "manifestFiles": 214
+        },
+        "regressions": {
+          "pluginIndependent": {
+            "pass": 311,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 0,
+            "todo": 0,
+            "exitCode": 0,
+            "artifactVersion": "1.4.3-review.6",
+            "rerunForReview7": false
+          },
+          "globalWorkflow": {
+            "pass": 16,
+            "fail": 0,
+            "skipped": 0,
+            "exitCode": 0
+          },
+          "hostLegacyGuard": {
+            "pass": 27,
+            "fail": 0
+          },
+          "evidenceReuseBoundary": "Existing UM/workflow/guard byte-identical gates retained; new repair unit and portable/browser/native evidence recorded separately"
+        },
+        "isolatedSdkUi": {
+          "status": "PASS",
+          "model": "deterministic offline fixture",
+          "actualToolRoundtrip": true,
+          "userCancellation": true,
+          "noPersistenceDenied": true,
+          "previousPersistenceBytesHashMtimeUnchanged": true,
+          "refreshPreserved": true,
+          "journalRows": 64,
+          "journalSha256": "5cb907841a0abe5828467b8243552e961167a5d32e40fe8fdbf052b68f3495be",
+          "pageErrorsObserved": 0,
+          "consoleErrorListenerInstalled": false,
+          "recordedSseAbortOnRefresh": 1,
+          "realProviderCalls": 0,
+          "ownedHostResidual": 0,
+          "artifactVersion": "1.4.3-review.6"
+        },
+        "officialManager": {
+          "status": "PASS_ISOLATED_OFFICIAL_MANAGER",
+          "sdk": "0.2.1-rc.3",
+          "pnpm": "11.7.0 JavaScript",
+          "offline": true,
+          "buildScriptsApproved": false,
+          "installExit": 0,
+          "installWarnings": [],
+          "application": "restart-required/no-hmr",
+          "localDirectoryMode": "link",
+          "materializedPathsValid": 8,
+          "uninstallExit": 0,
+          "sourceBytesPreserved": true,
+          "firstUninstallHarnessFlagsFailureRetained": true,
+          "artifactVersion": "1.4.3-review.6"
+        },
+        "windowsNodeSingleFile": {
+          "node": "24.19.0",
+          "sandbox": "read-only, unchanged",
+          "originalCommand": "node --test calculator.test.mjs",
+          "originalExit": 1,
+          "originalError": "spawn EPERM",
+          "compatibleCommand": "node --test --test-isolation=none calculator.test.mjs",
+          "compatibleTests": 4,
+          "compatibleFail": 0,
+          "compatibleExit": 0,
+          "protectedWriteNegativeTestPassed": true,
+          "multiFileEquivalenceClaimed": false
+        },
+        "realModel": {
+          "status": "PASS_CONTROLLED_REAL_MODEL_CONTINUATION",
+          "totalSdkMainRequestsSent": 23,
+          "providerInternalWireRequests": "NOT_COUNTED_ALLOWED_FOR_EACH_EXPLICITLY_APPROVED_RUN",
+          "firstAttempt": {
+            "sdkMainRequests": 6,
+            "elapsedSeconds": 39.929,
+            "toolCalls": 7,
+            "toolErrors": 7,
+            "error": "Error: tool result must be losslessly JSON-serializable",
+            "cause": "temporary async guard violated synchronous SDK contract",
+            "newArtifacts": 0,
+            "journalSha256": "3da732c60cc521b62d026f8c761837728e342dc69ef5d16ac840554a88c321ba"
+          },
+          "offlineRepair": {
+            "unitPassed": 15,
+            "sdkOriginalAsyncRedExit": 1,
+            "sdkFinalSyncGreenExit": 0,
+            "finalHostExit": 0,
+            "hostModel": "deterministic offline fixture",
+            "fixtureMainCalls": 6,
+            "readonlyNodeTests": 4,
+            "networkAttempts": 0,
+            "registeredFinalSourceMatches": true
+          },
+          "secondAttempt": {
+            "additional6ExplicitlyAuthorized": true,
+            "sdkMainRequests": 6,
+            "elapsedSeconds": 45.802,
+            "terminal": "aborted at request limit before seventh dispatch",
+            "toolCalls": 10,
+            "toolSuccess": 8,
+            "toolErrors": 2,
+            "extraHelperRejections": [
+              "edit not allowlisted",
+              "test command stdout/exit suffix not exact allowlisted string"
+            ],
+            "newArtifacts": 2,
+            "expectedArtifacts": 3,
+            "missing": "VIBECODING.md",
+            "modelRanTests": false,
+            "independentModelTests": {
+              "passed": 13,
+              "failed": 0,
+              "skipped": 0,
+              "exitCode": 0
+            },
+            "independentExtraCases": {
+              "positive": 5,
+              "invalid": 18,
+              "allPassed": true
+            },
+            "journalSha256": "0ab2be55545de44219bbaf1be29de05f9bc7857f72e4c6fa82bba2d01e077d5e"
+          },
+          "protectedOriginalFiles": 3,
+          "protectedHashBytesMtimeUnchanged": true,
+          "temporaryHelperBundled": false,
+          "temporaryRowsRemoved": true,
+          "normalDshSixRequestCap": false,
+          "fullAutonomousTaskPassed": true,
+          "furtherPaidRunAuthorized": false,
+          "globalWorkflowDurableUserMessage": true,
+          "globalWorkflowSdkRequestRole": "user",
+          "umResidentSdkRequestRole": "system",
+          "completeWireContextExported": false,
+          "normalSdkCompatibility": {
+            "noTemporaryHelper": true,
+            "modelCalls": 0,
+            "networkCalls": 0,
+            "readThenEdit": true,
+            "originalPwshSuffixExecuted": true,
+            "readonlyNodeTests": 13,
+            "testExit": 0,
+            "protectedAndOriginalSourcesUnchanged": true,
+            "constrainedLanguageStartupStderr": 2,
+            "notAutonomousTaskProof": true
+          },
+          "fullAutonomousTaskScope": "Small owned continuation using two existing DSH-authored code files; one human task message, no coordinator mid-run intervention",
+          "normalDshTwentyRequestCap": false,
+          "noFurtherModelCallsForThisTask": true,
+          "thirdAttempt": {
+            "additionalMaxSdkMainAuthorized": 20,
+            "maxElapsedSeconds": 300,
+            "sdkMainRequests": 11,
+            "unusedMainAllowance": 9,
+            "elapsedSeconds": 103.662,
+            "firstMainUtc": "2026-11-06T23:56:18.489Z",
+            "completedUtc": "2026-11-06T23:58:02.151Z",
+            "status": "PASS_CONTROLLED_REAL_MODEL_CONTINUATION",
+            "terminal": "completed",
+            "terminalSeq": 127,
+            "abortReasonAtCompletion": null,
+            "disposedAfterCompletionIsCleanup": true,
+            "inflight": false,
+            "humanUserMessages": 1,
+            "coordinatorMidRunPrompts": 0,
+            "coordinatorArtifactWrites": 0,
+            "existingCodeFilesAtStart": 2,
+            "requiredArtifacts": 3,
+            "finalArtifacts": 3,
+            "exactFinalFiles": 6,
+            "originalThreeHashBytesMtimeUnchanged": true,
+            "calculatorAndTestsFinalHashMatchContinuationBaseline": true,
+            "toolCalls": 22,
+            "toolSuccess": 20,
+            "toolErrors": 2,
+            "recoveredToolErrors": [
+              "initial VIBECODING read before creation",
+              "Get-FileHash outside exact temporary allowlist"
+            ],
+            "actualModelTests": {
+              "executed": true,
+              "greenBeforeDefaultDiagnostic": true,
+              "initialGreen": {
+                "tests": 13,
+                "pass": 13,
+                "fail": 0,
+                "exitCode": 0
+              },
+              "defaultIsolationDiagnostic": {
+                "tests": 1,
+                "pass": 0,
+                "fail": 1,
+                "exitCode": 1,
+                "spawnEperm": true
+              },
+              "faultInjectionRed": {
+                "tests": 13,
+                "pass": 9,
+                "fail": 4,
+                "exitCode": 1
+              },
+              "restoredGreen": {
+                "tests": 13,
+                "pass": 13,
+                "fail": 0,
+                "exitCode": 0
+              },
+              "skipped": 0,
+              "cancelled": 0
+            },
+            "independentTests": {
+              "pass": 13,
+              "fail": 0,
+              "skipped": 0,
+              "cancelled": 0,
+              "exitCode": 0
+            },
+            "independentExtraCases": {
+              "positive": 5,
+              "invalid": 18,
+              "allPassed": true
+            },
+            "modelLedgerBytes": 6773,
+            "modelLedgerSha256": "2c6750f72ea41a03f09f0a5b19a69a3e7bb87d3b2022c82f87de46edb2d6ec2c",
+            "journalSha256": "86cd2450afa2911396abaaa4d4789a55f6ff2384599fe596309c0f7da54acc66",
+            "finalHelperPolicyTests": 16,
+            "finalHelperActualSdkRedGreen": true,
+            "finalHelperFullHostOfflineChainPassed": true,
+            "independentValidatorModelNetworkWorkspaceLiveWrites": 0
+          }
+        },
+        "source": {
+          "qoderVersion": "v0.0.30",
+          "qoderSha": "33386f97bba86a852d90c9ade14222024d91adaa",
+          "qoderLocalRemoteSameAt": "2026-11-07T00:15:30.352995+00:00",
+          "qoderReadmeReference": "Download selection, capabilities, guided setup, documentation navigation and immutable release verification; adapted to DSH interfaces and license boundaries"
+        },
+        "unverified": [
+          "fresh-from-zero arbitrary-project autonomous completion and long-term stability",
+          "cross-platform matrix",
+          "other core versions",
+          "UNC paths",
+          "file/tgz/registry copy installs",
+          "all native pnpm locking cases",
+          "real business long tasks",
+          "arbitrary parallel writes",
+          "all external plugin combinations"
         ],
-        "cors": 0,
-        "unknown": 0,
-        "tool": 0,
-        "module": 0,
-        "crash": 0,
-        "startupHealthEvents": 3,
-        "productionZeroRoGate": "FAIL_REMAINING_PERIODIC_NOTICES",
-        "wholeRunLogRecords": 93,
-        "sourceReadbackAtUtc": "2026-11-07T07:57:14.076Z",
-        "nativePhaseErrorRecords": 2,
-        "nativePhaseAccount": 0,
-        "nativePhaseResizeObserver": 2,
-        "receiptSha256": "ae4ca03d5b7f71053168e8fd32cee7348a80592351711569791a26c3cbe01599",
-        "finalWindowSha256": "1ebef19b988d944da1754759b568f9947b2466d0c87448685fe390b0d3b58deb"
-      },
-      "nativeAffectedPath": {
-        "proofUtc": "2026-11-07T07:51:53Z",
-        "origin": "dsh-app://app/",
-        "view": "bili-context",
-        "menu": "MoreConversationViews",
-        "readableHttpStatus": 404,
-        "failedToFetchObserved": false,
-        "normalConversationTabRestoredUtc": "2026-11-07T07:52:27Z",
-        "userTaskResumed": false,
-        "newPromptSent": false,
-        "newPresetFiberSelectionRetested": false,
-        "sourceReadbackUtc": "2026-11-07T07:52:19Z",
-        "proofSha256": "2081c8c764afa295f5f6267267dc26e3a5314d9f4d9d310d2544a6dc1d1174d2"
-      },
-      "runStartEventUtc": "2026-11-07T07:50:16.761Z",
-      "sourceReadbackAtUtc": "2026-11-07T07:57:14.076Z"
+        "changeScope": "v0.1.4 optional pinned Bili CORS and desktop-footer repairs; review.7 changes5 metadata/document files, other210 files byte-identical to review.6; existing workflow/host guard unchanged. Original review.6 release immutable.",
+        "documentationLanguages": [
+          "en",
+          "zh-CN"
+        ],
+        "runtimeRepair": {
+          "status": "CORS_REPAIRED_ACCOUNT403_UNRESOLVED_EXPECTED_GUARD_RETAINED",
+          "original12": {
+            "officialAccount403": 1,
+            "biliCors": 10,
+            "expectedReadGuardDenial": 1,
+            "historicalBiliHttpStatuses": "NOT_RECORDED"
+          },
+          "bundleVersion": "0.1.212",
+          "originalSha256": "e512ccc1880ac2ed82657b779a5e4b518f88ff700baa8a04e399b908e5119599",
+          "repairedSha256": "7a4185d855452c04bd15e7a63b490780f5f1ee8f550658b6953283037ecab611",
+          "newUnit": {
+            "pass": 7,
+            "fail": 0,
+            "skipped": 0,
+            "exitCode": 0
+          },
+          "portableActualSource": {
+            "pass": 15,
+            "fail": 0,
+            "notRun": 0,
+            "exitCode": 0,
+            "sourceUnchanged": true
+          },
+          "formalPostimageBrowser": {
+            "extractedFunctions": 11,
+            "browserAssertions": 10,
+            "nodeGateAssertions": 14,
+            "get": 24,
+            "options": 0,
+            "pageerror": 0,
+            "expectedHttpResourceErrors": 2,
+            "nativeElectron": false
+          },
+          "localApply": {
+            "appliedAtUtc": "2026-11-07T05:38:16.062Z",
+            "newTargetNlink": 1,
+            "hardlinkAliasBytesAndMtimeUnchanged": true,
+            "syntaxExit": 0,
+            "permanentBackup": true,
+            "normalShutdown": true,
+            "forcedTermination": false,
+            "activeTasksBeforeFirstQuit": "UNOBSERVED"
+          },
+          "nativeAffectedPath": {
+            "observedAtUtc": "2026-11-07T05:45:54.037Z",
+            "origin": "dsh-app://app/",
+            "actualEmptyStatus404Readable": true,
+            "failedToFetchTextObserved": false,
+            "biliModelTaskRun": false
+          },
+          "account": {
+            "profileRpcCalls": 1,
+            "rpcHttpStatus": 200,
+            "rpcOk": true,
+            "valueStatus": "failed",
+            "originalDiagnosticHttpStatus": 403,
+            "errorCode": "network",
+            "freshness": "Actual failing profile request observed; RPC200 is not platform200",
+            "fixed": false,
+            "credentialsClearedByUs": false,
+            "exactRejectingNetworkHop": "UNDETERMINED; status is from the normal account request chain"
+          },
+          "temporaryBridge": {
+            "homeOriginalShaRestored": true,
+            "exactOpaqueUrlFileRemoved": true,
+            "normalCleanupRestart": true,
+            "includedInPackage": false
+          },
+          "allRuntimeErrorsEliminated": false,
+          "earlierSnapshotRetained": true,
+          "desktopFooter": {
+            "sourceBeforeSha256": "1ae5f487d7d8304c5b20321280bc76b11fc8500ad1b599237e00858b38061e0c",
+            "sourceAfterSha256": "680d4dbd4594145c92a7a571ce044862f8bd326bc839873ff13653c4e8e50f46",
+            "archiveBeforeSha256": "54983f84d351499c90a5be50957065d9bd8b5188c30fc85eb0c67ef2eba0354e",
+            "archiveAfterSha256": "1c3bc0c92100688532e43173e51d93bcc07350dbcb18a9be65e5346504203fe4",
+            "exeSha256": "af7bb5a976c658fef1627743943599053ee47316e668e2fd0ac053ece5d8dcc5",
+            "sourcePinningTests": 4,
+            "syntheticArchiveTests": 4,
+            "fullArchiveFixtureCases": 8,
+            "independentBrowserChecks": 14,
+            "independentVmBoundaryChecks": 6,
+            "originalBrowserRoNotices": 7,
+            "repairedBrowserRoNotices": 0,
+            "originalPayloadBytesRetained": 186919466,
+            "executableOrFuseModified": false,
+            "installedAtUtc": "2026-11-07T06:17:38.480Z",
+            "newModelCalls": 0,
+            "productionZeroRoGate": "FAIL_REMAINING_PERIODIC_NOTICES"
+          },
+          "postCorsPreLayoutObservation": {
+            "sinceUtc": "2026-11-07T05:46:44.779Z",
+            "untilUtc": "2026-11-07T05:52:08.191Z",
+            "healthyBootEvents": 3,
+            "shutdownOrCrash": 0,
+            "cors": 0,
+            "errorRecords": 9,
+            "errorCategories": {
+              "ACCOUNT_READ_FAILED": 1,
+              "RESIZE_OBSERVER_NOTIFICATION": 8
+            },
+            "unknown": 0,
+            "configurationAndDataHashesMatch": 6,
+            "credentialsCheckedAsOpaqueBytesOnly": true,
+            "originalViewRestored": true,
+            "periodicResizeObserverNotificationsFixed": false,
+            "nativeNoHelperRetestAtUtc": "2026-11-07T05:50:38.397Z"
+          },
+          "controlledModelAcceptanceCallsAdded": 0,
+          "normalBusinessTrafficCounted": false,
+          "postFooterObservation": {
+            "sinceUtc": "2026-11-07T06:17:46.403Z",
+            "untilUtc": "2026-11-07T06:25:30.475Z",
+            "errorRecords": 9,
+            "account": 1,
+            "resizeObserver": 8,
+            "cors": 0,
+            "unknown": 0,
+            "crash": 0,
+            "healthyBootEvents": 3,
+            "nativeBiliRetestUtc": "2026-11-07T06:20:46.433Z",
+            "protectedOpaqueByteHashesMatch": 6
+          },
+          "historicalMaintenanceHoldV014": {
+            "activeGenerationObservedAtUtc": "2026-11-07T06:52:25Z",
+            "timestampPrecision": "second, bounded before/after clock read and native UIA snapshot",
+            "restartOrDiagnosticAfterActiveReadback": false,
+            "privateProbeDistributed": false,
+            "maintenanceQuestionPending": true
+          },
+          "maintenanceHold": {
+            "recordScope": "CURRENT_NEXT_MAINTENANCE_BOUNDARY_AFTER_ONE_APPROVED_WINDOW",
+            "priorApprovedWindowCompleted": true,
+            "um7DeploymentHeld": false,
+            "furtherProbeAuthorizedByThisRecord": false,
+            "additionalExplicitTimeAndTotalLogBudgetRequired": true,
+            "spentPriorWindowAutomaticallyExtended": false,
+            "businessResumedByCoordinator": false,
+            "secondExplicitWindowCompleted": true,
+            "deadlineGate": "FAIL_BUDGET_OVERRUN",
+            "furtherProbePlanned": false
+          }
+        },
+        "historicalFrozenPluginReview6": {
+          "name": "Ultimate-Model-1.4.3-review.6.zip",
+          "bytes": 705119,
+          "sha256": "9938562f6691e67a35c40fe83b37cf5d496c4953ee388e4e8a882396ca4266ab",
+          "members": 215,
+          "manifestFiles": 214
+        },
+        "compatibilityReview7": {
+          "coreRange": ">=0.2.1-rc.2 <0.2.2-0",
+          "frozenComponentSourceCommit": "e7e2a3575242fa76ea4a4efd0024779b0f6abf95",
+          "changedFiles": 5,
+          "unchangedFiles": 210,
+          "liveDeployment": "APPLIED_5_METADATA_FILES_WITH_BACKUP_CAS_AND_NORMAL_RESTART; runtimeRO remainsunresolved.",
+          "newCore022Adapted": false,
+          "versionExemptionCreated": false,
+          "officialManagerMayWriteInstallBeforeReject": true,
+          "officialSupportedSdkManager": {
+            "status": "PASS_EXACT_ZIP_ISOLATED_OFFICIAL_MANAGER",
+            "sdkCore": "0.2.1-rc.3",
+            "cliAppBootSha256": "5135179ac810e4f626f32ec3bdc3293dc7d2028e8aa92e5e0c006f1a33b78e76",
+            "sameBytesAsInstalledDesktopAppBoot": false,
+            "installExit": 0,
+            "removeExit": 0,
+            "officialBundleEnabledThenDisabled": true,
+            "rootRows": 4,
+            "materializedReferences": 8,
+            "leftoversAfterOfficialRemove": 0,
+            "application": "restart-required",
+            "noHmr": true,
+            "agentPresetRuntimeActivated": false,
+            "hostStarted": false,
+            "modelCalls": 0,
+            "accountCalls": 0,
+            "receiptSha256": "e1a65a47661ec83a70dbb056b71a42223b8255a243530fdc1f9d478870ced6d8",
+            "firstHarnessFailurePreservedAndOfficiallyCleaned": true
+          }
+        },
+        "historicalLiveDeploymentReview6": {
+          "dsh": "2.0.20-next",
+          "core": "0.2.1-rc.3",
+          "plugin": "1.4.3-review.6",
+          "normalRestart": true,
+          "forcedShutdown": false,
+          "healthyBootEvents": 3,
+          "knownEarlierRendererAccountReadError": 1,
+          "temporaryAcceptanceRowsRemoved": true,
+          "globalWorkflowOriginalPrefixBytes": 13587,
+          "globalWorkflowInstalledBytes": 15830,
+          "globalWorkflowBackupReadbackMatches": true,
+          "globalWorkflowReadOnlyPlan": "KEEP",
+          "visionRouterRuntime": {
+            "active": true,
+            "entrySeen": true,
+            "fiberSeen": true
+          },
+          "initialAcceptanceSnapshotRuntimeErrors": 1,
+          "additionalCurrentInstanceReadback": {
+            "observedAtUtc": "2026-11-07T00:25:04.281Z",
+            "sameExecutableVersion": "2.0.20-next",
+            "sameHomeAgentsGuardBytes": true,
+            "staticSelfcheckExit": 0,
+            "manifestFiles": 214,
+            "threeStartupHealthEventsObserved": true,
+            "temporaryRowsStillRemoved": true,
+            "previousInstanceCleanEndObserved": true,
+            "newInstanceNotStartedByThisFollowup": true,
+            "snapshotErrors": {
+              "accountRead": 1,
+              "otherRendererConsole": 10,
+              "hostSession": 1,
+              "total": 12
+            },
+            "technicalAttribution": "UNDETERMINED; no explicit UM/module-load/broken markers, insufficient to exclude association",
+            "journalOrChatBodiesRead": false,
+            "accountValuesRead": false,
+            "modelCalls": 0,
+            "networkCalls": 0,
+            "restarts": 0,
+            "notAZeroRuntimeErrorsClaim": true
+          }
+        },
+        "liveDeployment": {
+          "recordScope": "CURRENT_POST_APPROVED_MAINTENANCE_V015; historicalinitialreview6 evidence preservedseparately.",
+          "plugin": "1.4.3-review.7",
+          "core": "0.2.1-rc.3",
+          "dsh": "2.0.20-next",
+          "normalRestart": true,
+          "manifestFilesMatched": 214,
+          "manifestSha256": "8e1e6ef30bc2e170c670ec10b794fe878ae6ad1ac3d19e3bda9b78fcd1818be1",
+          "metadataFilesUpdated": 5,
+          "otherFilesUnchanged": 210,
+          "executionCodeChanged": false,
+          "nativeAffectedPath": "PASS_ACTUAL_BILI_HTTP404",
+          "newModelCallsForAcceptance": 0,
+          "ordinaryBusinessTrafficCounted": false,
+          "finalNormalReadback": "SOURCE_MANIFEST_AND168.886SECOND_WINDOW_COMPLETE_RO_RECURRED",
+          "normalStartUtc": "2026-11-07T07:50:16.761Z",
+          "newPresetFiberSelectionRetested": false,
+          "fullGracefulShutdownOfPriorDiagnosticHostProven": false,
+          "sourceReadbackAtUtc": "2026-11-07T07:57:14.076Z",
+          "evidenceSha256": "ae4ca03d5b7f71053168e8fd32cee7348a80592351711569791a26c3cbe01599"
+        },
+        "postMaintenanceV015": {
+          "status": "NORMAL_RESTORATION_UM7_AND_PROTECTED_BYTES_PASS__V4_TIME_GATE_FAIL__RO_ACCOUNT_REMAIN",
+          "approvedWindow": {
+            "explicitlyApproved": true,
+            "priorRunCleanEndUtc": "2026-11-07T07:23:11.575Z",
+            "standingMaintenancePermission": false
+          },
+          "um7Live": {
+            "version": "1.4.3-review.7",
+            "appliedUtc": "2026-11-07T07:29:22Z",
+            "metadataFilesUpdated": 5,
+            "otherFilesUnchanged": 210,
+            "executionCodeChanged": false,
+            "backupsAndCasReceiptRetained": true,
+            "manifestFilesMatched": 214,
+            "manifestSha256": "8e1e6ef30bc2e170c670ec10b794fe878ae6ad1ac3d19e3bda9b78fcd1818be1",
+            "materializedPatchUnchanged": true
+          },
+          "observation": {
+            "receiptSha256": "263991f322ce947b493ebfc2c42cb920504b7f4df2663cf6eefe7e17e158dd4d",
+            "runStartedUtc": "2026-11-07T07:29:23.960Z",
+            "nativeVisibleProofUtc": "2026-11-07T07:31:36Z",
+            "untilUtc": "2026-11-07T07:33:54.585Z",
+            "secondsSinceVisibleProof": 138.585,
+            "health": 3,
+            "errors": 3,
+            "account": 1,
+            "ro": 2,
+            "roUtc": [
+              "2026-11-07T07:33:41.348Z",
+              "2026-11-07T07:33:41.352Z"
+            ],
+            "cors": 0,
+            "unknown": 0,
+            "tool": 0,
+            "module": 0,
+            "crash": 0,
+            "protectedOriginalHashesMatched": 6,
+            "sourceReadbackUtc": "2026-11-07T07:35:40Z"
+          },
+          "nativeAdoption": "PASS_FINAL_NORMAL_ACTUAL_BILI_HTTP404_NOT_NEW_PRESET_FIBER",
+          "protectedHashScope": "Six previously agreed configuration/data files checked asopaque bytes only; notalluserdata.",
+          "businessResumedByCoordinator": false,
+          "controlledModelAcceptanceCallsAdded": 0,
+          "ordinaryBusinessTrafficCounted": false,
+          "unchangedSuitesRerun": false,
+          "oldReleaseAssetsReplaced": false,
+          "nativeRegistration": {
+            "receiptSha256": "d608005c618a92b6dc65efb5313c754a5b9203f155f0f601ab555fb163b2bb1d",
+            "pluginPageToggles": [
+              false,
+              true
+            ],
+            "legacyHomeRowDisabled": true,
+            "managedReview7RowEnabled": true,
+            "enabledPresetRows": 1,
+            "externalManagedRowOverride": false,
+            "declaredNativeProviders": 0,
+            "togglesChangedByUs": false,
+            "actualNewModePickerOrFiberProven": false
+          },
+          "furtherPrivateProbe": "NO_FURTHER_PROBE",
+          "currentStatusAsOfUtc": "2026-11-07T07:57:14.076Z",
+          "privateProbeV3FirstWindow": {
+            "normalCleanStopUtc": "2026-11-07T07:28:04.663Z",
+            "normalAsarRestoredByUtc": "2026-11-07T07:28:41Z",
+            "restoredBeforeFiveMinuteDeadline": true,
+            "ready": 0,
+            "diagnostic": 0,
+            "ro": 0,
+            "result": "NO_READY_OWNER_UNVERIFIED",
+            "developerLogging": false,
+            "developerLoggingChanged": false,
+            "actualMainFiltersConsoleInfo": true,
+            "probeExecutionProven": false,
+            "observerOwnerIdentified": false,
+            "temporaryProbeDistributed": false,
+            "temporaryInstanceStartedUtc": "2026-11-07T07:23:55.727Z",
+            "timeScope": "Temporary instance lifecycle, notproof that theprefixexecuted."
+          },
+          "privateProbeV4SecondWindow": {
+            "explicitAdditionalApproval": true,
+            "approvedSeconds": 180,
+            "maxTotalLogsIncludingReady": 3,
+            "maxBytes": 8192,
+            "temporaryRunStartedUtc": "2026-11-07T07:45:46.527Z",
+            "actualReadyUtc": "2026-11-07T07:45:53.936Z",
+            "actualReadySeq": 39,
+            "partialCollectorUntilUtc": "2026-11-07T07:48:33.902Z",
+            "partialLogs": 1,
+            "partialBytes": 28,
+            "partialDiag": 0,
+            "partialRo": 0,
+            "fullEndedRunReadback": {
+              "records": 103,
+              "ready": 1,
+              "bytes": 28,
+              "diagnostic": 0,
+              "ro": 0,
+              "ownerReproduced": false,
+              "shutdownAcknowledgement": false,
+              "rawErrorLevelRecords": 3,
+              "diagnosticReadyErrorLevelRecords": 1,
+              "accountReadFailedRecords": 1,
+              "expectedHostExitWithoutAckRecords": 1,
+              "unknownAfterMetadataRefinement": 0
+            },
+            "actualRunSeconds": 190.421,
+            "runOverBudgetSeconds": 10.421,
+            "plannedHardDeadlineUtc": "2026-11-07T07:48:46.000Z",
+            "normalCarrierRestoredAtUtc": "2026-11-07T07:49:02.128Z",
+            "restoreLateAgainstPlannedHardDeadlineSeconds": 16.128,
+            "deadlineStatus": "FAIL_BUDGET_OVERRUN",
+            "furtherProbe": false,
+            "newNormalRunStartedUtc": "2026-11-07T07:50:16.761Z",
+            "newNormalMainPid": 926460,
+            "normalCarrier": "ASAR1c3b, UM7 retained",
+            "newNormalFinalWindow": "COMPLETE168.886S_NATIVE_PHASE_RO_RECURRED",
+            "runEndMarkedCleanUtc": "2026-11-07T07:48:56.948Z",
+            "shutdown": {
+              "eventUtc": "2026-11-07T07:48:56.933Z",
+              "classification": "EXPECTED_HOST_EXIT_WITHOUT_SHUTDOWN_ACK",
+              "expected": true,
+              "acknowledged": false,
+              "signal": "SIGTERM",
+              "exitCode": null,
+              "officialQuitEntryUsed": true,
+              "separateOsKillCommandUsedByCoordinator": false,
+              "cleanRunMarkerProvesFullGracefulShutdown": false,
+              "allTaskDataIntegrityVerified": false,
+              "rawErrorRecordRetained": true,
+              "independentNewProductBugInferred": false,
+              "sourceReceiptSha256": "ae4ca03d5b7f71053168e8fd32cee7348a80592351711569791a26c3cbe01599"
+            },
+            "normalRunIdentifierDistributed": false
+          },
+          "finalNormalInstance": {
+            "startedUtc": "2026-11-07T07:50:16.761Z",
+            "normalCarrierRestored": true,
+            "um7Retained": true,
+            "independentAtLeast120SecondWindow": {
+              "status": "BOUNDED_OBSERVATION_COMPLETE_RO_ACCOUNT_UNRESOLVED",
+              "sinceNativeProofUtc": "2026-11-07T07:51:53Z",
+              "untilUtc": "2026-11-07T07:54:41.886Z",
+              "seconds": 168.886,
+              "wholeRunErrorRecords": 3,
+              "account": 1,
+              "resizeObserver": 2,
+              "roUtc": [
+                "2026-11-07T07:54:41.546Z",
+                "2026-11-07T07:54:41.550Z"
+              ],
+              "cors": 0,
+              "unknown": 0,
+              "tool": 0,
+              "module": 0,
+              "crash": 0,
+              "startupHealthEvents": 3,
+              "productionZeroRoGate": "FAIL_REMAINING_PERIODIC_NOTICES",
+              "wholeRunLogRecords": 93,
+              "sourceReadbackAtUtc": "2026-11-07T07:57:14.076Z",
+              "nativePhaseErrorRecords": 2,
+              "nativePhaseAccount": 0,
+              "nativePhaseResizeObserver": 2,
+              "receiptSha256": "ae4ca03d5b7f71053168e8fd32cee7348a80592351711569791a26c3cbe01599",
+              "finalWindowSha256": "1ebef19b988d944da1754759b568f9947b2466d0c87448685fe390b0d3b58deb"
+            },
+            "nativeAffectedPath": {
+              "proofUtc": "2026-11-07T07:51:53Z",
+              "origin": "dsh-app://app/",
+              "view": "bili-context",
+              "menu": "MoreConversationViews",
+              "readableHttpStatus": 404,
+              "failedToFetchObserved": false,
+              "normalConversationTabRestoredUtc": "2026-11-07T07:52:27Z",
+              "userTaskResumed": false,
+              "newPromptSent": false,
+              "newPresetFiberSelectionRetested": false,
+              "sourceReadbackUtc": "2026-11-07T07:52:19Z",
+              "proofSha256": "2081c8c764afa295f5f6267267dc26e3a5314d9f4d9d310d2544a6dc1d1174d2"
+            },
+            "runStartEventUtc": "2026-11-07T07:50:16.761Z",
+            "sourceReadbackAtUtc": "2026-11-07T07:57:14.076Z"
+          },
+          "newPresetFiberSelectionRetested": false,
+          "provenance": {
+            "finalAggregateSha256": "ae4ca03d5b7f71053168e8fd32cee7348a80592351711569791a26c3cbe01599",
+            "finalWindowSha256": "1ebef19b988d944da1754759b568f9947b2466d0c87448685fe390b0d3b58deb",
+            "nativeBiliProofSha256": "2081c8c764afa295f5f6267267dc26e3a5314d9f4d9d310d2544a6dc1d1174d2"
+          }
+        }
+      }
     },
-    "newPresetFiberSelectionRetested": false,
-    "provenance": {
-      "finalAggregateSha256": "ae4ca03d5b7f71053168e8fd32cee7348a80592351711569791a26c3cbe01599",
-      "finalWindowSha256": "1ebef19b988d944da1754759b568f9947b2466d0c87448685fe390b0d3b58deb",
-      "nativeBiliProofSha256": "2081c8c764afa295f5f6267267dc26e3a5314d9f4d9d310d2544a6dc1d1174d2"
+    "automaticDeadlineV1": {
+      "frozen": true,
+      "status": "FAIL",
+      "failure": "RUN_IDENTITY_CHANGED",
+      "elapsedMs": 211143,
+      "maxWallMs": 300000,
+      "normalRestored": false,
+      "manualExactCasRecoveryDidNotChangeAutomaticVerdict": true
+    },
+    "older180SecondWindow": {
+      "frozen": true,
+      "status": "FAIL",
+      "limitMs": 180000,
+      "runMs": 190421,
+      "restoreLateMs": 16128
+    },
+    "guardianRestartR1": {
+      "frozen": true,
+      "status": "FAIL_NO_AUTOMATIC_GUARD_RESTART_OBSERVED",
+      "injectedAtUtc": "2026-11-07T11:23:40.1190308Z",
+      "observedAtUtc": "2026-11-07T11:27:25.6033552Z",
+      "elapsedMs": 225487.90420000002,
+      "policy": "RestartOnFailure PT1M/999 only",
+      "dshStopped": false,
+      "biliStopped": false,
+      "laterSuccessDoesNotRewriteFailure": true
+    },
+    "maintenance3PreApprovalHold": {
+      "frozen": true,
+      "nativeUiObservationUtc": "2026-11-07T11:36:36Z",
+      "stopGenerationControlVisible": true,
+      "action": "HOLD_UNTIL_LATER_EXPLICIT_CONSENT",
+      "timeoutWasNotApproval": true
     }
   }
 }

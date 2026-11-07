@@ -1,6 +1,6 @@
 # Deployment, updates, and recovery
 
-The live Ultimate-Model was updated to `1.4.3-review.7` in this explicitly approved maintenance window. Only five metadata/document files changed; the other 210 files and all execution code retain review.6 bytes. The 0.1.4 statements “live review.6 / maintenance HOLD” describe that earlier snapshot; see [acceptance](acceptance.md) for the later approval and completed maintenance. This is not standing approval for further maintenance or an extension of the spent diagnostic budget.
+For 1.0.0, live Ultimate-Model is `1.4.4`: five metadata/document files changed against the previously materialized review.7; 210 files and the materialized patch are preserved. Optional exact-byte runtime repairs and the developer deadline API are documented in [Runtime repairs](runtime-repairs.md). The 0.1.4 statements “live review.6 / maintenance HOLD” describe that earlier snapshot; see [acceptance](acceptance.md) for the later approval and completed maintenance. This is not standing approval for further maintenance or an extension of the spent diagnostic budget.
 
 [简体中文](../deployment.md) · English
 

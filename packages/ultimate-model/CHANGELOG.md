@@ -1,3 +1,10 @@
+# 1.4.4（社区正式版 / Community stable release，2026-11-07）
+
+- 从 review.7 晋级，预设ID、工具接口、运行代码与守卫不改字节；仅修订版本元数据、说明与清单。
+- 兼容范围仍为 `>=0.2.1-rc.2 <0.2.2-0`；不宣称已适配新 SDK、其他平台或任意插件组合。
+- Promoted from review.7 with unchanged execution code, preset IDs, tools and guards. Version metadata, documentation and manifest only; the supported-core boundary is unchanged.
+- This community component is separate from the official DSH application. Runtime/network fixes and actual acceptance are documented in the full share pack.
+
 # 1.4.3-review.7（兼容边界元数据修订，2026-11-07）
 
 - 仅将 core 兼容声明收窄为 `>=0.2.1-rc.2 <0.2.2-0`，同步 package/manifest/说明/哈希清单；业务代码与 review.6 逐字节相同。

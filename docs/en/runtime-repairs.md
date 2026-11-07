@@ -2,6 +2,16 @@
 
 # Runtime diagnostics and optional compatibility repairs
 
+## Current 1.0.0 state and added tools
+
+The normal instance adopts Ultimate-Model1.4.4 and exact ASAR `90c23c91ddff8e1306cfeb17e4546e8e3e708721dd2fba5a82500d6655dc8f88`. M3 maintenance completed within its five-minute total; standalone18787 survived DSH shutdown. Native Host ACK still fails with SIGTERM and account access still returns403. The added standing-subagent repair has passed isolated-copy validation; final13a is not yet deployed and is not claimed as adopted.
+
+`scripts/repair-dsh-runtime-stability.mjs` supports exact549/1c3/e8/90→13a, permanent backup, CAS, stopped-app checks and restore. See the [bilingual guide](../runtime-stability-tool.md) for commands and11 tool tests. [Acceptance](acceptance.md) separates local defect repairs, bounded normal RO observations and historical failures. The old footer utility remains a narrow historical repair; do not repeatedly apply it to newer archives.
+
+The optional developer [deadline API](diagnostic-deadline-api.md) defines identity, cancellation, confirmed exit and restoration contracts for an independent guard. It contains no production DSH backend; private diagnostic carriers are not distributed. A new native window automatically stopped/restored within226649ms; previous FAIL records remain. Spent maintenance budgets do not silently renew.
+
+The following0.1.4/0.1.5 history is frozen. Its then-current instance and no-more-probe statements belong to that time and authorization; current results are above and in1.0.0 acceptance.
+
 This page records the classification of the twelve historical log entries, the confirmed narrow defect, and the actual repair evidence. The formal v2 output, independent browser run, live application, and native-renderer status read now have corresponding evidence. The normal official account RPC returns outer HTTP200/ok=true with value.status=failed; its upstream profile request still receives403 and remains unresolved. See the [acceptance report](acceptance.md) for the final-instance observation window and new log categories; these entries are not all described as resolved bugs. That paragraph describes the frozen0.1.4 live review.6 snapshot; later approved0.1.5 maintenance adopted review.7 with unchanged execution code. Earlier published ZIPs remain immutable.
 
 The live Ultimate-Model was updated to `1.4.3-review.7` in this explicitly approved maintenance window. Only five metadata/document files changed; the other 210 files and all execution code retain review.6 bytes. The 0.1.4 statements “live review.6 / maintenance HOLD” describe that earlier snapshot; see [acceptance](acceptance.md) for the later approval and completed maintenance. This is not standing approval for further maintenance or an extension of the spent diagnostic budget.

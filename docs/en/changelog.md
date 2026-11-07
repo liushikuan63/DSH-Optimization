@@ -4,6 +4,16 @@
 
 The repository version describes the full distribution; the plugin has its own version. When plugin bytes do not change, retain its version and original ZIP. A report update must not replace a same-named plugin archive with different content. All dates use Asia/Shanghai.
 
+## 1.0.0 — 2026-11-07
+
+- Add exact-byte Cordis consumer ownership and standing-subagent child-scope cleanup repairs. Both cores retain the original teardown RED and pass14 candidate tests each. Host ACK still fails on deployed90; added13a is reported separately.
+- Deploy standalone18787, current-user logon startup and bounded watchdog. Automatic watchdog recovery took37.4607seconds while the proxy remained alive. Final18787 supersedes the earlier8787 request; no second port is launched.
+
+- First formal community toolkit release; component1.4.4 preserves review.7 execution code. Existing configuration, disabled choices, experience and credentials are preserved rather than replaced wholesale.
+- Add an exact-byte local input-bar RO scheduling and safe403 classification repair with preview, permanent backup, CAS, stopped-app checks and restore. Account access recovery remains unresolved.
+- Add a developer deadline API with37 tests. Actual private native maintenance automatically restored in226649ms/300000ms; native bounds and subsequent normal adoption have separate evidence. No private probe/backend or application binary is distributed.
+- Synchronize bilingual README, installation, recovery, acceptance and known issues. Retain earlier deadline/automatic-restore failures, account403, missing Host ACK and failed RO history. Zero new controlled model requests.
+
 ## 0.1.5 — 2026-11-07
 
 - Record the subsequently approved maintenance, normal shutdown/restoration and live UM7 metadata adoption. Only five metadata/document files were updated; execution code, public repair utilities, shared rules and the existing UM7 ZIP retain their bytes.

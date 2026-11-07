@@ -1,9 +1,9 @@
 # DSH-Optimization
 
-**Goal-directed work, on-demand capabilities, and evidence-backed delivery for DSH.** 让DSH按目标推进，按需使用能力，把结果和证据一起交付。
+**Goal-directed work, on-demand capabilities, and evidence-backed delivery for DSH.** 让 DSH 按目标推进，按需使用能力，把结果和证据一起交付。
 
-[![Version](https://img.shields.io/badge/version-0.1.5-blue.svg)](VERSION)
-[![Plugin](https://img.shields.io/badge/Ultimate--Model-1.4.3--review.7-blue.svg)](packages/ultimate-model/package.json)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](VERSION)
+[![Plugin](https://img.shields.io/badge/Ultimate--Model-1.4.4-blue.svg)](packages/ultimate-model/package.json)
 [![Node](https://img.shields.io/badge/Node.js-22%2B-green.svg)](https://nodejs.org/)
 [![Verified platform](https://img.shields.io/badge/verified-Windows%20x64-lightgrey.svg)](docs/acceptance.md)
 
@@ -11,22 +11,20 @@
 
 ## English
 
-[Downloads](#downloads-and-packages) · [Install](docs/en/getting-started.md) · [Use](docs/en/usage.md) · [Acceptance](docs/en/acceptance.md) · [History](docs/en/changelog.md)
-
-DSH-Optimization is a community toolkit for DeepSeek Harness / DSH NEXT. It provides an explicitly selected **Ultimate-Model preset** and an optional **shared workflow block** for modes that read your DSH Home rules. Methods from [Qoder-Optimization](https://github.com/liushikuan63/Qoder-Optimization)—on-demand discovery, recoverable changes and checkable delivery—are adapted to DSH's actual SDK, plugin manager and existing skills.
+DSH-Optimization is a community toolkit for DeepSeek Harness / DSH NEXT. It supplies an explicitly selected **Ultimate-Model preset**, optional **shared workflow rules**, and narrowly scoped repair utilities. Methods from [Qoder-Optimization](https://github.com/liushikuan63/Qoder-Optimization)—on-demand discovery, staged checks, recoverable edits and complete delivery—are adapted to the actual DSH SDK and existing skills. No additional resident classifier or model gateway is installed.
 
 ### Downloads and packages
 
-Start with the **full share pack**; cloning is optional. The current release is **v0.1.5, a pre-release**. The component is **1.4.3-review.7**, a metadata-only compatibility revision with unchanged review.6 execution code. Both archives have separate SHA256 sidecars.
+The formal community release is **v1.0.0**, with **Ultimate-Model 1.4.4**. Start with the full share pack. Both archives have separate SHA256 sidecars; published tags and asset bytes are immutable. This is a stable toolkit release with documented host/service limitations, not a promise that all installed plugins or remote accounts are error-free.
 
-| Download | Contents | Choose this when |
-| --- | --- | --- |
-| [Full share pack](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.5/DSH-Optimization-0.1.5.zip) · [SHA256](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.5/DSH-Optimization-0.1.5.zip.sha256) | Plugin, optional workflow installer and Bili compatibility utility, bilingual README and English/Chinese setup, use, recovery, history and acceptance guides; tests and sanitized evidence | Installing for the first time, sharing with others, or adding shared rules across modes |
-| [Plugin only](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.5/Ultimate-Model-1.4.3-review.7.zip) · [SHA256](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.5/Ultimate-Model-1.4.3-review.7.zip.sha256) | The frozen Ultimate-Model component and its original package documentation | You only need the preset and already manage shared rules; use the linked English guides online |
+| Download / 下载 | Contents / 内容 |
+| --- | --- |
+| [Full share pack](https://github.com/liushikuan63/DSH-Optimization/releases/download/v1.0.0/DSH-Optimization-1.0.0.zip) · [SHA256](https://github.com/liushikuan63/DSH-Optimization/releases/download/v1.0.0/DSH-Optimization-1.0.0.zip.sha256) | Preset, shared workflow, optional repair tools, tests and bilingual guides |
+| [Plugin only](https://github.com/liushikuan63/DSH-Optimization/releases/download/v1.0.0/Ultimate-Model-1.4.4.zip) · [SHA256](https://github.com/liushikuan63/DSH-Optimization/releases/download/v1.0.0/Ultimate-Model-1.4.4.zip.sha256) | Ultimate-Model component; no root-level repair/workflow tools |
 
-[Release notes](https://github.com/liushikuan63/DSH-Optimization/releases/tag/v0.1.5) · [All releases](https://github.com/liushikuan63/DSH-Optimization/releases) · [Changelog](docs/en/changelog.md)
+[Release notes](https://github.com/liushikuan63/DSH-Optimization/releases/tag/v1.0.0) · [All releases](https://github.com/liushikuan63/DSH-Optimization/releases)
 
-GitHub's automatic Source code downloads are source snapshots. Use the named release assets above for the exact audited bytes and sidecars. Published archives and tags are immutable; changes ship in a new version. The full pack contains the bilingual user guides. Original skill bodies and third-party component documents retain their source languages and notices.
+GitHub's automatic Source code downloads are source snapshots. Choose the named assets for the audited distribution. Original skill bodies retain their source languages and notices; user-facing root guides and release notes are bilingual.
 
 ### What it helps with
 
@@ -45,90 +43,72 @@ The component contains **55 skills and 25 plugin-configuration rows**. These are
 
 ### Get started
 
-Requirements: an installed compatible DSH, core **>=0.2.1-rc.2 <0.2.2-0**, and **Node.js 22+**. Actual acceptance used Windows x64, DSH NEXT 2.0.20-next / core 0.2.1-rc.3 and Node24. Other declared versions and platforms were not individually verified.
+Requirements: installed DSH core **>=0.2.1-rc.2 <0.2.2-0** and **Node.js 22+**. Actual native acceptance used Windows x64, DSH NEXT 2.0.20-next / core 0.2.1-rc.3. Other platforms and declared core versions have not been individually verified.
 
-1. Download the ZIP and sidecar from a trusted release, compare SHA256 and extract to a directory you will keep.
-2. In the final plugin directory, run `node scripts/prepare-install.mjs --check`, then `node scripts/prepare-install.mjs` to materialize its actual resource paths.
-3. Have DSH read the component's `INSTALL-AI.md`, inspect existing bundles and same-ID overrides, and install the absolute plugin directory through the official `plugin_manager.install_bundle` capability.
-4. Check `application`, warnings and pending builds. Arrange a maintenance window if adoption requires a restart. Bind the target workspace, then explicitly select **Ultimate-Model** for that session.
-5. For optional shared rules, run `node scripts/install-workflow.mjs --home "<ABSOLUTE_DSH_HOME>"` from the full-pack root to preview, then apply the correct plan with `--apply`. Original bytes are backed up and preserved; differing or customized blocks return `REVIEW_UPDATE`.
+1. Download the ZIP and sidecar, verify SHA256, and extract to a directory you will keep.
+2. In `packages/ultimate-model` of the full pack (or the standalone plugin root), run `node scripts/prepare-install.mjs --check`, then `node scripts/prepare-install.mjs` to materialize the final location.
+3. Have DSH read `INSTALL-AI.md`, check existing bundles and same-ID overrides, and install the absolute component directory using official `plugin_manager.install_bundle`.
+4. Check `application`, warnings and pending builds; arrange a maintenance window if adoption requires restart. Bind the workspace, then explicitly select **Ultimate-Model** for that session.
+5. Optional shared rules: from the full-pack root, preview `node scripts/install-workflow.mjs --home "<ABSOLUTE_DSH_HOME>"`, then apply the reviewed plan with `--apply`.
 
-**The tested local-directory install is a link: keep the source directory after installation.** Do not delete the extracted directory, copy Qoder installation commands, replace your whole Home or hand-edit the profile. Exact commands, an assistant-facing install request and completion checks are in [Getting started](docs/en/getting-started.md).
+The tested directory installation is a **link**: keep the source directory. Existing rules are backed up and retained; customized managed blocks require review. Follow [Getting started](docs/en/getting-started.md) rather than replacing your Home/profile or copying Qoder installation commands. [Usage](docs/en/usage.md) includes complex-task, prompt, skill-selection, parallel-work and no-persistence examples.
 
-Try a small owned workspace before relying on a larger project. Ask DSH to state the goal, create a small function and test, execute it, record the exit and verify protected files. [Usage](docs/en/usage.md) includes long-task, skill selection, prompt, parallel-work and no-persistence examples. Real model use consumes your existing account allowance.
+### Runtime repairs and acceptance
 
-### What was actually verified
+Version 1.0.0 adds optional exact-byte runtime repairs: footer layout, input-bar ResizeObserver scheduling, bounded HTTP403 classification, Cordis consumer ownership and standing-subagent child-scope cleanup. Genuine duplicate tools, cleanup failures and account denial remain visible. Preview/apply/restore commands, permanent backups and process/identity checks are in [Runtime repairs](docs/en/runtime-repairs.md). Unknown or locally changed files return `REVIEW_UPDATE`; utilities do not stop/start DSH or make model requests.
 
-Version 0.1.5 records backup/CAS adoption of the five live UM7 metadata files and two separately approved private diagnostic windows. The first was NO_READY/owner unverified. The second recorded an actual READY, but the temporary instance ran for 190.421 seconds, exceeding its 180-second allowance by 10.421 seconds, and restoration also missed the planned hard deadline: **deadline gate FAIL**. The normal footer repair carrier was restored and restarted normally; no further probe will run. This maintenance is not wholly compliant or wholly passing. Execution code is unchanged. The earlier 0.1.4 account403 and failed production RO gate remain recorded, and RO also recurred after the first maintenance. See [acceptance](docs/en/acceptance.md) for the final normal instance's observation and native adoption. Unchanged code tests are not presented as rerun; no controlled model-acceptance requests were added, and ordinary business traffic was not counted.
+The optional deadline API is for developers supplying a compliant backend. It is not a resident plugin or an automatic DSH installer. The actual local maintenance used a separate, non-distributed Windows backend: automatic stop at 200001ms, all same-path processes gone at 212639ms, normal archive restored at 226648ms, completed at **226649ms < 300000ms**. Restart and current normal adoption were verified separately. The earlier automatic-restore FAIL and earlier deadline failures remain recorded.
 
-V4 shutdown also recorded an expected Host exit without a shutdown acknowledgement and with SIGTERM. A `clean:true` marker does not prove a fully graceful exit or preservation of every task. See the shutdown boundary in acceptance.
+| Evidence | Result and boundary |
+| --- | --- |
+| Component 1.4.4 | 214 manifest entries; official-manager fresh install/select/deselect/remove passed. Compared with portable review.7: five metadata/document files changed, 210 files identical. Execution code is unchanged. |
+| Plugin regression | 311 pass, zero fail/cancel/skip/todo on independently unpacked 1.4.4 predecessor bytes; final R2 changes README line endings and manifest only. Exact artifact association is in acceptance. |
+| Integrated tools | 42 focused tests and 37 deadline tests passed, zero fail/skip. Four full-byte input conversions produce the same13a; independent copied-file CLI90→13a→90 passed. Six earlier file-race and two installation-pairing controls remain historical evidence. |
+| Native adoption | Deployed normal90 ASAR, component 1.4.4/214 entries and seven specified opaque configuration/data comparisons passed; private probes removed. Normal maximize/restore is read back separately. Added13a is not yet deployed. |
+| Real autonomous model work | Earlier third run completed using 11/20 allowed main requests in 103.662s, with RED→GREEN, ledger and independent checks. First two failed runs remain; this release adds zero controlled model requests. |
 
-**The third controlled autonomous continuation passed.** Within an additional 20-main-request / 300-second allowance, the model used 11 requests and 103.662 seconds. Starting from two existing DSH-authored code files, it ran tests, injected and restored a fault, completed VIBECODING and ended normally. The coordinator supplied no mid-run prompt or artifact edits. Independent verification passed 13 tests plus 5 positive and 18 invalid-input cases; the original three protected files retained bytes, hashes and mtimes.
 
-| Layer | Result | Scope |
+The deployed runtime is revision90 (`90c23c91…`); the new revision13a subagent cleanup is independently verified on complete owned copies and is **not yet deployed**. The shared18787 proxy, current-user logon task and watchdog are live. A later Bili attribution-log edit belongs to another active task and is preserved. Native Host ACK and account403 remain open; no additional controlled model requests were made.
+
+**Known issues:** official profile access still returns HTTP403/HTML with a CloudFront marker; the exact policy or origin cause is unknown. Host shutdown still showed expected exit, SIGTERM and no ACK. The proven input-bar defect is repaired and bounded normal observation is currently free of RO records; the complete cause of historical periodic RO errors and long-term behavior remain unverified. Native plugin inventory also reports an existing oversized icon in a separate `trae2api-dsh` package; this release preserves that package. These conditions are distinct from Ultimate-Model installation and are not reported as resolved.
+
+See [Acceptance](docs/en/acceptance.md) and the [sanitized machine summary](docs/evidence/acceptance-summary.json) for current windows, historical failures and precise evidence boundaries. A small successful model task cannot guarantee flawless arbitrary business tasks, concurrent edits, cross-platform operation or all third-party plugin combinations.
+
+### Documentation and maintenance
+
+| Need / 用途 | English | 简体中文 |
 | --- | --- | --- |
-| Frozen plugin regression | 311 pass; 0 fail/cancel/skip/todo | Independently unpacked final review.6 ZIP |
-| Shared workflow / existing host guard | 16 / 27 tests passed | Isolated workflow installer / host-guard regression |
-| Original SDK, Host/UI, official manager | Passed | Normal modal and mode selection, real tools, stop, no-persistence and refresh; deterministic offline model fixture |
-| UM6 local deployment | Passed on recorded review.6 bytes | Exact version/manifest, backups, rule adoption, normal restart and boot-event readback |
-| Review.7 metadata / official manager | Exact ZIP: 5 metadata changes / 210 identical files; supported-SDK install/enable/disable/remove passed | core0.2.1-rc.3, isolated profile; activation requires restart, no new model run |
-| Optional Bili repair | 7 unit + 15 portable fixture cases; formal browser10/gate14 passed | Exact supported source, actual local service and native dsh-app readable404; account403 remains unresolved |
-| Real model continuation | Third run 11/20, normally completed | Actual RED→GREEN, complete ledger and independent retest; prior failures retained |
+| Installation / 安装 | [Getting started](docs/en/getting-started.md) | [首次安装](docs/getting-started.md) |
+| Skills, task delivery / 能力与交付 | [Usage](docs/en/usage.md) | [使用指南](docs/usage.md) |
+| Updates and recovery / 升级与恢复 | [Deployment](docs/en/deployment.md) | [部署](docs/deployment.md) |
+| Optional runtime repairs / 可选运行修复 | [Runtime repairs](docs/en/runtime-repairs.md) | [运行修复](docs/runtime-repairs.md) |
+| Developer deadline API / 开发者限时接口 | [API](docs/en/diagnostic-deadline-api.md) | [API](docs/diagnostic-deadline-api.md) |
+| Evidence and known issues / 验收与已知问题 | [Acceptance](docs/en/acceptance.md) | [验收报告](docs/acceptance.md) |
+| Real model trials / 真实模型记录 | [Model validation](docs/en/real-model-validation.md) | [模型验收](docs/real-model-validation.md) |
+| Version history / 版本历史 | [Changelog](docs/en/changelog.md) | [更新记录](docs/changelog.md) |
 
-v0.1.4 adds optional byte-pinned Bili CORS and desktop footer repair tools. Component review.7 changes five metadata/document files to exclude core 0.2.2 prereleases and later versions; its other 210 files, including all execution code, are byte-identical to review.6. The existing workflow installer/overlays and guards retain their bytes. New utilities and compatibility metadata have separate current checks. Unchanged plugin regression/SDK/UI suites are not presented as rerun for this repair. The first two real trials used six requests each and remain failed records, so the three-run total is 23 SDK main requests. Provider-internal HTTP retries and the actual bill were not counted. Temporary test plugins and caps were removed; normal DSH has no six- or twenty-request limit from this acceptance.
+Keep trusted source separate from live copies; preserve local customization and review three-way differences before upgrades. The builder exports whitelisted public source, not Home/configuration, credentials, experience/checkpoints, sessions, private journals, binaries or diagnostic probes. Report issues with sanitized versions, steps, observed results and minimal logs.
 
-Default Node test subprocesses can still report `spawn EPERM` inside the DSH read-only sandbox; the same single-file test passed via same-process execution. This is not a universal replacement for isolation-dependent suites. The twelve later error records are now classified: one official profile HTTP403, ten Bili status polling CORS errors, and one expected unbounded-read denial followed by successful bounded reads. A trusted-status 400/404 header omission was reproduced; the historical ten response statuses were not recorded. Actual local repair, a fresh proxy process and native dsh-app reading the empty-session404 are verified. One normal account RPC still encounters upstream profile403 and is unresolved. Configuration/data hashes match the backups; a confirmed footer width/callback defect was repaired, but the actual running window still reports periodic ResizeObserver notifications and fails the zero-notification gate. Healthy boot events do not prove every account, session or console is error-free.
-
-See [Acceptance](docs/en/acceptance.md), [Real-model records](docs/en/real-model-validation.md) and the [sanitized machine summary](docs/evidence/acceptance-summary.json). Cross-platform behavior, arbitrary fresh business projects, long-term model reliability, arbitrary parallel writes and all external plugin combinations remain unverified.
-
-### Optional Bili runtime repair
-
-If the installed component is exactly supported `billion-context@0.1.212`, [runtime diagnosis and repair](docs/en/runtime-repairs.md) explains the trusted 400/404 CORS header fix, preview/apply, permanent backup, hardlink handling and safe restore. Other versions or local changes return REVIEW_UPDATE. The utility never starts/stops DSH, invokes models, reads account values or changes provider/configuration. It is optional; installing billion-context is not a prerequisite for Ultimate-Model.
-
-The utility adapts header logic from [billion-context](https://github.com/ranxianglei/billion-context), by ranxianglei. Its license includes MIT text and an additional attribution term; the [complete notice](docs/third-party/billion-context.LICENSE.txt) is retained.
-
-### Documentation
-
-| Need | English | 简体中文 |
-| --- | --- | --- |
-| Install and perform first checks | [Getting started](docs/en/getting-started.md) | [首次安装](docs/getting-started.md) |
-| Use skills and complete tasks | [Usage](docs/en/usage.md) | [使用指南](docs/usage.md) |
-| Upgrade, diagnose and roll back | [Deployment and recovery](docs/en/deployment.md) | [部署与恢复](docs/deployment.md) |
-| Understand versions and release gates | [Changelog](docs/en/changelog.md) | [更新记录](docs/changelog.md) |
-| Inspect acceptance and limits | [Acceptance](docs/en/acceptance.md) | [验收报告](docs/acceptance.md) |
-| Inspect the three real-model trials | [Real-model validation](docs/en/real-model-validation.md) | [真实模型记录](docs/real-model-validation.md) |
-| Classify runtime errors and apply the optional Bili repair | [Runtime repair](docs/en/runtime-repairs.md) | [运行修复](docs/runtime-repairs.md) |
-
-Original component [capabilities and protocol](packages/ultimate-model/README.md), [shared-rule installer contract](overlays/README.md), [sources](packages/ultimate-model/SOURCES.md) and [third-party notices](THIRD-PARTY-NOTICES.md) are also distributed.
-
-### Maintenance, feedback and licensing
-
-Keep versioned source separate from installed runtime copies. Compare trusted old, installed and new versions before upgrades, preserving local customization. The build collects only public whitelisted paths; it does not export user Home, accounts, private rules, experience/checkpoint stores, node_modules, journals or temporary acceptance helpers. Release from fixed source, independently check the archive, then download and compare published bytes.
-
-For issues, include DSH/core/Node versions, minimal steps, expected and observed behavior and sanitized logs. Provide both allowed and denied examples for guard changes. Do not publish credentials, tokens, complete personal configuration or private sessions.
-
-This is a community adaptation, not an official DSH, Qoder or OpenAI release. The original attachment did not supply a single license covering all content; making this repository public does not relicense the whole source. Third-party components and adapted methods retain their sources and applicable licenses; see [notices](THIRD-PARTY-NOTICES.md).
+This is a community adaptation, not an official DSH, Qoder or OpenAI release. Public visibility does not relicense the complete supplied content. See [third-party notices](THIRD-PARTY-NOTICES.md), [component sources](packages/ultimate-model/SOURCES.md) and retained licenses.
 
 ---
 
 ## 简体中文
 
-[下载](#下载与选包) · [安装](docs/getting-started.md) · [使用](docs/usage.md) · [验收](docs/acceptance.md) · [更新](docs/changelog.md)
-
-这是面向 DeepSeek Harness / DSH NEXT 的社区优化包，包含显式选择的 **Ultimate-Model 预设**，以及可选的**通用工作规则**。参考 [Qoder-Optimization](https://github.com/liushikuan63/Qoder-Optimization) 的按需能力、可恢复修改和证据驱动交付方法，按 DSH 的实际 SDK、预设、插件管理器与现有技能适配。
+这是面向 DeepSeek Harness / DSH NEXT 的社区工具包，包含显式选择的 **Ultimate-Model 预设**、可选的**通用工作规则**和严格限定范围的修复工具。参考 [Qoder-Optimization](https://github.com/liushikuan63/Qoder-Optimization) 的按需发现、分段检验、可恢复修改和完整交付方法，按 DSH 实际 SDK 与现有技能适配，不额外安装常驻分类模型或模型网关。
 
 ### 下载与选包
 
-首次使用推荐下载**完整分享包**，无需克隆仓库。当前版本为 **v0.1.5 预发布**；插件为兼容边界元数据修订版 **1.4.3-review.7**。完整包带版本化顶层目录，两个 ZIP 都有独立 SHA256 文件。
+正式社区版为 **v1.0.0**，组件 **Ultimate-Model 1.4.4**。首次使用推荐完整分享包；两个 ZIP 均有独立 SHA256 文件，已发布 tag 和资产字节保持不变。本次正式化的是工具包，宿主与外部服务的已知限制仍如实保留。
 
-| 下载 | 包含内容 | 适合谁 |
-| --- | --- | --- |
-| [完整分享包 ZIP](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.5/DSH-Optimization-0.1.5.zip) · [SHA256](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.5/DSH-Optimization-0.1.5.zip.sha256) | 插件、通用工作规则安装器、可选Bili兼容修复、双语使用文档、测试与验收摘要 | 首次安装、分享给他人，或希望各模式采用通用工作规则 |
-| [独立插件 ZIP](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.5/Ultimate-Model-1.4.3-review.7.zip) · [SHA256](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.5/Ultimate-Model-1.4.3-review.7.zip.sha256) | 仅 Ultimate-Model 及其自带技能、脚本、清单和说明 | 已有独立工作规则，只需安装或更新该预设 |
+| Download / 下载 | Contents / 内容 |
+| --- | --- |
+| [完整分享包](https://github.com/liushikuan63/DSH-Optimization/releases/download/v1.0.0/DSH-Optimization-1.0.0.zip) · [SHA256](https://github.com/liushikuan63/DSH-Optimization/releases/download/v1.0.0/DSH-Optimization-1.0.0.zip.sha256) | 预设、通用工作规则、可选修复工具、测试与双语指南 |
+| [独立插件](https://github.com/liushikuan63/DSH-Optimization/releases/download/v1.0.0/Ultimate-Model-1.4.4.zip) · [SHA256](https://github.com/liushikuan63/DSH-Optimization/releases/download/v1.0.0/Ultimate-Model-1.4.4.zip.sha256) | 仅 Ultimate-Model 组件；不含根目录修复器和通用规则安装器 |
 
-[本版发布说明](https://github.com/liushikuan63/DSH-Optimization/releases/tag/v0.1.5) · [全部版本](https://github.com/liushikuan63/DSH-Optimization/releases) · [历史记录](docs/changelog.md)
+[本版发布说明](https://github.com/liushikuan63/DSH-Optimization/releases/tag/v1.0.0) · [全部版本](https://github.com/liushikuan63/DSH-Optimization/releases)
 
-GitHub 自动生成的 Source code 是源码快照；需要本轮固定字节、测试关联和配套校验文件时，选择上表明确命名的资产。已发布 ZIP 和 tag 保持不变，后续修复发新版本。
+GitHub 自动生成的 Source code 是源码快照，需精确验收字节时选择明确命名的资产。根目录用户指南和发布说明采用中英双语；原始技能正文保留来源语言、出处和许可。
 
 ### 能改善什么
 
@@ -147,66 +127,50 @@ GitHub 自动生成的 Source code 是源码快照；需要本轮固定字节、
 
 ### 首次上手
 
-前置是已安装兼容 DSH：core **>=0.2.1-rc.2 <0.2.2-0**、Node.js **22+**。本轮真实验证环境为 Windows x64、DSH NEXT 2.0.20-next / core 0.2.1-rc.3；声明范围中的其他版本和其他平台未逐一验证。
+前置：已安装 DSH core **>=0.2.1-rc.2 <0.2.2-0**，以及 **Node.js 22+**。真实原生验证环境为 Windows x64、DSH NEXT 2.0.20-next / core 0.2.1-rc.3；声明范围中的其他版本和其他平台未逐一验证。
 
-1. 下载 ZIP 与对应 `.sha256`，核对可信发行来源和文件哈希，解压到长期保留的目录。
-2. 在最终插件目录先运行 `node scripts/prepare-install.mjs --check`，再运行 `node scripts/prepare-install.mjs`，生成当前位置的实际资源路径。
-3. 让 DSH 先读包内 `INSTALL-AI.md`，检查现有 bundle 与同 id 注册，再用官方 `plugin_manager.install_bundle` 安装这个插件目录的绝对路径。
-4. 按管理器的 `application`、warnings、pendingBuilds 判断是否采用；需要重启时安排维护窗口。新任务先绑定目标工作区，再显式选择 **Ultimate-Model**。
-5. 如需各模式的通用工作规则，在完整包根运行 `node scripts/install-workflow.mjs --home "<DSH_HOME绝对路径>"` 查看计划，再按计划加 `--apply`。个人原文先备份并保留；不同或定制受管块返回 `REVIEW_UPDATE`，不直接覆盖。
+1. 下载 ZIP 与对应 `.sha256`，核对哈希，解压到长期保留的目录。
+2. 在完整包的 `packages/ultimate-model`（或独立插件根目录）先运行 `node scripts/prepare-install.mjs --check`，再运行 `node scripts/prepare-install.mjs`，生成最终位置的实际资源路径。
+3. 让 DSH 先读 `INSTALL-AI.md`，核查现有 bundle 与同 id 覆盖，再用官方 `plugin_manager.install_bundle` 安装组件目录的绝对路径。
+4. 核查 `application`、warnings 和 pending builds；需重启时安排维护窗口。绑定工作区，再为该会话显式选择 **Ultimate-Model**。
+5. 如需通用规则，在完整包根运行 `node scripts/install-workflow.mjs --home "<DSH_HOME绝对路径>"` 预演，再按审查后的计划加 `--apply`。
 
-**本轮官方本地目录安装采用 link，安装后请保留原目录。** 不要安装后删除解压目录，也不要套用 Qoder 的安装命令、覆盖整个 Home 或手写 profile。具体命令、安装给 AI 的任务描述和完成检查见[首次安装指南](docs/getting-started.md)。
+实测本地目录安装采用 **link**，安装后须保留源目录。已有规则先备份并保留，定制受管块转人工审查。具体命令见[首次安装](docs/getting-started.md)，不要整体覆盖 Home/profile 或套用 Qoder 安装命令。[使用指南](docs/usage.md)包含复杂任务、提示词、按需技能、并行与不落盘示例。
 
-安装后可在自己新建的小型工作区先验证一次：让 DSH 写明目标、创建一个小函数和测试、实际运行测试、记录退出码并核对保护文件。示例和长任务用法见[使用指南](docs/usage.md)；真实模型会消耗你的现有额度。
+### 运行修复与实际验收
 
-### 本版实际验证了什么
+1.0.0增加可选的精确字节运行修复：页脚布局、输入栏ResizeObserver调度、安全HTTP403分类、Cordis消费者所有权与standing subagent子作用域清理。真实重复注册、清理失败和账号拒绝仍会报告。预演、应用、恢复、永久备份与进程/身份检查见[运行修复](docs/runtime-repairs.md)。未知版本或本地修改返回 `REVIEW_UPDATE`；工具不启停 DSH、不发模型请求。
 
-0.1.5记录现役UM7五项元数据的备份/CAS采用，以及两次分别获准的私有诊断窗口：第一次NO_READY、来源未验证；第二次实际READY可见，但临时实例运行190.421秒，超过180秒预算10.421秒，恢复也晚于约定硬截止，**截止门禁FAIL**。正常页脚修复载体已恢复并正常重启，不再运行探针；不能将本次维护总括为全部合规或全部通过。执行代码未变，旧0.1.4账号403和生产RO门禁失败保留，第一次维护后窗口中RO也已复发。新的最终正常实例观察与原生采用见[验收报告](docs/acceptance.md)；未变代码测试未冒充重跑，未新增受控模型验收请求，正常业务流量未计数。
+可选自动限时 API 面向提供合规 backend 的开发者，不是常驻插件或自动 DSH 安装器。本机使用另外保留、不公开分发的 Windows backend：200001ms 触发停止，212639ms 确认同路径进程全部退出，226648ms 恢复正常归档，**226649ms 内完成，低于 300000ms 上限**。正常重启及实际采用另行核对，早先自动恢复 FAIL 和截止超时记录保留。
 
-V4退出还记录了预期Host退出但未收到关机ACK及SIGTERM；`clean:true`不证明完整优雅退出或全部任务数据保全。详见验收中的退出边界。
-
-**第三轮受控自主续任务完整通过。** 在新增20次主请求/300秒预算内，模型使用11次、103.662秒，从前轮已有的两份DSH代码继续，实际完成13项测试、故障注入→恢复、VIBECODING文档和最终交付；运行中没有协调者追加提示或代写产物。独立复测13/13，另5个正例+18个非法输入用例通过，原3个保护文件的字节、哈希和mtime均未变。
-
-| 验证层 | 结果 | 证据范围 |
-| --- | --- | --- |
-| 冻结插件回归 | 311 pass，0 fail/cancel/skip/todo | 最终review.6插件ZIP独立解包后执行 |
-| 全局工作规则 / 本机原守卫 | 16 / 27 项通过 | 隔离规则安装测试 / 本机守卫回归 |
-| 原装 SDK、Host/UI、官方管理器 | 通过 | 模态、模式选择、真实工具、停止、禁存、刷新；模型为离线fixture |
-| UM6本机部署 | 已验review.6相同字节通过 | 精确版本/清单、备份、规则采用、正常重启及健康事件读回 |
-| review.7元数据 / 官方管理器 | 精确ZIP：5项元数据变化/210文件相同；支持SDK安装/启用/停用/卸载通过 | core0.2.1-rc.3隔离profile；仍需重启采用，未新增真实模型轮次 |
-| 可选Bili修复 | 7回归+15便携夹具、正式浏览器10/门禁14通过 | 精确支持源、本机实际服务和原生dsh-app读取404；账号403仍未解决 |
-| 真实模型自主续任务 | 本轮11/20，正常completed | 模型实际RED→GREEN，文档齐备，独立复验；前两轮失败保留 |
-
-0.1.4增加严格限定字节的可选Bili CORS和桌面footer修复工具；插件review.7只改5个元数据/说明文件，明确排除core 0.2.2预发布版及后续版本，其余210文件（全部执行代码）与review.6相同。原有工作规则和守卫保持字节；新工具及兼容边界另做当前验证，不把未变插件的全套回归说成本次重跑。前两轮各6次失败仍保留，三轮累计23次SDK主请求；内部HTTP重试次数和实际账单未统计。临时验收插件和上限已清理，正常DSH没有6次或20次限制。
-
-默认Node测试子进程在DSH只读沙箱内仍可报 `spawn EPERM`，本次同一单测试文件采用同进程路径完整通过；不能推广到所有测试套件。后续12条运行日志现已分成三类：1条官方profile HTTP403、10条Bili状态轮询CORS、1条预期无界读取拒绝且随后有界读取成功。可信状态400/404缺头已复现，历史10条的具体HTTP状态未记录；本机正式应用、新proxy进程及原生dsh-app读取空会话404已验证。正常账号RPC仍遭上游profile403，未解决；配置/数据哈希与备份一致，已确认的footer宽度/回调缺陷完成定点修复；实际现役窗口仍出现周期性ResizeObserver通知，零通知门禁失败，继续追查且不吞错。启动健康不代表所有账号、会话或控制台无错误。跨平台、真实业务长任务、任意并行写入和所有第三方插件组合仍未验。
-
-完整命令、首红、修复、独立验收及限制见[验收报告](docs/acceptance.md)、[真实模型记录](docs/real-model-validation.md)和[机器可读摘要](docs/evidence/acceptance-summary.json)。一次小型续任务通过不构成任意模型永不犯错的保证。
-
-### 可选 Bili 运行修复
-
-仅当已安装的 `billion-context@0.1.212` 与支持字节完全一致时，按[运行诊断与修复](docs/runtime-repairs.md)预演/应用可信400/404响应头修复，保留永久备份并支持安全回退。其他版本或本地改动返回REVIEW_UPDATE，不自动覆盖。工具不启动/停止DSH、不调用模型、不读取账户值、不改变配置或provider；没有该组件的用户无需为Ultimate-Model安装它。
-
-兼容工具使用 [billion-context](https://github.com/ranxianglei/billion-context)（作者ranxianglei）的响应头逻辑；其许可含MIT文本与额外出处标注条款，[完整声明](docs/third-party/billion-context.LICENSE.txt)已保留。
-
-### 文档导航
-
-| 需要 | 入口 |
+| 验证层 | 结果与边界 |
 | --- | --- |
-| 下载后安装、校验、首次检查 | [首次安装](docs/getting-started.md) |
-| 长任务、按需技能、提示词、并行和不落盘示例 | [使用指南](docs/usage.md) |
-| 已有配置升级、EPERM、模态、卸载和回退 | [部署与恢复](docs/deployment.md) |
-| 运行错误分类、Bili修复、便携验收与恢复 | [运行修复](docs/runtime-repairs.md) |
-| 包内能力入口和检索协议 | [插件README](packages/ultimate-model/README.md) |
-| 全局工作规则安装器及退出码 | [通用工作规则](overlays/README.md) |
-| 版本变化与维护者构建发布流程 | [更新记录](docs/changelog.md) |
-| 独立实装与真实模型证据 | [验收报告](docs/acceptance.md) |
-| 第三方来源和许可范围 | [第三方声明](THIRD-PARTY-NOTICES.md) · [插件来源](packages/ultimate-model/SOURCES.md) |
+| 1.4.4组件 | 214清单项；官方管理器新解包安装/选择/取消/移除通过。相对便携review.7仅5项元数据/说明变化，210文件相同，执行代码不变。 |
+| 插件回归 | 独立解包的1.4.4前一精确实体311 pass、0 fail/cancel/skip/todo；最终R2仅修README换行及清单，关联见验收。 |
+| 集成工具 | 42项定向测试与37项限时测试通过，0失败/跳过。四种完整原像转换为同一13a；独立完整副本CLI90→13a→90通过；此前6个文件竞态与2个目录配对反例保留为历史证据。 |
+| 本机采用 | 现役正常90归档、1.4.4组件/214清单、7项指定配置和数据opaque比较通过，私有探针已移除；正常窗口最大化/恢复另有读回。 |
+| 真实模型自主交付 | 历史第三轮11/20次、103.662秒，实际RED→GREEN、文档与独立复验完整；前两轮失败保留，本版新增受控模型请求0次。 |
 
-### 维护、反馈与许可
 
-源码用于维护，已安装副本用于运行；升级先比较可信旧版、当前安装与新版，保留本地定制。构建器仅收集公开白名单，不读取用户Home，不打包账号、私有规则、经验/检查点库、node_modules或临时验收辅助。维护者按[固定源码→独立实装/字节核对→发布后下载复核](docs/changelog.md#维护者发布流程)交付。
+现役运行时为90（`90c23c91…`）；新增13a子作用域清理已通过独立完整副本验收，**尚未部署到现役**。18787共享代理、当前用户登录自启和守护已真实运行。随后Bili归因日志属于另一项活跃任务，按用户要求保留。原生Host ACK与账号403仍未解决，本轮新增受控模型请求0次。
 
-欢迎提交问题和改进。请附DSH/core/Node版本、具体步骤、预期与实际结果、脱敏日志及是否发生在隔离工作区；涉及拦截逻辑时同时给出应拒绝和应允许的例子。请勿上传账号、token、完整个人配置或私有会话。
+**已知问题：** 官方profile仍为HTTP403/HTML/CloudFront标记，具体策略或源站原因未知；Host退出仍有expected=true、SIGTERM、无ACK。确定的输入栏缺陷已修，有限正常观察暂未见RO；历史周期通知的全部来源和长期表现仍未验。原生插件列表另显示既有 `trae2api-dsh` 图标超限元数据错误，本版保留该独立插件。这些问题与Ultimate-Model安装分开报告，不能写成全部已解决。
 
-本项目是社区适配，不代表DSH、Qoder或OpenAI官方。原始附件没有覆盖全部内容的统一许可证，Public不等于将全部源码重新许可；js-yaml、工具分页组件及借鉴方法各自保留来源与许可。详见[第三方声明](THIRD-PARTY-NOTICES.md)。
+最新起止窗口、历史失败和实证边界见[验收报告](docs/acceptance.md)及[脱敏机器摘要](docs/evidence/acceptance-summary.json)。小型任务通过不保证任意业务永不出错；跨平台、任意并行写入、全部第三方插件组合仍未验。
+
+### 文档与维护
+
+| Need / 用途 | English | 简体中文 |
+| --- | --- | --- |
+| Installation / 安装 | [Getting started](docs/en/getting-started.md) | [首次安装](docs/getting-started.md) |
+| Skills, task delivery / 能力与交付 | [Usage](docs/en/usage.md) | [使用指南](docs/usage.md) |
+| Updates and recovery / 升级与恢复 | [Deployment](docs/en/deployment.md) | [部署](docs/deployment.md) |
+| Optional runtime repairs / 可选运行修复 | [Runtime repairs](docs/en/runtime-repairs.md) | [运行修复](docs/runtime-repairs.md) |
+| Developer deadline API / 开发者限时接口 | [API](docs/en/diagnostic-deadline-api.md) | [API](docs/diagnostic-deadline-api.md) |
+| Evidence and known issues / 验收与已知问题 | [Acceptance](docs/en/acceptance.md) | [验收报告](docs/acceptance.md) |
+| Real model trials / 真实模型记录 | [Model validation](docs/en/real-model-validation.md) | [模型验收](docs/real-model-validation.md) |
+| Version history / 版本历史 | [Changelog](docs/en/changelog.md) | [更新记录](docs/changelog.md) |
+
+可信源码与现役副本分开保存，升级前核查旧版、本地、新版三方差异并保留定制。构建器只导出白名单公开源码，不导出Home/配置、凭据、经验/检查点、会话、私有日志、应用二进制或诊断探针。反馈时提供脱敏版本、步骤、结果与最小日志。
+
+这是社区适配，不是DSH、Qoder或OpenAI官方发行。公开可见不等于给整个附件重新授权；来源和许可见[第三方说明](THIRD-PARTY-NOTICES.md)及[组件来源](packages/ultimate-model/SOURCES.md)。

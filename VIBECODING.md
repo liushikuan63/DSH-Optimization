@@ -84,3 +84,35 @@ The second explicitly approved 180-second window recorded READY but exceeded the
 最终normal全run为93条记录、error3=账号1+RO2；其中原生Bili07:51:53Z至07:54:41.886Z共168.886秒，阶段内账号0+RO2，CORS/未知/工具/模块/crash0；RO未解决。V4退出expectedtrue但ACKfalse/SIGTERM，保留EXPECTED_HOST_EXIT_WITHOUT_SHUTDOWN_ACK；官方quit和run.end clean不冒充完整graceful/全任务数据保全。六项opaque保护和UM7清单是有限范围，无新增受控模型轮次或后续探针。
 
 The complete final normal run has93 records and3 errors: account1/RO2. Its168.886-second native-Bili phase contains account0/RO2. V4's expected Host exit lacked a shutdown ACK and used SIGTERM; the clean marker is not complete graceful-shutdown or all-task-data assurance. Scoped hashes and UM7 manifest checks remain separate evidence.
+
+
+## P7 / 1.0.0 正式交付（进行中）
+
+目标：继续修复账号403、ResizeObserver、Host关闭未确认；保留现有配置和数据，完成本机真实部署、双语文档和正式实体包。用户后来将Bili目标明确改为只保留18787，并要求登录自启及守护。原8787方案未执行。本阶段仍有真实运行门禁开放，不能把代码/夹具通过写成全面完成。
+
+仓库、现役、构建和发布由主集成者唯一写入；代理只在私有owned目录审查、生成候选和独立验收。公开路径不得包含私有探针、完整应用模块/ASAR/EXE、凭据、个人配置/会话/日志或真实实例标识。
+
+### 已完成的当前层
+
+- Ultimate-Model1.4.4最终R2实体为706264B/215成员，SHA256 `df5e278f9339f6b0cee512a577db8ddcceda5687a04a02d15ec3fb09b1872c52`；214清单匹配。相对portable review.7只有五项元数据/说明变化，210文件及全部执行代码保持；prepared本机patch另有保留基线，不混用原ZIP和已物化文件。最终README换行修正仅影响README/FILES；311项回归关联精确相同代码/测试闭包，官方CLI管理器新解包安装/选择/取消/移除另验。
+- 自动诊断守护第200001ms启动退出，212639ms确认同EXE进程消失，226648ms恢复正常包，226649ms完成，低于300000ms；两条元数据/1380B。早先V1终态schema拒绝自动恢复及旧180秒超时均保持FAIL，手动恢复不冒充自动通过。所有私有探针已移除，本阶段不继续延长其预算。
+- 输入栏原装函数+实际CSS的Chrome反例确认同步RO布局缺陷，局部RAF修复与生命周期/断点检查通过，不替换全局observer、不吞错；正常运行的有限观察暂未见RO，未宣称全部历史来源和长期行为已证明。
+- 正常运行修复器R2以精确字节支持original/footer/e8三路径到同一正常ASAR `90c23c91ddff8e1306cfeb17e4546e8e3e708721dd2fba5a82500d6655dc8f88`，193619745B；9项回归、完整尺寸实际CAS/KEEP/恢复和官方ASAR读回通过。Cordis4.0.5所有权回补保留原并行清理，原装两项死锁反例、候选16项及真实SDK Peer/WS4项通过；短变换、Shigma原MIT与DeepSeek许可分别保留。
+- 用户在新鲜UI再次显示业务生成后，另行明确批准第三次最多5分钟正常维护。维护起点2026-11-07T11:39:35.362Z；旧DSH/代理均正常退出，四份代理session文件12567900B作opaque备份。native严格18787/配置三字段/旧看门狗仅告警均有永久备份、CAS和独立读回；pnpm原alias及独立global native原件保留。正常应用最后启动11:44:10.521Z，275159ms内，未新增私有探针或受控模型请求。
+- 独立读回正常90c23/EXE、三个修复成员、UM214、七项opaque保护、三个源目标与alias/global原件通过。配置只输出port/attachUrl/attachPolicy，其他值保持，不导出凭据或配置指纹。现有模式、停用选择、工作规则和数据目录不整体替换。
+- Bili独立代理在18787由守护实际启动，HTTP200、unarmed，并在DSH退出前后保持同一进程。可信dsh-app状态400/空会话404均有精确ACAO；非法Origin仍403/no-ACAO。这是HTTP读取层，不冒充真实模型压缩或当前renderer读取。
+- 本机任务采用当前用户登录+10秒、每分钟无限重复、IgnoreNew和全局互斥。仅RestartOnFailure的第一次实测未恢复，保留FAIL；周期触发的第二次仅停止自有guard后37.4607秒自动恢复，Bili和DSH未被停止。内核socket owner为0，只能报告自报健康与进程来源/创建时刻关联，不能冒称kernel owner通过。
+- guard最初CIM5秒在本机反复安全BLOCK_UNKNOWN，独立反例先修身份/argv/预算/总health超时，再仅将CIM操作参数5改10；当前源 `e9575220eebc2020077365c8615dd3901c774085835ad88c34e916249af828f2` 有独立12边界关联与本机pause/CAS/恢复。有限533746ms/9heartbeat观察中0BLOCK，不证明所有CimException的根因或长期稳定性。
+
+### 仍开放与下一步
+
+- 官方profile仍403/HTML/CloudFront，原凭据与failed保持；近期官方同请求协议无可移植恢复补丁，具体edge/WAF/源站原因未知。不通过伪造身份、清凭据或盲加重试隐藏失败。
+- **真实Host ACK仍FAIL**：已部署90后的正常退出约3秒内部SIGTERM、expected:true/acknowledged:false；clean:true与所有进程退出不证明完整优雅关闭。完整真实HTTP/WebServer/Peer/Mux隔离图和负对照正在定位具体owner，不能把框架回补当此现役原因已修，也不盲毁renderer/延长timeout。
+- 后续技术日志出现subagent重复注册；实际SDK在原装/R4两种Cordis都复现composition卸载漏agent-owned inject fiber，最小生命周期修复与独立回归进行中，尚未新部署。ACP一次7ms空错误经13项源码链检查仍未归因；unarmed共享不是拒绝条件，不能统称冲突或通过。progress_update的INVALID_ARGS按参数拒绝分列。
+- 本轮维护预算已用完；现役继续工作，不自动中断新业务、不新增付费模型或私有探针。后续源更新先完成候选与独立验收，再按自然空闲/适用授权部署。
+- 完成具体修复/剩余边界、双语README/验收/schema2同步后，固定提交→新clone构建→精确ZIP独立解包与官方安装→Public正式发布→远端源码/命名资产字节核对。当前尚未发布1.0.0；旧0.1.5及更早tag/资产不覆盖。
+
+The formal community release remains in progress. Actual normal deployment and scoped configuration/data preservation are independently verified; the five-minute maintenance ended within275159ms. One standalone Bili proxy on18787 survives DSH shutdown, and the periodic task recovered only its own guard in37.4607 seconds without manual start (the receipt unit is37460.7009ms). Previous automatic/deadline failures remain immutable. Official account access and the native Host shutdown ACK are still failed boundaries. A separately reproduced SDK subagent lifecycle leak is being repaired; ACP remains unclassified and invalid tool arguments are distinct. No further paid model requests, private probes or unapproved active-task interruption are inferred. Release requires fixed source, independently accepted exact archives, bilingual evidence and remote-byte verification.
+
+
+P7 continuation update (2026-11-07): R3 normal13a and its optional public utility are independently validated on owned full-size copies (11 units, four byte conversions, five bad-receipt rejections, actual90→13a→90 CLI). The deployed app remains normal90; HostACK/403 remain FAIL and ACP causality remains unproven. Another active task added Bili attribution logs after M3; the user explicitly requires preserving that edit. No new app shutdown/probe/model budget is inferred. M4 is a pure timing plan only, not a built/executed controller or authorization. The final integrated gate passes79/79 with zero fail/cancel/skip/todo,54.864seconds; the earlier78/79 Host-readiness fixture race and its deterministic original-RED/candidate-GREEN are preserved. Source freeze, exactZIP acceptance and remote publication are recorded separately in the release receipt.

@@ -1,6 +1,6 @@
 {
   "name": "@local/ultimate-model",
-  "version": "1.4.3-review.7",
+  "version": "1.4.4",
   "private": true,
   "type": "module",
   "description": "Optional Ultimate-Model preset addon, rebranded for the share pack; sourced from Jizhi mode 1.4.2.",
