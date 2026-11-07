@@ -1,16 +1,18 @@
 # 首次安装与检查
 
+[English](en/getting-started.md) | 简体中文
+
 推荐先用完整分享包，安装插件后再按需选择通用工作规则。本指南仅使用本包实际提供的入口，不安装DSH本体、模型账号、MCP或Qoder组件。
 
 ## 1. 选包、校验和放置
 
-从[本版Release](https://github.com/liushikuan63/DSH-Optimization/releases/tag/v0.1.2)下载 `DSH-Optimization-0.1.2.zip` 和同名 `.zip.sha256`。只需要预设的用户可选独立 `Ultimate-Model-1.4.3-review.6.zip`；独立包没有根目录的通用工作规则安装器和本指南，安装步骤沿用包内README/INSTALL-AI。
+从[本版Release](https://github.com/liushikuan63/DSH-Optimization/releases/tag/v0.1.3)下载 `DSH-Optimization-0.1.3.zip` 和同名 `.zip.sha256`。只需要预设的用户可选独立 `Ultimate-Model-1.4.3-review.6.zip`；独立包没有根目录的通用工作规则安装器和本指南，安装步骤沿用包内README/INSTALL-AI。
 
 Windows PowerShell可在下载目录执行：
 
 ```powershell
-Get-FileHash -LiteralPath '.\DSH-Optimization-0.1.2.zip' -Algorithm SHA256
-Get-Content -LiteralPath '.\DSH-Optimization-0.1.2.zip.sha256'
+Get-FileHash -LiteralPath '.\DSH-Optimization-0.1.3.zip' -Algorithm SHA256
+Get-Content -LiteralPath '.\DSH-Optimization-0.1.3.zip.sha256'
 node --version
 ```
 
@@ -19,7 +21,7 @@ node --version
 把完整包解压到自己的长期目录，可以是任意可写本地盘，路径有空格时加引号。不要直接覆盖旧安装目录。结构应为：
 
 ```text
-DSH-Optimization-0.1.2/
+DSH-Optimization-0.1.3/
   README.md
   VERSION
   docs/                         # 本指南、使用、恢复、验收及历史

@@ -1,8 +1,10 @@
-# 验收报告：0.1.2 / Ultimate-Model 1.4.3-review.6
+# 验收报告：0.1.3 / Ultimate-Model 1.4.3-review.6
+
+[English](en/acceptance.md) | 简体中文
 
 验收日期：2026-11-07（Asia/Shanghai）。实现和本机部署由主集成者负责；最终插件 ZIP 由独立验收者重新解包、安装副本并运行 SDK/UI，官方管理器另由独立验收者验证。所有测试都在同一台用户 Windows x64 机器上；“独立”指职责、解压目录与 Home/profile 隔离，不代表另一台机器。
 
-[机器可读脱敏摘要](evidence/acceptance-summary.json)与本报告使用相同分层。第三轮受控自主续任务完整通过，前两轮仍按失败保留。0.1.2只更新版本、文档和脱敏结果；插件、脚本、测试和可选规则字节未变，既有311/16/SDK/UI实装证据仅关联其相同字节，不宣称本次重新运行。新归档另经独立解包与逐文件比较。
+[机器可读脱敏摘要](evidence/acceptance-summary.json)与本报告使用相同分层。第三轮受控自主续任务完整通过，前两轮仍按失败保留。0.1.3新增双语说明并沿用既有真实验收结果；插件、脚本、测试和可选规则字节未变，既有311/16/SDK/UI实装证据仅关联其相同字节，不宣称本次重新运行。新归档另经独立解包与逐文件比较。
 
 ## 已冻结的插件字节
 
@@ -55,6 +57,14 @@ SDK/UI 层的模型是离线 fixture，外部 Provider 请求为0；这是正式
 临时runner/budget已全部移除，Home patch恢复精确原字节并正常重启；正常DSH没有本次6次或20次上限。原全局规则13587字节保留，追加受管区块后的AGENTS总大小为15830字节，KEEP核对通过。恢复后记录process.ready、host.start.complete、renderer.recovery.healthy三个事件；既有`[deepseek-account] account read failed` renderer日志单列，该类错误早于review.6，不将Host ready解释为所有账号或控制台无错误。
 
 无临时辅助的正常SDK窄验证另通过read→edit及带退出码后缀的原样pwsh命令，13/13、exit0、0模型/网络；保留两条ConstrainedLanguage启动stderr。此项不冒充模型自主交付，第三轮实跑证据单独保留。
+
+## 后续现役实例只读复核
+
+初次部署验收后，旧实例在2026-11-07T00:13:07.396Z有clean=true的run.end，新实例于00:13:13.189Z启动；不推断关闭/启动者，也没有由本次复核重启或控制当前实例。新实例仍为DSH NEXT 2.0.20-next，独立确认三个启动健康事件、UM6静态自检exit0/214清单，以及Home、AGENTS、守卫字节和原规则前缀不变；临时验收rows仍已移除。
+
+该新实例在2026-11-07T00:25:04.281Z冻结快照中有12条error：1条账号读取marker、10条其他renderer.console、1条host.session。不能沿用旧实例的1条错误数量，也不将启动健康解释为零运行错误。仅对这12条做脱敏技术分类，没有明确UM/jizhi、模块装载/broken、EPERM、auth或rate-limit等指纹，没有可安全提取的明确error.name/code或HTTP状态码，也未提及自有验收工作区/三个验收会话。
+
+以上不足以判定根因，标为UNDETERMINED；未归因于优化包，也未据此排除关联或宣称现役会话全部正常。复核没有读journal/用户会话正文/账号值，没有追查其他项目或新增模型调用。这个附加观察与已完成的受控小任务、归档和当前文件采用分开记录，保留原初次验收快照。
 
 ## 修复依据与失败保留
 
