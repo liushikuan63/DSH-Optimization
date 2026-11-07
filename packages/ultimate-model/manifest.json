@@ -1,10 +1,10 @@
 {
   "format": "dsh-bundle",
   "name": "@local/ultimate-model",
-  "version": "1.4.3-review.6",
+  "version": "1.4.3-review.7",
   "preset": "ultimate-model",
   "requires": {
-    "dsh": ">=0.2.1-rc.2 <0.3.0"
+    "dsh": ">=0.2.1-rc.2 <0.2.2-0"
   },
   "capabilityLayers": {
     "kernel": "preset/skills/jizhi-mode/SKILL.md",

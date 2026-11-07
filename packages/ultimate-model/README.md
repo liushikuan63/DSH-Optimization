@@ -8,7 +8,9 @@
 
 ## 安装与选择
 
-前置：兼容的 DSH 0.2.1-rc.2 系列（版本范围见 [package.json](package.json)），Node 22+；可选命令 hooks 测试需要 pwsh 7。Windows/Unix本地路径可解析；UNC部署未验收。
+前置：DSH core `>=0.2.1-rc.2 <0.2.2-0`（见 [package.json](package.json)）；Node 22+，可选命令 hooks 测试需要 pwsh 7。此范围明确排除全部 0.2.2 预发布版及后续版本；DSH NEXT 2.0.22-next / core 0.2.2-rc.1 的破坏性接口变更尚未适配、未验收，请勿用 `allow-version` 强行安装。版本判断针对 core，不是桌面 NEXT 版本。Windows/Unix 本地路径可解析；UNC 部署未验收。
+
+Compatibility: DSH core `>=0.2.1-rc.2 <0.2.2-0`; all 0.2.2 prereleases and later versions are excluded. DSH NEXT 2.0.22-next / core 0.2.2-rc.1 is not adapted or validated. Do not bypass the compatibility guard with `allow-version`. The boundary tests exercise version metadata; they are not acceptance tests of a new SDK.
 
 1. 解压后将完整目录交给 DSH 内 AI，先读 [INSTALL-AI.md](INSTALL-AI.md)。
 2. 用官方 `plugin_manager` 的 `install_bundle` 安装，target 为**包目录的绝对路径**。不要手写 profile 的 package.json/patch，不使用旧文件覆盖安装器。

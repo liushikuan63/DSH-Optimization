@@ -1,3 +1,9 @@
+# 1.4.3-review.7（兼容边界元数据修订，2026-11-07）
+
+- 仅将 core 兼容声明收窄为 `>=0.2.1-rc.2 <0.2.2-0`，同步 package/manifest/说明/哈希清单；业务代码与 review.6 逐字节相同。
+- 0.2.2 预发布版及后续版本未适配、未验收；本版不升级 DSH，不创建版本豁免；支持版本的实际安装另行验收，不继承新 SDK 的实装或模型通过结论。
+- Metadata-only compatibility revision: excludes every 0.2.2 prerelease and later release. Runtime code, scripts and existing tests are byte-identical to review.6. No new-SDK or live deployment acceptance is claimed.
+
 # 1.4.3-review.6（2026-11-07）
 
 - 依据用户实际使用反馈，把目标/完成判据、分段检验、复杂任务文档、持续推进和写入归属提醒放入所选模式的短 persona，避免只在可选技能正文中出现。任务取消仍停止，不增加无人值守自动续跑链。
