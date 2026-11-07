@@ -1,8 +1,8 @@
-# 验收报告：0.1.1 / Ultimate-Model 1.4.3-review.6
+# 验收报告：0.1.2 / Ultimate-Model 1.4.3-review.6
 
 验收日期：2026-11-07（Asia/Shanghai）。实现和本机部署由主集成者负责；最终插件 ZIP 由独立验收者重新解包、安装副本并运行 SDK/UI，官方管理器另由独立验收者验证。所有测试都在同一台用户 Windows x64 机器上；“独立”指职责、解压目录与 Home/profile 隔离，不代表另一台机器。
 
-[机器可读脱敏摘要](evidence/acceptance-summary.json)与本报告使用相同分层；首次真实模型专项标为失败并保留证据，不纳入通过计数。
+[机器可读脱敏摘要](evidence/acceptance-summary.json)与本报告使用相同分层。第三轮受控自主续任务完整通过，前两轮仍按失败保留。0.1.2只更新版本、文档和脱敏结果；插件、脚本、测试和可选规则字节未变，既有311/16/SDK/UI实装证据仅关联其相同字节，不宣称本次重新运行。新归档另经独立解包与逐文件比较。
 
 ## 已冻结的插件字节
 
@@ -36,21 +36,25 @@ SDK/UI 层的模型是离线 fixture，外部 Provider 请求为0；这是正式
 
 ## 真实模型专项
 
-**完整自主任务未通过；两轮累计12次SDK主请求，第二轮生成2/3产物，代码独立验证通过。** 首轮为6次SDK、0产物。 用户补充批准保留当前订阅适配器既有内部HTTP重试；主请求上限仍为6次、首次起300秒。实际在39.929秒后触及上限，第7次在发送前拒绝，turn/end为aborted。内部HTTP次数和实际费用未统计，不能把SDK计数当作wire计数。
+**第三轮受控自主续任务完整通过：11/20次SDK主请求、103.662/300秒。** 从前轮已有的两份DSH代码继续，单条真人任务消息，运行中没有协调者追加提示或代改产物；模型实际跑测试、故障注入→恢复、完成VIBECODING，并以completed正常结束。独立核对真实journal、源码、保护文件及完整复测，结果为`PASS_CONTROLLED_REAL_MODEL_CONTINUATION`。
 
-独立读取该自有会话的真实journal：6条settled主attempt、0个SDK retry marker、7次原生工具调用（skill两次，以及glob/read/pwsh/working_directory/progress_update各一次），全部返回`Error: tool result must be losslessly JSON-serializable`。最终工作区仍精确只有原3文件，字节、SHA256和mtime均不变；函数、测试、VIBECODING均未生成，缺失文件的测试未执行。状态为`FAIL_BUDGET_EXHAUSTED_NO_ARTIFACTS`，不计通过。
+| 真实执行 | SDK主请求 / 时间 | 结果 |
+| --- | --- | --- |
+| 首轮 | 6 / 39.929秒 | 临时async guard违反同步SDK契约，7次工具均JSON准入错误，0/3产物；FAIL_BUDGET_EXHAUSTED_NO_ARTIFACTS |
+| 第二轮 | 额外6 / 45.802秒 | 两份代码生成并独立13+23用例通过；临时白名单拒绝edit/命令后缀，缺文档且模型未跑测试；FAIL_BUDGET_EXHAUSTED_PARTIAL_ARTIFACTS |
+| 第三轮 | 新增上限20，实际11 / 103.662秒 | 最终辅助的SDK RED/GREEN、16项策略测试及Host离线链重验后实跑；3/3产物齐备、完整续任务PASS |
 
-源码审查定位到临时辅助把SDK同步tools.guard注册为async，Promise流入结果准入路径；这是验收辅助的契约缺陷，不能归因于模型或Provider不执行。此前只测辅助函数而未重验最终SDK注册路径，遗漏了这一缺陷。该辅助未进入分享ZIP或长期DSH配置；产品hook守卫保持同步。具体首红、修复验收方法及后续结果见[真实模型验收记录](real-model-validation.md)。首轮6次的失败记录保留，补跑另获额外6次授权；两轮预算没有重置或覆盖。
+第三轮真实测试顺序是：同进程13/13、exit0；默认隔离spawn EPERM、exit1；临时去掉有限性校验后13项中9过4败、exit1；恢复实现后13/13、exit0。四次均无跳过/取消。实际命令为`node --test --test-isolation=none calculator.test.mjs 2>&1; Write-Output "EXITCODE=$LASTEXITCODE"`，默认隔离诊断去掉同进程参数；未提权、放宽沙箱或删测试。4个失败含父测试传播，不当作4组独立输入。默认子进程EPERM仍存在，不将兼容路径说成所有EPERM根治。
 
-临时row已移除，Home patch恢复原字节，DSH正常重启。当前会话还独立证实：全局工作流和Node EPERM说明位于durable user/message seq15，UM目标提醒位于system/message。system-only探针漏看user-role指令，不能据false判定全局配置缺失；这仍不冒充完整HTTP请求快照。现役Vision Router active/entrySeen/fiberSeen均true，证明宿主已采用持久已读设置。
+独立验收者重读代码后执行`node --test --test-reporter=tap calculator.test.mjs`：13 pass、0 fail/skip/cancel、exit0；另5正+18非法输入用例全通过。最终精确6文件，原3保护文件哈希/字节/mtime全不变；代码和测试最终哈希与第三轮起点一致。模型新增VIBECODING为6773字节，包含目标、两段计划、真实命令/退出码、RED→GREEN和未验范围；独立者没有补写。
 
-修正后的最终同步辅助通过原装SDK实际注册RED/GREEN、15项策略测试，以及最终源码在独占Host的完整离线任务（6个fixture请求、真实工具、只读Node4/4、保护文件拒绝、网络0）。这些离线结果没有覆盖掉首轮失败。
+22个真实工具结果中20成功、2个可恢复错误（首次读取未存在文档、一次Get-FileHash超临时白名单）保留。当前SDK请求中全局工作流角色为user，UM常驻提醒角色为system；Vision Router active/entrySeen/fiberSeen均true。没有导出完整HTTP上下文或读取账号凭据。真实journal及辅助失败/修复的细节见[真实模型验收记录](real-model-validation.md)。
 
-额外获准的第二次真实执行用了6次SDK主请求，45.802秒后触限；8/10个工具调用成功，生成函数和测试文件。edit及带输出/退出码后缀的pwsh命令被临时辅助拒绝。独立运行模型生成的测试为13/13、exit0，并额外通过5正+18非法输入用例；原3文件哈希/字节/mtime不变。但VIBECODING仍缺失、模型自身未执行测试，状态为`FAIL_BUDGET_EXHAUSTED_PARTIAL_ARTIFACTS`，不记完整任务PASS。本轮不再追加模型请求，临时rows已全部清理；正常DSH没有这个6次验收上限。
+三轮总计23次SDK主请求，第三轮剩余9次没有继续消耗。用户明确允许的适配器内部HTTP重试沿用，HTTP次数/token/实际费用未统计，不能按SDK次数等量推算。前两轮失败不因第三轮通过而回写；第三轮是小型owned续任务，不是从零构建任意复杂项目或长期稳定的保证。
 
-移除临时辅助的全新owned原装SDK环境也实际通过正常read→edit和原样带退出码后缀的pwsh命令：模型代码副本13/13、exit0，read-only测试期间保护文件不变，0模型/0网络。保留两条ConstrainedLanguage启动stderr；没有将其当作无错误运行或关闭语言限制。这个窄验证用于区分辅助限制与正常工具能力，不把它算成模型自主交付通过。
+临时runner/budget已全部移除，Home patch恢复精确原字节并正常重启；正常DSH没有本次6次或20次上限。原全局规则13587字节保留，追加受管区块后的AGENTS总大小为15830字节，KEEP核对通过。恢复后记录process.ready、host.start.complete、renderer.recovery.healthy三个事件；既有`[deepseek-account] account read failed` renderer日志单列，该类错误早于review.6，不将Host ready解释为所有账号或控制台无错误。
 
-本机恢复后记录三个启动健康事件，另有既有`[deepseek-account] account read failed` renderer日志，同类记录早于review.6部署；未读取或修写该账号凭据，不将Host ready解释为所有账号或控制台无错误。
+无临时辅助的正常SDK窄验证另通过read→edit及带退出码后缀的原样pwsh命令，13/13、exit0、0模型/网络；保留两条ConstrainedLanguage启动stderr。此项不冒充模型自主交付，第三轮实跑证据单独保留。
 
 ## 修复依据与失败保留
 

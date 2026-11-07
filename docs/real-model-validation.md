@@ -41,10 +41,39 @@ VIBECODING.md仍缺失，模型会话本身未执行测试，故第二次状态�
 
 随后只在新owned环境做了窄验证，没有安装budget/once/三文件辅助guard，也没有模型调用：正常UM6/原装SDK先read再edit副本注释成功，原样执行带上述后缀的pwsh命令，在read-only sandbox中13/13、EXITCODE=0，保护文件和真实两源的字节/mtime不变。初次未先read的edit被正常读后写保护拒绝，规范读取后通过；未绕过保护。PowerShell仍有两条ConstrainedLanguage启动stderr，原文私有保留，不宣称stderr为空。这份证据确认额外allowlist造成拒绝，不替代真实模型自主完成。
 
+## 第三次真实执行：受控自主续任务完整通过
+
+用户随后明确要求“完整自主交付验证，允许最多二十次”。本次作为额外最多20次SDK主请求，沿用首次请求起300秒、当前账号/模型和已批准的适配器内部HTTP重试；不是把历史12次清零，也没有把临时限制装成正常DSH的全局限制。
+
+第三轮从前轮已有的calculator.mjs和calculator.test.mjs继续，要求模型实际验证、证明测试有效、补齐VIBECODING及最终交付。验收者没有重写这两份代码、代填文档或在运行中追加指导。原WORKSCOPE及三个保护文件保持原字节；旧控制JSON中的6次是历史事实，新20次预算在本轮任务与守卫中明确区分。最终辅助允许原生read→edit，以及四种精确的只读Node命令（默认/同进程，各含可选的既有输出退出码后缀），没有扩大写域或放宽沙箱。
+
+最终辅助在实际SDK注册中再次保留旧async RED、新sync GREEN，16项预算/策略测试通过，并用冻结源码完成新的独占Host离线任务：原生read/edit/test、13项测试、三个保护文件写/编辑拒绝、精确6文件和网络0。独立核验最终源码/回执哈希后才安装一次性辅助；该辅助仍不进入分享包。
+
+本次第一主请求为2026-11-06T23:56:18.489Z，正常完成于23:58:02.151Z（本地2026-11-07 07:56:18至07:58:02）。实际11次主请求、103.662秒，低于20次/300秒。独立journal有11条settled主attempt、1条真人user消息，最后seq127为completed，无在途步骤；完成时abortReason为null。之后正常卸载辅助的disposed状态是清理事件，不是任务被中止。第三轮状态为`PASS_CONTROLLED_REAL_MODEL_CONTINUATION`。
+
+模型实际执行并留下输出的验证按时间顺序如下，不把工具isError字段单独当作测试结论：
+
+| 阶段 | 命令类别 | exit | tests / pass / fail |
+| --- | --- | ---: | --- |
+| 初始GREEN | 同进程单文件测试 | 0 | 13 / 13 / 0 |
+| 默认隔离环境诊断 | 默认Node子进程隔离 | 1 | 1 / 0 / 1，spawn EPERM |
+| 有效RED | 临时去掉有限性校验，重跑同一测试 | 1 | 13 / 9 / 4 |
+| 恢复GREEN | 恢复原校验，再跑同一测试 | 0 | 13 / 13 / 0 |
+
+四次均0 skipped/cancelled。模型实际使用的有效命令是 `node --test --test-isolation=none calculator.test.mjs 2>&1; Write-Output "EXITCODE=$LASTEXITCODE"`；默认隔离诊断只去掉`--test-isolation=none`。实际edit先将`if (!Number.isFinite(value))`改为`if (false && !Number.isFinite(value))`，观察失败，再恢复原实现。4个失败包含父测试失败传播；不是4组独立输入。没有修改系统权限、关闭语言限制或去掉原测试。默认隔离的EPERM仍存在，同进程完整通过只适用于本单文件路径。
+
+最终精确6文件，三项目标产物齐备。6773字节VIBECODING由模型生成，包含目标、两段计划、文件归属、真实命令/退出码、红绿结果、验收和未验范围；SHA256为`2c6750f72ea41a03f09f0a5b19a69a3e7bb87d3b2022c82f87de46edb2d6ec2c`。原三个保护文件的SHA256、字节数和mtime均未变；calculator/test最终哈希与第三轮开始前一致，calculator的mtime因授权故障注入/恢复可变化。
+
+独立验收者完整审阅源码，再运行 `node --test --test-reporter=tap calculator.test.mjs`：13/13，exit0，0 fail/skip/cancel；额外5个正例、18个非法输入反例全部通过，复测前后6文件均未变。独立CLI复验与DSH只读沙箱中的模型实跑分开记录。原始journal SHA256为`86cd2450afa2911396abaaa4d4789a55f6ff2384599fe596309c0f7da54acc66`，私有保存，不导出账号、规则正文或其他会话。
+
+22个工具结果有20个成功和2个可恢复错误：首次read时VIBECODING尚不存在；一次Get-FileHash命令超出临时精确白名单被拒。模型没有假报它执行了哈希命令，最终哈希/mtime由独立验收者核实。文档按类别列默认隔离与同进程验证，命令/结果均能与本轮journal对应；没有借用上轮独立测试冒充本轮模型实跑。
+
+三轮SDK主请求合计6+6+11=23。第三轮新增预算未用9次，不继续消耗；内部HTTP次数、token或实际账单没有统计。前两轮失败保持原状态，本次PASS覆盖的是既有DSH代码的小型自主续任务，不能推广成从零完成任意复杂项目、长期稳定或所有插件组合无冲突。
+
 ## 已证实的采用与观察边界
 
 同一个真实会话的durable user消息包含全局工作规则和Node EPERM兼容说明，UM常驻目标提醒则在system消息中。原装agent-instructions按user-role前缀注入，所以只扫描system消息的旧探针会漏掉全局规则。以上是本会话持久消息证据，未导出规则正文，也不冒充完整HTTP请求快照。
 
 现役Loader也读回Vision Router active、entrySeen、fiberSeen均为true，确认宿主已采用持久已读设置。截图/UI离线验收与这些现役配置读回分开记录。
 
-本轮不再追加模型调用。再次发送真实模型请求需要新的适用额度授权；离线重现、公开文档和归档更新可以继续。已发布版本的ZIP和tag保留，后续结果通过新版本交付。
+第三轮结束后临时runner和budget行已全部移除，Home patch恢复测试前的精确原字节并正常重启；现役DSH没有本次6次或20次临时上限。保持账号、模型、停用选择、经验数据和长期守卫。0.1.0/0.1.1的ZIP和tag保持原样，通过0.1.2交付最新报告与脱敏摘要；插件review.6代码及ZIP保持相同已验字节。本任务不再发送模型请求。

@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "dateLocal": "2026-11-07",
-  "releaseVersion": "0.1.1",
+  "releaseVersion": "0.1.2",
   "pluginVersion": "1.4.3-review.6",
   "machine": "user Windows x64, same machine with isolated independent homes/profiles",
   "frozenPlugin": {
@@ -29,7 +29,8 @@
     "hostLegacyGuard": {
       "pass": 27,
       "fail": 0
-    }
+    },
+    "evidenceReuseBoundary": "Previously executed on identical frozen bytes; not rerun for this documentation-only release"
   },
   "isolatedSdkUi": {
     "status": "PASS",
@@ -95,8 +96,8 @@
     }
   },
   "realModel": {
-    "status": "PARTIAL_REAL_GENERATION_INDEPENDENT_TESTS_PASS_FULL_TASK_NOT_PASSED",
-    "totalSdkMainRequestsSent": 12,
+    "status": "PASS_CONTROLLED_REAL_MODEL_CONTINUATION",
+    "totalSdkMainRequestsSent": 23,
     "providerInternalWireRequests": "NOT_COUNTED_ALLOWED_FOR_EACH_EXPLICITLY_APPROVED_RUN",
     "firstAttempt": {
       "sdkMainRequests": 6,
@@ -153,7 +154,7 @@
     "temporaryHelperBundled": false,
     "temporaryRowsRemoved": true,
     "normalDshSixRequestCap": false,
-    "fullAutonomousTaskPassed": false,
+    "fullAutonomousTaskPassed": true,
     "furtherPaidRunAuthorized": false,
     "globalWorkflowDurableUserMessage": true,
     "globalWorkflowSdkRequestRole": "user",
@@ -170,15 +171,100 @@
       "protectedAndOriginalSourcesUnchanged": true,
       "constrainedLanguageStartupStderr": 2,
       "notAutonomousTaskProof": true
+    },
+    "fullAutonomousTaskScope": "Small owned continuation using two existing DSH-authored code files; one human task message, no coordinator mid-run intervention",
+    "normalDshTwentyRequestCap": false,
+    "noFurtherModelCallsForThisTask": true,
+    "thirdAttempt": {
+      "additionalMaxSdkMainAuthorized": 20,
+      "maxElapsedSeconds": 300,
+      "sdkMainRequests": 11,
+      "unusedMainAllowance": 9,
+      "elapsedSeconds": 103.662,
+      "firstMainUtc": "2026-11-06T23:56:18.489Z",
+      "completedUtc": "2026-11-06T23:58:02.151Z",
+      "status": "PASS_CONTROLLED_REAL_MODEL_CONTINUATION",
+      "terminal": "completed",
+      "terminalSeq": 127,
+      "abortReasonAtCompletion": null,
+      "disposedAfterCompletionIsCleanup": true,
+      "inflight": false,
+      "humanUserMessages": 1,
+      "coordinatorMidRunPrompts": 0,
+      "coordinatorArtifactWrites": 0,
+      "existingCodeFilesAtStart": 2,
+      "requiredArtifacts": 3,
+      "finalArtifacts": 3,
+      "exactFinalFiles": 6,
+      "originalThreeHashBytesMtimeUnchanged": true,
+      "calculatorAndTestsFinalHashMatchContinuationBaseline": true,
+      "toolCalls": 22,
+      "toolSuccess": 20,
+      "toolErrors": 2,
+      "recoveredToolErrors": [
+        "initial VIBECODING read before creation",
+        "Get-FileHash outside exact temporary allowlist"
+      ],
+      "actualModelTests": {
+        "executed": true,
+        "greenBeforeDefaultDiagnostic": true,
+        "initialGreen": {
+          "tests": 13,
+          "pass": 13,
+          "fail": 0,
+          "exitCode": 0
+        },
+        "defaultIsolationDiagnostic": {
+          "tests": 1,
+          "pass": 0,
+          "fail": 1,
+          "exitCode": 1,
+          "spawnEperm": true
+        },
+        "faultInjectionRed": {
+          "tests": 13,
+          "pass": 9,
+          "fail": 4,
+          "exitCode": 1
+        },
+        "restoredGreen": {
+          "tests": 13,
+          "pass": 13,
+          "fail": 0,
+          "exitCode": 0
+        },
+        "skipped": 0,
+        "cancelled": 0
+      },
+      "independentTests": {
+        "pass": 13,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0,
+        "exitCode": 0
+      },
+      "independentExtraCases": {
+        "positive": 5,
+        "invalid": 18,
+        "allPassed": true
+      },
+      "modelLedgerBytes": 6773,
+      "modelLedgerSha256": "2c6750f72ea41a03f09f0a5b19a69a3e7bb87d3b2022c82f87de46edb2d6ec2c",
+      "journalSha256": "86cd2450afa2911396abaaa4d4789a55f6ff2384599fe596309c0f7da54acc66",
+      "finalHelperPolicyTests": 16,
+      "finalHelperActualSdkRedGreen": true,
+      "finalHelperFullHostOfflineChainPassed": true,
+      "independentValidatorModelNetworkWorkspaceLiveWrites": 0
     }
   },
   "source": {
     "qoderVersion": "v0.0.30",
     "qoderSha": "33386f97bba86a852d90c9ade14222024d91adaa",
-    "qoderLocalRemoteSameAt": "2026-11-06T18:33:47Z"
+    "qoderLocalRemoteSameAt": "2026-11-07T00:15:30.352995+00:00",
+    "qoderReadmeReference": "Download selection, capabilities, guided setup, documentation navigation and immutable release verification; adapted to DSH interfaces and license boundaries"
   },
   "unverified": [
-    "successful real-model task completion",
+    "fresh-from-zero arbitrary-project autonomous completion and long-term stability",
     "cross-platform matrix",
     "other core versions",
     "UNC paths",
@@ -187,5 +273,6 @@
     "real business long tasks",
     "arbitrary parallel writes",
     "all external plugin combinations"
-  ]
+  ],
+  "changeScope": "Version, product README, onboarding/usage/release-history documentation and sanitized evidence only; plugin/scripts/tests/overlays byte-identical to v0.1.1"
 }
