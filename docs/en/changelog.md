@@ -4,6 +4,18 @@
 
 The repository version describes the full distribution; the plugin has its own version. When plugin bytes do not change, retain its version and original ZIP. A report update must not replace a same-named plugin archive with different content. All dates use Asia/Shanghai.
 
+## 0.1.4 — 2026-11-07
+
+- Classify the original twelve records as official account403, Bili polling CORS, and expected read-guard denial. Preserve original failures; a protection denial is not a Host crash.
+- Add optional version/SHA-pinned Bili400/404 header repair and restore tools with hardlink isolation, CAS and guarded recovery. Unknown/customized bytes require review; account/model/security gates are retained.
+- Pass seven unit tests, fifteen portable actual-source fixture cases, and formal CLI-output browser10 plus gate14 checks. Actual local application, detached-proxy adoption and native dsh-app reading an empty-session404 were verified.
+- The normal account RPC still encounters platform profile403; it is unresolved. Temporary helpers are removed, configuration/data/default model retained, and zero coordinator-controlled model acceptance calls added (ordinary business traffic not counted).
+- Add optional exact-ASAR/EXE footer repair and restore; normal local deployment and independent archive/browser checks passed. Live RO notices remain, the zero-RO gate failed, and active-business maintenance is held.
+- Component review.7 changes five metadata/document files, narrows support to`>=0.2.1-rc.2 <0.2.2-0`, and preserves the other210 review.6 files. Existing workflow/guard bytes remain; old review.6 assets are immutable.
+- Update bilingual diagnosis, commands, license additional terms and acceptance boundaries.
+
+Status: prerelease. Upstream account denial, remaining RO notices, cross-platform coverage and arbitrary business long tasks are outside the PASS scope. [Release](https://github.com/liushikuan63/DSH-Optimization/releases/tag/v0.1.4).
+
 ## 0.1.3 — 2026-11-07
 
 - Add Chinese/English core public documentation, including download selection, installation, usage, deployment, acceptance, and release history. The English instructions accompany the full distribution and release documentation; this does not translate all 55 bundled skills.

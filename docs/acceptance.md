@@ -1,20 +1,20 @@
-# 验收报告：0.1.3 / Ultimate-Model 1.4.3-review.6
+# 验收报告：0.1.4 / Ultimate-Model 1.4.3-review.7
 
 [English](en/acceptance.md) | 简体中文
 
 验收日期：2026-11-07（Asia/Shanghai）。实现和本机部署由主集成者负责；最终插件 ZIP 由独立验收者重新解包、安装副本并运行 SDK/UI，官方管理器另由独立验收者验证。所有测试都在同一台用户 Windows x64 机器上；“独立”指职责、解压目录与 Home/profile 隔离，不代表另一台机器。
 
-[机器可读脱敏摘要](evidence/acceptance-summary.json)与本报告使用相同分层。第三轮受控自主续任务完整通过，前两轮仍按失败保留。0.1.3新增双语说明并沿用既有真实验收结果；插件、脚本、测试和可选规则字节未变，既有311/16/SDK/UI实装证据仅关联其相同字节，不宣称本次重新运行。新归档另经独立解包与逐文件比较。
+[机器可读脱敏摘要](evidence/acceptance-summary.json)与本报告使用相同分层。第三轮受控自主续任务完整通过，前两轮仍按失败保留。0.1.4新增可选Bili窄修复器及当前独立回归/浏览器/本机证据。review.7的5项元数据/说明另验，其余210文件与review.6相同；原工作流安装器/规则及其测试字节未变；既有311/16/SDK/UI证据只关联这些相同字节，不宣称重新执行。最终新归档另按固定提交独立解包验收。
 
 ## 已冻结的插件字节
 
-- 文件：`Ultimate-Model-1.4.3-review.6.zip`，705119 字节，215 个归档成员。
-- SHA256：`9938562f6691e67a35c40fe83b37cf5d496c4953ee388e4e8a882396ca4266ab`。
+- 文件：`Ultimate-Model-1.4.3-review.7.zip`，705741 字节，215 个归档成员。
+- SHA256：`8c54ee1dcc743da180531166a2ac7f29d76a2b46319daf0078805506a150da0b`。
 - 精确清单：214 个被校验文件，另有 `FILES.sha256` 自身；归档 CRC、安全路径、大小写冲突、链接与清单集合均通过。
 - 插件结构：55 个技能，25 个组合插件行。原始输入 1.4.3-review.2 的 SHA256 为 `730c69584c7cd57a953782533459d00503c00e40a2a661414125a1a374110b67`；原件保留。
 - 完整分享 ZIP 另含可选全局规则、安装器及本报告；其最终 SHA256 由同名 `.zip.sha256` 和发行页给出。本报告不嵌入包含自身的 ZIP 哈希。
 
-## 通过的验证层
+## 历史review.6通过的验证层
 
 | 层 | 实际入口/动作 | 结果与边界 |
 | --- | --- | --- |
@@ -58,13 +58,43 @@ SDK/UI 层的模型是离线 fixture，外部 Provider 请求为0；这是正式
 
 无临时辅助的正常SDK窄验证另通过read→edit及带退出码后缀的原样pwsh命令，13/13、exit0、0模型/网络；保留两条ConstrainedLanguage启动stderr。此项不冒充模型自主交付，第三轮实跑证据单独保留。
 
-## 后续现役实例只读复核
+## 0.1.4：原12条运行错误的追查与本机修复
 
-初次部署验收后，旧实例在2026-11-07T00:13:07.396Z有clean=true的run.end，新实例于00:13:13.189Z启动；不推断关闭/启动者，也没有由本次复核重启或控制当前实例。新实例仍为DSH NEXT 2.0.20-next，独立确认三个启动健康事件、UM6静态自检exit0/214清单，以及Home、AGENTS、守卫字节和原规则前缀不变；临时验收rows仍已移除。
+原始12条已从实际技术日志、调用链和有界工具记录分类，原快照及旧版结论作为历史保留。它们不是12个独立程序缺陷：1条是官方账号profile HTTP403，10条是Bili状态轮询CORS，1条是预期的无界读取守卫拒绝，后续3次有界读取成功。当前UM6没有重复native provider；没有证据将这三类错误归因于UM。本机现役UM6、工作流安装器、通用规则和既有守卫未变；分享包review.7元数据另列。
 
-该新实例在2026-11-07T00:25:04.281Z冻结快照中有12条error：1条账号读取marker、10条其他renderer.console、1条host.session。不能沿用旧实例的1条错误数量，也不将启动健康解释为零运行错误。仅对这12条做脱敏技术分类，没有明确UM/jizhi、模块装载/broken、EPERM、auth或rate-limit等指纹，没有可安全提取的明确error.name/code或HTTP状态码，也未提及自有验收工作区/三个验收会话。
+| 本轮层次 | 实际结果与边界 |
+| --- | --- |
+| 新修复器回归 | `node --test scripts/tests/bili-status-cors.test.mjs`：7/7、exit0、0失败/跳过 |
+| 便携事务验收 | `verify-bili-status-cors.mjs`：原始与已修源各15/15；主集成者另用原始源15/15、sourceUnchanged=true。全部写入独占夹具，不执行第三方包 |
+| 正式最终产物浏览器 | 完整CLI输出SHA `7a4185d855452c04bd15e7a63b490780f5f1ee8f550658b6953283037ecab611`，提取11个实际函数；独立Chrome10项+Node门禁14项通过，24GET/0OPTIONS。原版两项CORS首红保留；400/404状态码不变、JSON可读，非法Host/Origin仍403、无ACAO。pageerror=0，2条预期HTTP资源错误保留 |
+| 本机正式应用 | 05:38:16Z在正常停机后执行精确字节修复；新目标nlink=1，pnpm原hardlink alias的字节/mtime不变，永久备份和恢复receipt保留，syntax exit0 |
+| 现役服务采用 | 新Host启动的独立proxy进程及实际index路径已核；真实产品服务可信`dsh-app://app`请求400带精确ACAO，非法Origin仍403/no-ACAO。版本仍0.1.212，不用版本号单独证明采用 |
+| 原生桌面受影响路径 | 05:45:54Z在实际`dsh-app://app/`打开Bili上下文视图，读取空会话HTTP404，未显示Failed to fetch；这与纯Node响应头、HTTP-origin Chrome夹具分开记录。未运行Bili模型任务 |
+| 账号正常产品路径 | 一次正常认证的`account/getProfile` RPC为HTTP200/ok=true/value.status=failed；原装白名单日志在05:41:22.349Z确认公共profile请求仍403/network。账号问题**未修复**，不把RPC200当上游成功，不推断断网/过期或清凭据重登 |
+| 保护与清理 | 临时诊断行清理回原Home SHA，opaque URL文件按精确hash删除，再正常重启；旧配置、默认模型、停用选择和数据的最终读回单列。协调者新增受控模型验收0次（正常业务流量未计数），历史23次预算记录不变 |
 
-以上不足以判定根因，标为UNDETERMINED；未归因于优化包，也未据此排除关联或宣称现役会话全部正常。复核没有读journal/用户会话正文/账号值，没有追查其他项目或新增模型调用。这个附加观察与已完成的受控小任务、归档和当前文件采用分开记录，保留原初次验收快照。
+最终无临时辅助实例从2026-11-07T05:46:44.779Z观察至05:52:08.191Z（本地13:46:44—13:52:08）：三个启动健康事件齐备，未观察到shutdown/crash或CORS；error共9条＝账号读取1条＋ResizeObserver通知8条（约每分钟一对），unknown=0。05:50:38Z再次在原生页面读取空会话404，05:51:40Z确认恢复原对话视图。六项配置/数据原字节哈希与备份一致，凭据仅作opaque哈希核对。周期布局通知仍开放，未全局吞掉错误；该窗口不代表之后永远零错误。
+
+详细命令、字节范围、回退和许可见[运行修复指南](runtime-repairs.md)与[机器可读摘要](evidence/acceptance-summary.json)。原10条响应的具体HTTP状态未记录，不能断言当时全是404；现役确证的是修复后受影响路径。布局恢复阶段另保留周期性`ResizeObserver loop completed with undelivered notifications.`通知，不宣称控制台零错误。账号403属于仍开放的上游读取边界，现有数据/凭据保留，不通过禁用防护来隐藏。
+
+
+## 桌面布局修复及仍开放的真实运行边界
+
+已在真实2.0.20-next归档确认footer将ResizeObserver的contentRect宽度再次减去padding，且在回调内同步改布局。定点修复统一宽度计算、合并到requestAnimationFrame并补卸载清理；源码4项、归档4项、实际完整归档夹具8项和独立Chrome14+VM6检查通过。原隔离页7条RO通知变为0；无关异常仍可见。公开工具固定原ASAR/EXE及目标源码哈希，未知字节保留审查，不改EXE/fuse/安全配置。
+
+06:17:38Z正常停机后已部署：ASAR `1c3bc0c92100688532e43173e51d93bcc07350dbcb18a9be65e5346504203fe4`，内含client `680d4dbd4594145c92a7a571ce044862f8bd326bc839873ff13653c4e8e50f46`。完整原归档备份和事务receipt保留，186919466字节原payload保留，2337个unpacked文件与原归档声明的integrity匹配；这不冒充独立的部署前物理文件快照。
+
+**真实零RO门禁失败，尚未完全解决。** 新实例06:17:46Z至06:25:30Z仍有账号1条、RO8条，CORS0、未知0、崩溃0；恢复原对话后的148秒有4条RO。06:20:46Z原生dsh-app仍可读取Bili空会话404。已修复的fixture缺陷不能直接认定为剩余通知的实际根因。06:38及06:52:25读回确认现役有“停止生成”按钮；为保留正在进行的任务，后续诊断维护暂停，私有有限元数据探针未部署、不随包分发。此前授权正常重启不用于中断当前已确认的业务生成。
+
+本轮协调者新增受控模型验收请求为0；现役正常业务请求未计数，不能将其说成全应用0模型调用。六项配置/数据在维护后按opaque字节哈希与备份核对；之后的正常业务写入应按当前归属保留。
+
+## review.7兼容边界
+
+官方DSH NEXT 2.0.22-next采用core0.2.2-rc.1并含破坏性SDK变更。原宽范围在实际SDK的includePrerelease判断下会允许该版本；review.7将范围收窄为`>=0.2.1-rc.2 <0.2.2-0`，不能写成仍允许rc的`<0.2.2`。官方管理器在安装依赖后、启用前和启动时检查兼容性，不承诺拒绝前零安装写入，也不创建allow-version豁免。现役DSH未升级，review.7现役部署因上述活跃任务暂缓。历史311回归、SDK/UI和真实模型属于review.6，210个未变文件可逐字节关联；review.7的元数据、归档和支持SDK安装另外验收。
+
+review.7精确ZIP另用官方0.2.1-rc.3 CLI SDK验收：清单/prepare均exit0，离线/禁脚本官方安装→列表→bundle启用→停用→卸载通过，8项物化路径均位于独占link源，卸载后依赖/选择/link/lock/运行预留均无残留。操作均为restart-required/no-HMR，未启动Host、Agent、Provider、账号或模型。CLI app-boot与已安装桌面app-boot版本同为rc.3但源码SHA不同，故这是隔离支持SDK管理器验收，不冒充同字节桌面SDK激活。首轮harness误用id/name代替官方rowId/moduleName的失败保留，其fixture已由官方管理器卸载。
+
+上游破坏性变更参考：[官方2.0.22-next发布说明](https://github.com/anywhere-labs/dsh-desktop/releases/tag/v2.0.22-next)。
 
 ## 修复依据与失败保留
 
@@ -77,7 +107,7 @@ SDK/UI 层的模型是离线 fixture，外部 Provider 请求为0；这是正式
 
 ## 兼容与未验范围
 
-本轮工具链包括 Node24（包声明最低Node22），DSH core0.2.1-rc.3、Playwright Core1.61.1、系统Chrome及pnpm11.7.0 JS发行版。包的声明范围为core >=0.2.1-rc.2 <0.3.0；未逐个版本验证，也未验Windows ARM、macOS、Linux、UNC路径、file/tgz/registry复制安装与Desktop默认native pnpm的全部锁定场景。
+本轮工具链包括 Node24（包声明最低Node22），DSH core0.2.1-rc.3、Playwright Core1.61.1、系统Chrome及pnpm11.7.0 JS发行版。包的声明范围为core >=0.2.1-rc.2 <0.2.2-0；未逐个版本验证，也未验Windows ARM、macOS、Linux、UNC路径、file/tgz/registry复制安装与Desktop默认native pnpm的全部锁定场景。
 
 索引关键词只召回候选，当前模型做 USE/SKIP/ASK/NEEDS_FACTS 语义判断；这属于工作契约与现有工具使用方法，不是新的强制分类器。VibeCoding文档、提示词优化和并行归属已适配到已有技能，没有引入另一套常驻模型、SQLite governor、压缩器或 native driver。
 

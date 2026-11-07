@@ -2,8 +2,8 @@
 
 **Goal-directed work, on-demand capabilities, and evidence-backed delivery for DSH.** 让DSH按目标推进，按需使用能力，把结果和证据一起交付。
 
-[![Version](https://img.shields.io/badge/version-0.1.3-blue.svg)](VERSION)
-[![Plugin](https://img.shields.io/badge/Ultimate--Model-1.4.3--review.6-blue.svg)](packages/ultimate-model/package.json)
+[![Version](https://img.shields.io/badge/version-0.1.4-blue.svg)](VERSION)
+[![Plugin](https://img.shields.io/badge/Ultimate--Model-1.4.3--review.7-blue.svg)](packages/ultimate-model/package.json)
 [![Node](https://img.shields.io/badge/Node.js-22%2B-green.svg)](https://nodejs.org/)
 [![Verified platform](https://img.shields.io/badge/verified-Windows%20x64-lightgrey.svg)](docs/acceptance.md)
 
@@ -17,14 +17,14 @@ DSH-Optimization is a community toolkit for DeepSeek Harness / DSH NEXT. It prov
 
 ### Downloads and packages
 
-Start with the **full share pack**; cloning is optional. The current release is **v0.1.3, a pre-release**. The plugin component remains the verified **1.4.3-review.6**. Both archives have separate SHA256 sidecars.
+Start with the **full share pack**; cloning is optional. The current release is **v0.1.4, a pre-release**. The component is **1.4.3-review.7**, a metadata-only compatibility revision with unchanged review.6 execution code. Both archives have separate SHA256 sidecars.
 
 | Download | Contents | Choose this when |
 | --- | --- | --- |
-| [Full share pack](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.3/DSH-Optimization-0.1.3.zip) · [SHA256](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.3/DSH-Optimization-0.1.3.zip.sha256) | Plugin, optional workflow installer, bilingual README and English/Chinese setup, use, recovery, history and acceptance guides; tests and sanitized evidence | Installing for the first time, sharing with others, or adding shared rules across modes |
-| [Plugin only](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.3/Ultimate-Model-1.4.3-review.6.zip) · [SHA256](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.3/Ultimate-Model-1.4.3-review.6.zip.sha256) | The frozen Ultimate-Model component and its original package documentation | You only need the preset and already manage shared rules; use the linked English guides online |
+| [Full share pack](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.4/DSH-Optimization-0.1.4.zip) · [SHA256](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.4/DSH-Optimization-0.1.4.zip.sha256) | Plugin, optional workflow installer and Bili compatibility utility, bilingual README and English/Chinese setup, use, recovery, history and acceptance guides; tests and sanitized evidence | Installing for the first time, sharing with others, or adding shared rules across modes |
+| [Plugin only](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.4/Ultimate-Model-1.4.3-review.7.zip) · [SHA256](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.4/Ultimate-Model-1.4.3-review.7.zip.sha256) | The frozen Ultimate-Model component and its original package documentation | You only need the preset and already manage shared rules; use the linked English guides online |
 
-[Release notes](https://github.com/liushikuan63/DSH-Optimization/releases/tag/v0.1.3) · [All releases](https://github.com/liushikuan63/DSH-Optimization/releases) · [Changelog](docs/en/changelog.md)
+[Release notes](https://github.com/liushikuan63/DSH-Optimization/releases/tag/v0.1.4) · [All releases](https://github.com/liushikuan63/DSH-Optimization/releases) · [Changelog](docs/en/changelog.md)
 
 GitHub's automatic Source code downloads are source snapshots. Use the named release assets above for the exact audited bytes and sidecars. Published archives and tags are immutable; changes ship in a new version. The full pack contains the bilingual user guides. Original skill bodies and third-party component documents retain their source languages and notices.
 
@@ -45,7 +45,7 @@ The component contains **55 skills and 25 plugin-configuration rows**. These are
 
 ### Get started
 
-Requirements: an installed compatible DSH, core **>=0.2.1-rc.2 <0.3.0**, and **Node.js 22+**. Actual acceptance used Windows x64, DSH NEXT 2.0.20-next / core 0.2.1-rc.3 and Node24. Other declared versions and platforms were not individually verified.
+Requirements: an installed compatible DSH, core **>=0.2.1-rc.2 <0.2.2-0**, and **Node.js 22+**. Actual acceptance used Windows x64, DSH NEXT 2.0.20-next / core 0.2.1-rc.3 and Node24. Other declared versions and platforms were not individually verified.
 
 1. Download the ZIP and sidecar from a trusted release, compare SHA256 and extract to a directory you will keep.
 2. In the final plugin directory, run `node scripts/prepare-install.mjs --check`, then `node scripts/prepare-install.mjs` to materialize its actual resource paths.
@@ -66,14 +66,22 @@ Try a small owned workspace before relying on a larger project. Ask DSH to state
 | Frozen plugin regression | 311 pass; 0 fail/cancel/skip/todo | Independently unpacked final review.6 ZIP |
 | Shared workflow / existing host guard | 16 / 27 tests passed | Isolated workflow installer / host-guard regression |
 | Original SDK, Host/UI, official manager | Passed | Normal modal and mode selection, real tools, stop, no-persistence and refresh; deterministic offline model fixture |
-| Actual local deployment | Passed | Exact version/manifest, backups, rule adoption, normal restart and boot-event readback |
+| UM6 local deployment | Passed on recorded review.6 bytes | Exact version/manifest, backups, rule adoption, normal restart and boot-event readback |
+| Review.7 metadata / official manager | Exact ZIP: 5 metadata changes / 210 identical files; supported-SDK install/enable/disable/remove passed | core0.2.1-rc.3, isolated profile; activation requires restart, no new model run |
+| Optional Bili repair | 7 unit + 15 portable fixture cases; formal browser10/gate14 passed | Exact supported source, actual local service and native dsh-app readable404; account403 remains unresolved |
 | Real model continuation | Third run 11/20, normally completed | Actual RED→GREEN, complete ledger and independent retest; prior failures retained |
 
-v0.1.3 adds bilingual release and user documentation. Plugin code, scripts, tests, overlays and the original plugin ZIP retain the verified bytes; unchanged regression/SDK/UI suites were not rerun for translation. The first two real trials used six requests each and remain failed records, so the three-run total is 23 SDK main requests. Provider-internal HTTP retries and the actual bill were not counted. Temporary test plugins and caps were removed; normal DSH has no six- or twenty-request limit from this acceptance.
+v0.1.4 adds optional byte-pinned Bili CORS and desktop footer repair tools. Component review.7 changes five metadata/document files to exclude core 0.2.2 prereleases and later versions; its other 210 files, including all execution code, are byte-identical to review.6. The existing workflow installer/overlays and guards retain their bytes. New utilities and compatibility metadata have separate current checks. Unchanged plugin regression/SDK/UI suites are not presented as rerun for this repair. The first two real trials used six requests each and remain failed records, so the three-run total is 23 SDK main requests. Provider-internal HTTP retries and the actual bill were not counted. Temporary test plugins and caps were removed; normal DSH has no six- or twenty-request limit from this acceptance.
 
-Default Node test subprocesses can still report `spawn EPERM` inside the DSH read-only sandbox; the same single-file test passed via same-process execution. This is not a universal replacement for isolation-dependent suites. The initial deployment snapshot included an existing account-read error; a later independently started instance had additional session/renderer errors, whose technical classification and unresolved boundaries are recorded separately. Healthy boot events do not prove every account, session or console is error-free.
+Default Node test subprocesses can still report `spawn EPERM` inside the DSH read-only sandbox; the same single-file test passed via same-process execution. This is not a universal replacement for isolation-dependent suites. The twelve later error records are now classified: one official profile HTTP403, ten Bili status polling CORS errors, and one expected unbounded-read denial followed by successful bounded reads. A trusted-status 400/404 header omission was reproduced; the historical ten response statuses were not recorded. Actual local repair, a fresh proxy process and native dsh-app reading the empty-session404 are verified. One normal account RPC still encounters upstream profile403 and is unresolved. Configuration/data hashes match the backups; a confirmed footer width/callback defect was repaired, but the actual running window still reports periodic ResizeObserver notifications and fails the zero-notification gate. Healthy boot events do not prove every account, session or console is error-free.
 
 See [Acceptance](docs/en/acceptance.md), [Real-model records](docs/en/real-model-validation.md) and the [sanitized machine summary](docs/evidence/acceptance-summary.json). Cross-platform behavior, arbitrary fresh business projects, long-term model reliability, arbitrary parallel writes and all external plugin combinations remain unverified.
+
+### Optional Bili runtime repair
+
+If the installed component is exactly supported `billion-context@0.1.212`, [runtime diagnosis and repair](docs/en/runtime-repairs.md) explains the trusted 400/404 CORS header fix, preview/apply, permanent backup, hardlink handling and safe restore. Other versions or local changes return REVIEW_UPDATE. The utility never starts/stops DSH, invokes models, reads account values or changes provider/configuration. It is optional; installing billion-context is not a prerequisite for Ultimate-Model.
+
+The utility adapts header logic from [billion-context](https://github.com/ranxianglei/billion-context), by ranxianglei. Its license includes MIT text and an additional attribution term; the [complete notice](docs/third-party/billion-context.LICENSE.txt) is retained.
 
 ### Documentation
 
@@ -85,6 +93,7 @@ See [Acceptance](docs/en/acceptance.md), [Real-model records](docs/en/real-model
 | Understand versions and release gates | [Changelog](docs/en/changelog.md) | [更新记录](docs/changelog.md) |
 | Inspect acceptance and limits | [Acceptance](docs/en/acceptance.md) | [验收报告](docs/acceptance.md) |
 | Inspect the three real-model trials | [Real-model validation](docs/en/real-model-validation.md) | [真实模型记录](docs/real-model-validation.md) |
+| Classify runtime errors and apply the optional Bili repair | [Runtime repair](docs/en/runtime-repairs.md) | [运行修复](docs/runtime-repairs.md) |
 
 Original component [capabilities and protocol](packages/ultimate-model/README.md), [shared-rule installer contract](overlays/README.md), [sources](packages/ultimate-model/SOURCES.md) and [third-party notices](THIRD-PARTY-NOTICES.md) are also distributed.
 
@@ -106,14 +115,14 @@ This is a community adaptation, not an official DSH, Qoder or OpenAI release. Th
 
 ### 下载与选包
 
-首次使用推荐下载**完整分享包**，无需克隆仓库。当前版本为 **v0.1.3 预发布**；插件仍为已验收的 **1.4.3-review.6**。完整包带版本化顶层目录，两个 ZIP 都有独立 SHA256 文件。
+首次使用推荐下载**完整分享包**，无需克隆仓库。当前版本为 **v0.1.4 预发布**；插件为兼容边界元数据修订版 **1.4.3-review.7**。完整包带版本化顶层目录，两个 ZIP 都有独立 SHA256 文件。
 
 | 下载 | 包含内容 | 适合谁 |
 | --- | --- | --- |
-| [完整分享包 ZIP](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.3/DSH-Optimization-0.1.3.zip) · [SHA256](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.3/DSH-Optimization-0.1.3.zip.sha256) | 插件、通用工作规则安装器、上手/使用/部署文档、测试与验收摘要 | 首次安装、分享给他人，或希望各模式采用通用工作规则 |
-| [独立插件 ZIP](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.3/Ultimate-Model-1.4.3-review.6.zip) · [SHA256](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.3/Ultimate-Model-1.4.3-review.6.zip.sha256) | 仅 Ultimate-Model 及其自带技能、脚本、清单和说明 | 已有独立工作规则，只需安装或更新该预设 |
+| [完整分享包 ZIP](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.4/DSH-Optimization-0.1.4.zip) · [SHA256](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.4/DSH-Optimization-0.1.4.zip.sha256) | 插件、通用工作规则安装器、可选Bili兼容修复、双语使用文档、测试与验收摘要 | 首次安装、分享给他人，或希望各模式采用通用工作规则 |
+| [独立插件 ZIP](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.4/Ultimate-Model-1.4.3-review.7.zip) · [SHA256](https://github.com/liushikuan63/DSH-Optimization/releases/download/v0.1.4/Ultimate-Model-1.4.3-review.7.zip.sha256) | 仅 Ultimate-Model 及其自带技能、脚本、清单和说明 | 已有独立工作规则，只需安装或更新该预设 |
 
-[本版发布说明](https://github.com/liushikuan63/DSH-Optimization/releases/tag/v0.1.3) · [全部版本](https://github.com/liushikuan63/DSH-Optimization/releases) · [历史记录](docs/changelog.md)
+[本版发布说明](https://github.com/liushikuan63/DSH-Optimization/releases/tag/v0.1.4) · [全部版本](https://github.com/liushikuan63/DSH-Optimization/releases) · [历史记录](docs/changelog.md)
 
 GitHub 自动生成的 Source code 是源码快照；需要本轮固定字节、测试关联和配套校验文件时，选择上表明确命名的资产。已发布 ZIP 和 tag 保持不变，后续修复发新版本。
 
@@ -134,7 +143,7 @@ GitHub 自动生成的 Source code 是源码快照；需要本轮固定字节、
 
 ### 首次上手
 
-前置是已安装兼容 DSH：core **>=0.2.1-rc.2 <0.3.0**、Node.js **22+**。本轮真实验证环境为 Windows x64、DSH NEXT 2.0.20-next / core 0.2.1-rc.3；声明范围中的其他版本和其他平台未逐一验证。
+前置是已安装兼容 DSH：core **>=0.2.1-rc.2 <0.2.2-0**、Node.js **22+**。本轮真实验证环境为 Windows x64、DSH NEXT 2.0.20-next / core 0.2.1-rc.3；声明范围中的其他版本和其他平台未逐一验证。
 
 1. 下载 ZIP 与对应 `.sha256`，核对可信发行来源和文件哈希，解压到长期保留的目录。
 2. 在最终插件目录先运行 `node scripts/prepare-install.mjs --check`，再运行 `node scripts/prepare-install.mjs`，生成当前位置的实际资源路径。
@@ -155,14 +164,22 @@ GitHub 自动生成的 Source code 是源码快照；需要本轮固定字节、
 | 冻结插件回归 | 311 pass，0 fail/cancel/skip/todo | 最终review.6插件ZIP独立解包后执行 |
 | 全局工作规则 / 本机原守卫 | 16 / 27 项通过 | 隔离规则安装测试 / 本机守卫回归 |
 | 原装 SDK、Host/UI、官方管理器 | 通过 | 模态、模式选择、真实工具、停止、禁存、刷新；模型为离线fixture |
-| 本机实际部署 | 通过 | 精确版本/清单、备份、规则采用、正常重启及健康事件读回 |
+| UM6本机部署 | 已验review.6相同字节通过 | 精确版本/清单、备份、规则采用、正常重启及健康事件读回 |
+| review.7元数据 / 官方管理器 | 精确ZIP：5项元数据变化/210文件相同；支持SDK安装/启用/停用/卸载通过 | core0.2.1-rc.3隔离profile；仍需重启采用，未新增真实模型轮次 |
+| 可选Bili修复 | 7回归+15便携夹具、正式浏览器10/门禁14通过 | 精确支持源、本机实际服务和原生dsh-app读取404；账号403仍未解决 |
 | 真实模型自主续任务 | 本轮11/20，正常completed | 模型实际RED→GREEN，文档齐备，独立复验；前两轮失败保留 |
 
-0.1.3增加中英双语README、主要使用说明及发布说明；插件、脚本、测试和通用规则保持已验字节，未为文档更新重跑未变代码的全套测试。前两轮各6次失败仍保留，三轮累计23次SDK主请求；内部HTTP重试次数和实际账单未统计。临时验收插件和上限已清理，正常DSH没有6次或20次限制。
+0.1.4增加严格限定字节的可选Bili CORS和桌面footer修复工具；插件review.7只改5个元数据/说明文件，明确排除core 0.2.2预发布版及后续版本，其余210文件（全部执行代码）与review.6相同。原有工作规则和守卫保持字节；新工具及兼容边界另做当前验证，不把未变插件的全套回归说成本次重跑。前两轮各6次失败仍保留，三轮累计23次SDK主请求；内部HTTP重试次数和实际账单未统计。临时验收插件和上限已清理，正常DSH没有6次或20次限制。
 
-默认Node测试子进程在DSH只读沙箱内仍可报 `spawn EPERM`，本次同一单测试文件采用同进程路径完整通过；不能推广到所有测试套件。初次部署验收记录一条既有账号读取日志；后续新启动实例的只读复核观察到更多会话/界面错误，具体分类及未定边界见验收报告。启动健康不代表所有账号、会话或控制台无错误。跨平台、真实业务长任务、任意并行写入和所有第三方插件组合仍未验。
+默认Node测试子进程在DSH只读沙箱内仍可报 `spawn EPERM`，本次同一单测试文件采用同进程路径完整通过；不能推广到所有测试套件。后续12条运行日志现已分成三类：1条官方profile HTTP403、10条Bili状态轮询CORS、1条预期无界读取拒绝且随后有界读取成功。可信状态400/404缺头已复现，历史10条的具体HTTP状态未记录；本机正式应用、新proxy进程及原生dsh-app读取空会话404已验证。正常账号RPC仍遭上游profile403，未解决；配置/数据哈希与备份一致，已确认的footer宽度/回调缺陷完成定点修复；实际现役窗口仍出现周期性ResizeObserver通知，零通知门禁失败，继续追查且不吞错。启动健康不代表所有账号、会话或控制台无错误。跨平台、真实业务长任务、任意并行写入和所有第三方插件组合仍未验。
 
 完整命令、首红、修复、独立验收及限制见[验收报告](docs/acceptance.md)、[真实模型记录](docs/real-model-validation.md)和[机器可读摘要](docs/evidence/acceptance-summary.json)。一次小型续任务通过不构成任意模型永不犯错的保证。
+
+### 可选 Bili 运行修复
+
+仅当已安装的 `billion-context@0.1.212` 与支持字节完全一致时，按[运行诊断与修复](docs/runtime-repairs.md)预演/应用可信400/404响应头修复，保留永久备份并支持安全回退。其他版本或本地改动返回REVIEW_UPDATE，不自动覆盖。工具不启动/停止DSH、不调用模型、不读取账户值、不改变配置或provider；没有该组件的用户无需为Ultimate-Model安装它。
+
+兼容工具使用 [billion-context](https://github.com/ranxianglei/billion-context)（作者ranxianglei）的响应头逻辑；其许可含MIT文本与额外出处标注条款，[完整声明](docs/third-party/billion-context.LICENSE.txt)已保留。
 
 ### 文档导航
 
@@ -171,6 +188,7 @@ GitHub 自动生成的 Source code 是源码快照；需要本轮固定字节、
 | 下载后安装、校验、首次检查 | [首次安装](docs/getting-started.md) |
 | 长任务、按需技能、提示词、并行和不落盘示例 | [使用指南](docs/usage.md) |
 | 已有配置升级、EPERM、模态、卸载和回退 | [部署与恢复](docs/deployment.md) |
+| 运行错误分类、Bili修复、便携验收与恢复 | [运行修复](docs/runtime-repairs.md) |
 | 包内能力入口和检索协议 | [插件README](packages/ultimate-model/README.md) |
 | 全局工作规则安装器及退出码 | [通用工作规则](overlays/README.md) |
 | 版本变化与维护者构建发布流程 | [更新记录](docs/changelog.md) |

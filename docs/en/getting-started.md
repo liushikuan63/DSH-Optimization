@@ -4,17 +4,17 @@
 
 Start with the full distribution, install the plugin, and then choose whether to add the optional global workflow. This guide uses only entry points provided by this package. It does not install DSH itself, model accounts, MCP services, or Qoder components.
 
-You need a compatible DSH installation: core **>=0.2.1-rc.2 <0.3.0**, with **Node.js 22+**. The recorded environment is Windows x64, DSH NEXT 2.0.20-next / core 0.2.1-rc.3, and Node 24. Other versions within the declared range and other platforms have not each been verified.
+You need a compatible DSH installation: core **>=0.2.1-rc.2 <0.2.2-0**, with **Node.js 22+**. The recorded environment is Windows x64, DSH NEXT 2.0.20-next / core 0.2.1-rc.3, and Node 24. Other versions within the declared range and other platforms have not each been verified.
 
 ## 1. Choose, verify, and place the package
 
-Download `DSH-Optimization-0.1.3.zip` and its matching `.zip.sha256` file from [this release](https://github.com/liushikuan63/DSH-Optimization/releases/tag/v0.1.3). If you only need the preset, choose the standalone `Ultimate-Model-1.4.3-review.6.zip`. That standalone archive does not contain the root-level global-workflow installer or this guide; follow its own README and INSTALL-AI instead.
+Download `DSH-Optimization-0.1.4.zip` and its matching `.zip.sha256` file from [this release](https://github.com/liushikuan63/DSH-Optimization/releases/tag/v0.1.4). If you only need the preset, choose the standalone `Ultimate-Model-1.4.3-review.7.zip`. That standalone archive does not contain the root-level global-workflow installer or this guide; follow its own README and INSTALL-AI instead.
 
 In Windows PowerShell, run these commands from the download directory:
 
 ```powershell
-Get-FileHash -LiteralPath '.\DSH-Optimization-0.1.3.zip' -Algorithm SHA256
-Get-Content -LiteralPath '.\DSH-Optimization-0.1.3.zip.sha256'
+Get-FileHash -LiteralPath '.\DSH-Optimization-0.1.4.zip' -Algorithm SHA256
+Get-Content -LiteralPath '.\DSH-Optimization-0.1.4.zip.sha256'
 node --version
 ```
 
@@ -23,7 +23,7 @@ Compare the 64 hexadecimal digits; letter case does not matter. Stop if the hash
 Extract the full distribution into a directory you intend to keep, on any writable local drive. Quote paths that contain spaces. Do not extract over an existing installation. The layout should include:
 
 ```text
-DSH-Optimization-0.1.3/
+DSH-Optimization-0.1.4/
   README.md
   VERSION
   docs/                         # Installation, usage, recovery, acceptance, and history
@@ -90,3 +90,5 @@ Inspect the first read-only plan. Run the second command only when its target an
 A real-model task uses your existing account allowance. Start with the bounded example in the [usage guide](usage.md) to check your own client path. The local acceptance evidence in this repository covers only its recorded machine, versions, and task.
 
 For updates, removal, and rollback, read [deployment and recovery](deployment.md). Remove the plugin through the official `remove_bundle`; do not delete personal experience or checkpoints. Before restoring a backup, compare changes made since installation and restore only the appropriate changes, preserving later user edits.
+
+Bili status CORS repair is an explicit optional tool in the complete package. Read [runtime repair and recovery](runtime-repairs.md) first. Installing UM does not automatically modify other plugins.

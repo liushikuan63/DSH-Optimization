@@ -53,3 +53,6 @@
 Windows只读沙箱中默认Node测试可能报spawn EPERM。本轮在同一单文件、同一沙箱使用 `node --test --test-isolation=none calculator.test.mjs` 完整通过；先核对本机Node支持，不能将其机械套到依赖进程隔离的多文件套件，也不能据此关闭沙箱。模式浮层及其他EPERM按[排障指南](deployment.md)区分原因。
 
 本项目真实模型证据见[验收报告](acceptance.md)与[三轮记录](real-model-validation.md)：第三轮11次自主续任务通过，前两轮失败原样保留；这不等于所有模型、长任务和插件组合已验证。
+
+
+0.1.4运行排查没有新增模型请求。官方账号403、Bili空状态CORS和预期守卫拒绝已分别处理，当前证据及未解决边界见[运行修复指南](runtime-repairs.md)；不要因一条error日志就关闭保护或重置个人配置。

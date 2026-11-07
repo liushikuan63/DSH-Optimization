@@ -1,8 +1,10 @@
 # Deployment, updates, and recovery
 
+Current0.1.4 adds optional pinned Bili CORS/footer repairs and review.7 compatibility metadata. See [runtime repairs](runtime-repairs.md) and [acceptance](acceptance.md). DSH NEXT2.0.22-next/core0.2.2-rc.1 is not adapted; do not upgrade the live app or add a version exemption. Account403 and actual periodic RO notices remain open; maintenance is held while business work is active.
+
 [简体中文](../deployment.md) · English
 
-Version 0.1.3 adds bilingual documentation only. It retains the frozen Ultimate-Model 1.4.3-review.6 code/ZIP and existing acceptance evidence; it does not rerun 311/16 tests, SDK/UI, installation, or paid models. See the [acceptance report](acceptance.md) and [real model record](real-model-validation.md) for exact layers and limitations.
+Historical0.1.3: this release added bilingual documentation only. It retains the frozen Ultimate-Model 1.4.3-review.6 code/ZIP and existing acceptance evidence; it does not rerun 311/16 tests, SDK/UI, installation, or paid models. See the [acceptance report](acceptance.md) and [real model record](real-model-validation.md) for exact layers and limitations.
 
 ## Prepare the final installation directory
 

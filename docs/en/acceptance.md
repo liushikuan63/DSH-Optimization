@@ -1,24 +1,24 @@
-# Acceptance report — 0.1.3 documentation edition / Ultimate-Model 1.4.3-review.6
+# Acceptance report — 0.1.4 runtime repair edition / Ultimate-Model 1.4.3-review.7
 
 [简体中文](../acceptance.md) · English
 
 The recorded acceptance work took place on 2026-11-07 (Asia/Shanghai). The main integrator implemented and deployed the changes. Separate validators unpacked the final plugin ZIP, prepared isolated copies, exercised the SDK/UI, and checked the official bundle manager. All environments were on the same user's Windows x64 machine. “Independent” describes responsibility, extraction directories, and isolated Home/profile directories; it does not mean a second computer.
 
-Version 0.1.3 adds bilingual documentation. It does not change the frozen Ultimate-Model code or ZIP, and it does not add another run of the 311 plugin tests, 16 workflow tests, SDK/UI acceptance, or paid model tasks. Existing evidence applies to the same verified bytes. The documentation archive needs its own final archive/source comparison after it is frozen.
+Version 0.1.4 adds optional narrowly scoped Bili CORS and desktop-footer repairs with current regression/browser/native acceptance. Review.7 changes five metadata/document files; its other210 files and the existing workflow installer/rules retain their bytes. Historical311/16/SDK/UI suites describe review.6 and the same unchanged code; they are not claimed as rerun. The new fixed-source archive receives independent artifact acceptance.
 
 The [sanitized machine-readable summary](../evidence/acceptance-summary.json) uses the same evidence layers. The third controlled continuation task passed; the first two attempts remain recorded as failures. See the [real model record](real-model-validation.md) and [deployment guide](deployment.md).
 
 ## Frozen plugin artifact
 
-- File: `Ultimate-Model-1.4.3-review.6.zip`; 705119 bytes and 215 archive members.
-- SHA256: `9938562f6691e67a35c40fe83b37cf5d496c4953ee388e4e8a882396ca4266ab`.
+- File: `Ultimate-Model-1.4.3-review.7.zip`; 705741 bytes and 215 archive members.
+- SHA256: `8c54ee1dcc743da180531166a2ac7f29d76a2b46319daf0078805506a150da0b`.
 - `FILES.sha256` covers 214 files; the manifest itself is the remaining member. CRC, safe paths, case collisions, links, and exact manifest membership passed.
 - The distributed structure contains 55 skills and 25 composed plugin rows. These counts do not mean that all skills are resident or that all rows are separate new plugins.
 - The preserved original input was 1.4.3-review.2, SHA256 `730c69584c7cd57a953782533459d00503c00e40a2a661414125a1a374110b67`.
 
 The complete share ZIP also contains optional global workflow rules, their installer, and the documentation. Its exact hash belongs in the matching `.zip.sha256` sidecar and release receipt. A document inside an archive cannot embed that archive's final hash without changing it.
 
-## Verified layers and their limits
+## Historical review.6 layers and their limits
 
 | Layer | Actual entry or action | Recorded result and boundary |
 | --- | --- | --- |
@@ -75,13 +75,45 @@ The three attempts consumed **6 + 6 + 11 = 23 SDK main requests**. The third all
 
 After the controlled work, the temporary runner/budget rows were removed, the Home patch was restored to its exact pre-test bytes, and DSH was restarted normally. The recorded cleanup snapshot had the three startup health events above. It also contained an account-read error of a class already observed before review.6. Host readiness never established that all accounts or console paths were error-free.
 
-A later read-only snapshot was observed at **2026-11-07T00:25:04.281Z**. The preceding run had recorded `clean=true` at `run.end` at 00:13:07.396 UTC; the later run started at 00:13:13.189 UTC. This describes recorded lifecycle events without attributing who initiated the restart. The check itself did not restart DSH.
+## 0.1.4: investigation and local repair of the original twelve records
 
-The later snapshot reported the same static manifests/configuration and three startup health events, alongside **12 recorded errors: 1 account-read renderer error, 10 OTHER renderer errors, and 1 host.session error**. The bounded technical classification is complete: the account-read renderer entry was identified, while explicit UM/jizhi, module-load, broken, EPERM, authentication, and rate-limit markers were all zero. An error name/code/HTTP status could not be extracted. There were no owned-workspace path markers or markers for any of the three owned acceptance sessions. The result receipt SHA256 is `ac88da7e3a772aba679ece333e7128068eb9fbe0f4e728a6b6c04392ee5ef7df`.
+The preserved original snapshot is now classified from actual technical logs, source paths and bounded tool records. These are not twelve independent defects: one official account-profile HTTP403, ten Bili status-polling CORS errors, and one expected unbounded-read guard denial followed by three successful bounded reads. Current UM6 has no duplicate native provider. No evidence attributes these three classes to UM. The live UM6, existing workflow installer/rules and host guard retain their bytes; share-pack review.7 metadata is listed separately.
 
-The cause remains **UNDETERMINED**. Absent markers do not rule out a relationship to installed components; they are a limited classification, not proof of independence or repair. No chats, journals, or account contents were read for this later check. The documentation does not collapse these 12 errors into the earlier single account entry or claim that the current run is error-free. Earlier accepted snapshots and later runtime issues remain separate evidence in the summary.
+| Current layer | Observed result and boundary |
+| --- | --- |
+| Repair unit regression | `node --test scripts/tests/bili-status-cors.test.mjs`: 7/7, exit0, no failures/skips. |
+| Portable transaction acceptance | `verify-bili-status-cors.mjs`: 15/15 on both original and repaired inputs; the integrator separately ran 15/15 on the original with sourceUnchanged=true. Only owned fixtures were written; third-party code was not executed. |
+| Formal final-output browser | Full CLI output SHA `7a4185d855452c04bd15e7a63b490780f5f1ee8f550658b6953283037ecab611`, eleven actual extracted functions; independent Chrome10 plus Node/gate14 checks passed, 24GET/0OPTIONS. Original CORS RED preserved; 400/404 and JSON retained, foreign Host/Origin still403 without ACAO. pageerror=0; two expected HTTP resource errors remain. |
+| Actual local apply | Exact-byte repair at05:38:16Z after normal shutdown. New target nlink=1; pnpm hardlink alias bytes/mtime unchanged; permanent backup/restore receipt retained; syntax exit0. |
+| Running service adoption | A fresh Host's detached proxy process and actual index path were checked. The actual service returns400 with exact ACAO for trusted dsh-app://app and403/no-ACAO for a foreign Origin. Its version remains0.1.212; version alone is not adoption proof. |
+| Native desktop affected path | At05:45:54Z the actual dsh-app://app/ Bili context view read an empty-session HTTP404 without Failed to fetch. This is separate from Node header tests and the HTTP-origin Chrome fixture. No Bili model task was run. |
+| Normal account product path | One normally authenticated account/getProfile RPC returned HTTP200/ok=true/value.status=failed. Original whitelisted diagnostics confirm another profile403/network at05:41:22.349Z. **The account failure is unresolved**; RPC200 is not platform success. No offline/expired-credential inference or forced sign-in. |
+| Preservation and cleanup | The temporary diagnostic row was removed, restoring the original Home SHA; the opaque URL file was deleted after an exact hash check, then DSH was restarted normally. Final configuration/data readback is recorded separately. Zero coordinator-controlled model acceptance calls; ordinary business traffic was not counted. The historical23-request record is unchanged. |
+
+The final helper-free instance was observed from2026-11-07T05:46:44.779Z to05:52:08.191Z (13:46:44–13:52:08 local). All three boot health events were present; no shutdown/crash or CORS was observed. Nine error records were classified: one account read plus eight ResizeObserver notifications (approximately one pair per minute), unknown=0. The native page read an empty-session404 again at05:50:38Z, and the original conversation view was confirmed restored at05:51:40Z. All six configuration/data byte hashes match their backups; credentials were checked only as opaque bytes. Periodic layout notifications remain open, without global error suppression. This bounded window is not a permanent zero-error claim.
+
+See [runtime repair](runtime-repairs.md) and the [machine summary](../evidence/acceptance-summary.json) for commands, byte pins, recovery and licensing. The ten historical response statuses were not recorded; they cannot all be labelled404. Current evidence proves the repaired affected path. Periodic `ResizeObserver loop completed with undelivered notifications.` messages during window/layout restoration are retained, so this is not a zero-console-error claim. Account403 remains an open upstream-read boundary; existing credentials/data and protection gates are preserved.
 
 A separate owned SDK check without the temporary helper passed read→edit and the original PowerShell suffix command: 13/13, exit 0, 0 model/network calls. Two ConstrainedLanguage startup stderr entries were retained. That narrow tool check is not autonomous model-delivery evidence or a clean-stderr claim.
+
+
+## Desktop layout repair and remaining live boundary
+
+The actual2.0.20-next footer subtracts padding again from ResizeObserver contentRect width and synchronously changes layout inside its callback. The pinned repair unifies width measurements, schedules work with requestAnimationFrame and cleans up on disposal. Source4, archive4, full-archive fixture8 and independent Chrome14 plus VM6 checks passed. The isolated original produced7 RO notices and the repair0; unrelated exceptions remain visible. Unknown archive/executable/source bytes require review; EXE, fuses and security settings are not changed.
+
+Normal stopped-instance deployment completed at06:17:38Z: ASAR `1c3bc0c92100688532e43173e51d93bcc07350dbcb18a9be65e5346504203fe4`, packed client `680d4dbd4594145c92a7a571ce044862f8bd326bc839873ff13653c4e8e50f46`. Original archive backup and transaction receipts remain. All186919466 original payload bytes are retained;2337 unpacked files match integrity declared in the original archive, rather than an independently captured physical pre-deployment snapshot.
+
+**The actual zero-RO gate failed and remains open.** The fresh run06:17:46Z–06:25:30Z retained one account error and eight RO notices, with zero CORS/unknown/crash; the148 seconds after restoring the conversation contained four RO notices. Native dsh-app still read the Bili empty-session404 at06:20:46Z. A repaired fixture defect is not proof of the remaining production owner. Native readback at06:38 and06:52:25 found an active Stop generation control. Further diagnostic maintenance is held to preserve that business task; the bounded private metadata probe has not been deployed and is excluded from the distribution. Earlier normal-restart consent is not used to interrupt newly confirmed active generation.
+
+The coordinator added zero controlled model acceptance requests in this phase. Ordinary current business traffic was not counted, so this is not an application-wide zero-model-call claim. Six protected configuration/data files matched opaque backup hashes after maintenance; subsequent normal business writes must be preserved according to ownership.
+
+## review.7 compatibility boundary
+
+Official DSH NEXT2.0.22-next uses core0.2.2-rc.1 and introduces breaking SDK changes. Actual SDK includePrerelease semantics made the old range overbroad. Review.7 narrows support to`>=0.2.1-rc.2 <0.2.2-0`;`<0.2.2` would still admit prereleases. The official manager checks after dependency installation and before enable, and startup checks again. This is not a guarantee of zero installation writes before rejection; no allow-version exemption is created. The live DSH was not upgraded, and review.7 live adoption is held for the active task. Historical311 regression, SDK/UI and real-model results remain associated with review.6;210 unchanged files provide byte-level association, while review.7 metadata/archive/supported-SDK installation are separately checked.
+
+Review.7 exact ZIP acceptance used the official0.2.1-rc.3 CLI SDK: manifest/prepare checks exit0, offline/no-script official install→list→bundle enable→disable→remove passed, all eight materialized paths existed under the owned link source, and removal left no dependency/selection/link/lock/reservation. All operations remained restart-required/no-HMR; no Host, Agent, Provider, account or model was started. The CLI app-boot and installed desktop app-boot report the same core version but have different source hashes; this is an isolated supported-SDK manager check, not same-byte desktop SDK activation. A harness first used id/name instead of official rowId/moduleName; that first failure remains and its fixture was removed through the official manager.
+
+Upstream breaking-change reference: [official2.0.22-next release](https://github.com/anywhere-labs/dsh-desktop/releases/tag/v2.0.22-next).
 
 ## Failure retention, recovery, and unverified scope
 
@@ -92,7 +124,7 @@ A separate owned SDK check without the temporary helper passed read→edit and t
 - The official-manager probe's first removal failed because the probe used command-specific pnpm flags. Switching to generic `--config.*` offline/no-script settings completed removal of the same profile without another install or broader permissions; the failed evidence remains.
 - Modal behavior was handled through normal close/confirm controls. No force click, inert removal, or disabled vision feature was used to claim successful selection.
 
-The recorded toolchain includes Node 24 (package minimum: Node 22), core 0.2.1-rc.3, Playwright Core 1.61.1, system Chrome, and pnpm 11.7.0 JS. The declared core range is `>=0.2.1-rc.2 <0.3.0`; every version in that range was not tested. Windows ARM, macOS, Linux, UNC paths, file/tgz/registry copy installs, and all native-pnpm locking cases remain unverified.
+The recorded toolchain includes Node 24 (package minimum: Node 22), core 0.2.1-rc.3, Playwright Core 1.61.1, system Chrome, and pnpm 11.7.0 JS. The declared core range is `>=0.2.1-rc.2 <0.2.2-0`; every version in that range was not tested. Windows ARM, macOS, Linux, UNC paths, file/tgz/registry copy installs, and all native-pnpm locking cases remain unverified.
 
 Skill keywords retrieve candidates; the current model makes USE/SKIP/ASK/NEEDS_FACTS decisions. This is a workflow contract, not a new mandatory classifier. VibeCoding, prompt improvement, and parallel ownership reuse existing capabilities without adding another resident model, SQLite governor, compactor, or native driver.
 

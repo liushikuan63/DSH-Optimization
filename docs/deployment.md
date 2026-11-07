@@ -1,5 +1,7 @@
 # 部署、升级与恢复
 
+当前0.1.4增加可选Bili CORS/footer定点修复和review.7兼容边界，详见[运行修复](runtime-repairs.md)及[验收](acceptance.md)。DSH NEXT2.0.22-next/core0.2.2-rc.1尚未适配，不直接升级现役或添加版本豁免。账号403和实际周期RO仍开放，活跃任务运行时暂停维护。
+
 [English](en/deployment.md) | 简体中文
 
 首次安装使用 README 的官方 bundle 管理流程，保留整个插件目录。归档中的表达式 patch 是分发源，宿主兼容预检需要先物化的字面路径；移动安装目录后重新准备副本并核对实际绑定位置。

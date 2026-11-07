@@ -6,13 +6,13 @@
 
 ## 1. 选包、校验和放置
 
-从[本版Release](https://github.com/liushikuan63/DSH-Optimization/releases/tag/v0.1.3)下载 `DSH-Optimization-0.1.3.zip` 和同名 `.zip.sha256`。只需要预设的用户可选独立 `Ultimate-Model-1.4.3-review.6.zip`；独立包没有根目录的通用工作规则安装器和本指南，安装步骤沿用包内README/INSTALL-AI。
+从[本版Release](https://github.com/liushikuan63/DSH-Optimization/releases/tag/v0.1.4)下载 `DSH-Optimization-0.1.4.zip` 和同名 `.zip.sha256`。只需要预设的用户可选独立 `Ultimate-Model-1.4.3-review.7.zip`；独立包没有根目录的通用工作规则安装器和本指南，安装步骤沿用包内README/INSTALL-AI。
 
 Windows PowerShell可在下载目录执行：
 
 ```powershell
-Get-FileHash -LiteralPath '.\DSH-Optimization-0.1.3.zip' -Algorithm SHA256
-Get-Content -LiteralPath '.\DSH-Optimization-0.1.3.zip.sha256'
+Get-FileHash -LiteralPath '.\DSH-Optimization-0.1.4.zip' -Algorithm SHA256
+Get-Content -LiteralPath '.\DSH-Optimization-0.1.4.zip.sha256'
 node --version
 ```
 
@@ -21,7 +21,7 @@ node --version
 把完整包解压到自己的长期目录，可以是任意可写本地盘，路径有空格时加引号。不要直接覆盖旧安装目录。结构应为：
 
 ```text
-DSH-Optimization-0.1.3/
+DSH-Optimization-0.1.4/
   README.md
   VERSION
   docs/                         # 本指南、使用、恢复、验收及历史
@@ -87,3 +87,6 @@ node scripts/install-workflow.mjs --home '<DSH_HOME绝对路径>'
 真实模型任务会使用现有账号额度。先用[使用指南](usage.md)里的受控小任务确认自己的客户端路径；本仓库的本机验收只覆盖其记录的机器、版本和任务。
 
 升级、卸载和回退请读[部署与恢复](deployment.md)。通过官方remove_bundle卸载插件，不删除个人经验/检查点；回退先比较当前新增内容，再用备份恢复相应改动，不整份覆盖后来的用户更新。
+
+
+Bili状态轮询CORS修复是完整包中的显式可选工具，先看[运行修复与回退](runtime-repairs.md)。不会随UM安装自动修改其他插件。
