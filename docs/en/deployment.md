@@ -1,6 +1,6 @@
 # Deployment, updates, and recovery
 
-For 1.0.0, live Ultimate-Model is `1.4.4`: five metadata/document files changed against the previously materialized review.7; 210 files and the materialized patch are preserved. Optional exact-byte runtime repairs and the developer deadline API are documented in [Runtime repairs](runtime-repairs.md). The 0.1.4 statements “live review.6 / maintenance HOLD” describe that earlier snapshot; see [acceptance](acceptance.md) for the later approval and completed maintenance. This is not standing approval for further maintenance or an extension of the spent diagnostic budget.
+Share pack 1.1.0 contains Ultimate-Model 1.5.0. Before upgrading an existing profile, check same-ID overrides, the actual linked directory, and custom tool settings. Try it first in a separate profile. After an authorized restart, use the live preset list and new-session flow to verify adoption. See [current acceptance](acceptance-1.1.0.md) and [historical 1.0.0 acceptance](acceptance.md).
 
 [简体中文](../deployment.md) · English
 

@@ -20,6 +20,7 @@ function productionHarness(presentation = 'ptc') {
   }
   const parentTools = {
     register(tool) { registered.set(tool.name, tool); return () => registered.delete(tool.name) },
+    presentAs() { return () => {} },
     // Even the parent API projects the calling agent's effective view.
     schemas(agent) { return agent.ctx.tools.schemas(agent) },
   }

@@ -4,15 +4,17 @@
 
 推荐先用完整分享包，安装插件后再按需选择通用工作规则。本指南仅使用本包实际提供的入口，不安装DSH本体、模型账号、MCP或Qoder组件。
 
+需要 **Node.js 22+** 和可运行的 DSH Host。Ultimate-Model 1.5.0 按实际宿主接口选择分页；更新到未知宿主后，先用独立 profile 核验模式和工具，不通过版本豁免强行装载。参见[本版验收](acceptance-1.1.0.md)。
+
 ## 1. 选包、校验和放置
 
-从[本版Release](https://github.com/liushikuan63/DSH-Optimization/releases/tag/v1.0.0)下载 `DSH-Optimization-1.0.0.zip` 和同名 `.zip.sha256`。只需要预设的用户可选独立 `Ultimate-Model-1.4.4.zip`；独立包没有根目录的通用工作规则安装器和本指南，安装步骤沿用包内README/INSTALL-AI。
+从[本版Release](https://github.com/liushikuan63/DSH-Optimization/releases/tag/v1.1.0)下载 `DSH-Optimization-1.1.0.zip` 和同名 `.zip.sha256`。只需要预设的用户可选独立 `Ultimate-Model-1.5.0.zip`；独立包没有根目录的通用工作规则安装器和本指南，安装步骤沿用包内README/INSTALL-AI。
 
 Windows PowerShell可在下载目录执行：
 
 ```powershell
-Get-FileHash -LiteralPath '.\DSH-Optimization-1.0.0.zip' -Algorithm SHA256
-Get-Content -LiteralPath '.\DSH-Optimization-1.0.0.zip.sha256'
+Get-FileHash -LiteralPath '.\DSH-Optimization-1.1.0.zip' -Algorithm SHA256
+Get-Content -LiteralPath '.\DSH-Optimization-1.1.0.zip.sha256'
 node --version
 ```
 
@@ -21,7 +23,7 @@ node --version
 把完整包解压到自己的长期目录，可以是任意可写本地盘，路径有空格时加引号。不要直接覆盖旧安装目录。结构应为：
 
 ```text
-DSH-Optimization-1.0.0/
+DSH-Optimization-1.1.0/
   README.md
   VERSION
   docs/                         # 本指南、使用、恢复、验收及历史

@@ -1,10 +1,10 @@
 {
   "format": "dsh-bundle",
   "name": "@local/ultimate-model",
-  "version": "1.4.4",
+  "version": "1.5.0",
   "preset": "ultimate-model",
   "requires": {
-    "dsh": ">=0.2.1-rc.2 <0.2.2-0"
+    "dsh": "*"
   },
   "capabilityLayers": {
     "kernel": "preset/skills/jizhi-mode/SKILL.md",
@@ -27,6 +27,7 @@
   "automaticMcpInstall": false,
   "defaultTimeoutAutoApproval": false,
   "notes": [
+    "The Host's tool API selects the paging adapter; an unsupported API makes this preset unavailable rather than silently disabling paging.",
     "Install and remove with plugin_manager only.",
     "Legacy apply/uninstall file rewriting is refused.",
     "Hooks and optional MCP examples are not proof of active registration."

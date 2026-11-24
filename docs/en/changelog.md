@@ -4,6 +4,12 @@
 
 The repository version describes the full distribution; the plugin has its own version. When plugin bytes do not change, retain its version and original ZIP. A report update must not replace a same-named plugin archive with different content. All dates use Asia/Shanghai.
 
+## 1.1.0 — 2026-11-25
+
+- Ultimate-Model 1.5.0 keeps `ultimate-model`. A wildcard declaration lets it choose between the legacy interface and the scoped executor by inspecting the Host. The old list-agents subpath is no longer required on newer Hosts.
+- On current Hosts, the settled page controls both the next step's tool definitions and the tools it can call. The configuration pages `ppt_*` and `minimax_*`; native and PTC use the same page.
+- Following the Qoder and Codex share packs, build from a pinned Git commit, check the component manifest, and report construction and installed behavior separately. See [current acceptance](acceptance-1.1.0.md).
+
 ## 1.0.0 — 2026-11-07
 
 - Add exact-byte Cordis consumer ownership and standing-subagent child-scope cleanup repairs. Both cores retain the original teardown RED and pass14 candidate tests each. Host ACK still fails on deployed90; added13a is reported separately.
@@ -78,16 +84,16 @@ Read project rules and inspect the worktree and ownership first. Commit only exp
 
 1. Complete the relevant implementation, counterexamples that expose the issue, appropriate regressions, and documentation. Record actual commands, exit codes, failures, skips, and unverified limits by evidence layer. A local-directory change does not replace installation of the delivered archive.
 2. Align VERSION, README download versions, the changelog, and the sanitized summary, then freeze a source commit. If the plugin changes, update its version and manifest separately and verify the final plugin ZIP again. Exact comparison can associate unchanged old bytes with existing evidence.
-3. Build from a new clone of the clean fixed commit into a new directory outside the repository:
+3. Build from the reviewed Git commit into a new directory outside the repository:
 
    ```text
-   python scripts/build-release.py --output-dir <NEW_DIRECTORY_OUTSIDE_REPOSITORY>
+   python scripts/build-release.py --source-commit <FULL_COMMIT_SHA> --output-dir <NEW_DIRECTORY_OUTSIDE_REPOSITORY>
    ```
 
-   The builder collects only the public allowlist and checks links, runtime-state directories, and portable materialization sources. It generates the full ZIP, standalone plugin ZIP, and each SHA256 sidecar. Existing output names cause refusal; old assets are not overwritten.
+   The builder collects only the public allowlist and checks links, runtime-state directories, and portable materialization sources. It generates the full and standalone ZIPs, their SHA256 sidecars, and build JSON with the source commit and archive digests. Existing output names cause refusal; old assets are not overwritten.
 
 4. Have an independent validator extract the archive and check CRC, paths, links, case collisions, member sets, the manifest, source correspondence, and the absence of private state. Changes affecting installation require official installation into a new Home/profile. Source or build success does not replace that check.
-5. Publish a tag for the fixed commit and the four explicitly named assets. Do not replace existing assets or present GitHub's automatic source snapshot as the verified installation package. The current version is a prerelease; state the verified scope in its release notes.
-6. Read remote main/tag, download all four assets again, and compare their exact bytes and SHA256 values with the fixed local files. Retain the source commit, package hashes, environment, validators, and local/remote receipts. Upload success alone is not delivery acceptance.
+5. Publish the fixed tag, both ZIPs and hashes, build JSON, and the sanitized installation evidence. Compare the draft's remote file names, sizes, and digests first. Keep existing assets intact.
+6. Verify the public release and remote main/tag. Download assets again and compare bytes when the transfer is available; otherwise record the verified server digests and the transfer gap separately. Retain the source, package hashes, installation environment, and results.
 
 The current build needs no dependency downloads or network connection, and no new CI workflow has been added. GitHub publication and real-model requests each require applicable authorization. A queue, plan, tool result, or timeout does not supply that authorization.

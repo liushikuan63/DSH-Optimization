@@ -3,6 +3,10 @@
  * presentation declaration per session, gentle tool paging for high-fan-out
  * namespaces, and the durable catalog message.
  *
+ * Hosts with a scoped ToolExecutor own the tool set before the prompt
+ * waterfall. On those hosts an executor adapter applies one page to both wire
+ * and dispatch. The `presentAs` and waterfall path below serves older hosts.
+ *
  * PRESENTATION: the `presentation` config picks how this session's tools sit
  * on the wire, matching the SDK's ToolPresentationMode:
  * - `native`: the assembled native roster, no code transport;
@@ -89,13 +93,16 @@ import {
   validatePagedToolPatterns,
   withheldToolNames,
 } from './paging.mjs'
-import { publishPagingSurface, clearPagingSurface } from './paging-state.mjs'
+import { publishPagingExecution, publishPagingSurface, clearPagingSurface } from './paging-state.mjs'
+import { createExecutorPage, emptyPagingState, foldPagingEvent, selectPagingContract } from './executor-paging.mjs'
+import { hostModules } from './host-modules.mjs'
+import { createHash } from 'node:crypto'
 
 /** Cordis plugin name used by loader diagnostics. */
 export const name = 'ultimate-model-tool-catalog'
 
 /** Prompt assembly must exist before the wire catalog can be observed. */
-export const inject = ['systemPrompt']
+export const inject = ['systemPrompt', 'tools']
 
 /** Default cap for one tool's one-line summary in the injected compact list. */
 const DEFAULT_DESCRIPTION_MAX_LENGTH = 200
@@ -622,6 +629,118 @@ function withoutMessage(decision, id) {
 
 /** Register the presentation declaration, the wire paging, and the per-step catalog injection. */
 export function apply(ctx, config) {
+  const contract = selectPagingContract(ctx.get('tools'), ctx.get('systemPrompt'))
+  return contract === 'executor' ? applyExecutorCatalog(ctx, config) : applyLegacyCatalog(ctx, config)
+}
+
+async function applyExecutorCatalog(ctx, config) {
+  const patterns = validatePagedToolPatterns(name, config?.pagedToolPatterns)
+  const capacity = integerAtLeast(name, config?.maxActiveNamespaces, 'maxActiveNamespaces', 1, DEFAULT_MAX_ACTIVE_NAMESPACES)
+  const descriptionMaxLength = integerAtLeast(name, config?.descriptionMaxLength, 'descriptionMaxLength', 1, DEFAULT_DESCRIPTION_MAX_LENGTH)
+  const maxResidentTokens = integerAtLeast(name, config?.maxResidentTokens, 'maxResidentTokens', 1, DEFAULT_MAX_RESIDENT_TOKENS)
+  const warned = new Set()
+  const warn = detail => {
+    if (warned.has(detail)) return
+    warned.add(detail)
+    ctx.logger?.warn?.(`${name}: ${detail}`)
+  }
+  validateRetiredAnchorTools(config?.anchorTools)
+  if (config?.anchorTools !== undefined) warn('anchor-turn staging is retired; anchorTools has no effect')
+  let presentation = resolvePresentation(config, warn)
+  if (presentation === 'ptc' && ctx.get('ptcRuntime') === undefined) {
+    warn('no PTC runtime is registered; using native tool presentation')
+    presentation = 'native'
+  }
+
+  const projections = ctx.get('sessionProjections')
+  if (typeof projections?.register !== 'function') throw new Error(`${name}: the executor adapter requires the Host session projection service`)
+  const sdk = hostModules(ctx)
+  const [transport, toolsSdk, validation] = await Promise.all([
+    sdk.import(presentation === 'ptc' ? '@deepseek-ai/dsh-tool-executor-ptc' : '@deepseek-ai/dsh-tool-executor-native'),
+    sdk.import('@deepseek-ai/dsh-tools'),
+    sdk.import('zod'),
+  ])
+  const Executor = presentation === 'ptc' ? transport.PtcExecutor : transport.NativeToolExecutor
+  const { projectToolSchema } = toolsSdk
+  const { z } = validation
+  if (typeof Executor?.prototype?.describe !== 'function' || typeof Executor?.prototype?.execute !== 'function'
+    || typeof projectToolSchema !== 'function' || typeof z?.object !== 'function') {
+    throw new Error(`${name}: the Host's official executor, schema, or projection interface is incompatible`)
+  }
+
+  const settings = { patterns, capacity, presentation, catalogText: message => isCatalogMessage(message) ? textOf(message) : undefined }
+  // The same settings share one declaration across preset generations. An
+  // intentionally different page policy gets its own replay and cache entry.
+  const policy = createHash('sha256').update(JSON.stringify([patterns, capacity])).digest('hex')
+  const invocation = { name: z.string(), arguments: z.unknown() }
+  const projection = await projections.register({
+    key: `ultimate-model.paging.${policy}`,
+    stateVersion: 1,
+    stateSchema: z.object({
+      active: z.array(z.string()).max(capacity),
+      step: z.object({
+        turn: z.number(), index: z.number(),
+        calls: z.array(z.object({ ...invocation, id: z.string(), success: z.boolean(), nested: z.array(z.object(invocation)) })),
+      }).nullable(),
+      catalog: z.object({ seq: z.number(), text: z.string() }).nullable(),
+    }),
+    init: emptyPagingState,
+    apply: (state, event) => foldPagingEvent(state, event, settings),
+  })
+  if (typeof projection?.stateOf !== 'function') throw new Error(`${name}: the Host did not provide a session projection reader`)
+
+  const owner = { active: true }
+  const pages = new WeakMap()
+  const catalog = new WeakMap()
+  ctx.effect(() => () => { owner.active = false })
+  ctx.on('agent/created', ({ agent }) => {
+    if (pages.has(agent)) return
+    const view = createExecutorPage({
+      agent,
+      delegate: new Executor(agent.ctx),
+      patterns,
+      onExecute: (toolSet, page) => publishPagingExecution(owner, agent, toolSet, page, settings),
+    })
+    agent.ctx.tools.setExecutor(view.executor)
+    pages.set(agent, view)
+  })
+  ctx.on('agent/disposed', ({ agent }) => { pages.delete(agent); catalog.delete(agent) })
+
+  // Variables run synchronously before both tool providers and prompt sections.
+  // Get the exact ToolSet from the Host here; describe() alone has no step id.
+  ctx.systemPrompt.variable('ultimate_model_paging', ({ agent, toolSet }) => {
+    const view = agent === undefined ? undefined : pages.get(agent)
+    if (view === undefined) return undefined
+    const page = view.prepare(toolSet, toolSet === undefined ? [] : projection.stateOf(agent.session).active)
+    if (page === undefined) { catalog.delete(agent); return undefined }
+
+    const schemas = page.visible.map(definition => projectToolSchema(definition, false))
+    const tokens = presentation === 'native' ? estimateSurfaceTokens(schemas) : 0
+    if (tokens > maxResidentTokens && !warned.has('budget')) {
+      warned.add('budget')
+      const heaviest = [...schemas].sort((a, b) => estimateSurfaceTokens([b]) - estimateSurfaceTokens([a]))
+        .slice(0, 3).map(tool => tool.name).join(', ')
+      warn(`the resident tool surface is about ${tokens} tokens across ${schemas.length} tools, over the ${maxResidentTokens}-token budget; heaviest: ${heaviest}`)
+    }
+    const summaryOnly = presentation === 'native' && config?.nativeSummaryOnly !== false
+    catalog.set(agent, {
+      presentation,
+      entries: summaryOnly ? [] : catalogEntries(schemas, descriptionMaxLength, { patterns }),
+      inactive: summarizeInactive(page.inactive, description => catalogDescription(description, descriptionMaxLength)),
+      residentSignaturesOmitted: summaryOnly && schemas.length > 0,
+    })
+    return undefined
+  })
+
+  registerCatalogPublisher(ctx, catalog, agent => {
+    const last = projection.stateOf(agent.session).catalog
+    if (last === null) return { published: false }
+    const visible = visibleSeqSet(agent.session)
+    return { published: true, text: visible === undefined || visible.has(last.seq) ? last.text : undefined }
+  })
+}
+
+function applyLegacyCatalog(ctx, config) {
   const descriptionMaxLength = integerAtLeast(
     name,
     config?.descriptionMaxLength,
@@ -1140,6 +1259,10 @@ export function apply(ctx, config) {
     return unchanged ? assembled : { ...assembled, tools: resident }
   }, { prepend: true })
 
+  registerCatalogPublisher(ctx, agentCatalogState, catalogHistory)
+}
+
+function registerCatalogPublisher(ctx, agentCatalogState, historyFor) {
   ctx.on('agent/pre-step', async (payload, next) => {
     const decision = await next()
     if (decision.kind !== 'enter') return decision
@@ -1150,7 +1273,7 @@ export function apply(ctx, config) {
     const { entries, presentation: statePresentation, inactive, residentSignaturesOmitted } = state
     const summaryOptions = { residentSignaturesOmitted }
     const candidate = renderCatalogText(entries, statePresentation, inactive, summaryOptions)
-    const history = catalogHistory(agent)
+    const history = historyFor(agent)
     const existing = catalogMessage(decision.messages)
     if (history.text === candidate) {
       return existing === undefined ? decision : withoutMessage(decision, existing.message.id)

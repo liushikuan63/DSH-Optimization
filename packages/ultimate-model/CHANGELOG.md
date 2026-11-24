@@ -1,3 +1,9 @@
+# 1.5.0
+
+- 版本声明使用通配符，装载时按 Host 能力选择分页适配器。新版通过官方执行器同时限制工具定义和本步执行；仅成功且已结算的激活进入下一页。
+- `list_agents` 在新版由完整子代理控制插件注册；只在旧工具接口中挂载官方子插件。保留 `ultimate-model` ID。
+- Selects the paging adapter by Host capability. Newer Hosts use their own executor for schema presentation and dispatch; completed successful results update the next page.
+
 # 1.4.4（社区正式版 / Community stable release，2026-11-07）
 
 - 从 review.7 晋级，预设ID、工具接口、运行代码与守卫不改字节；仅修订版本元数据、说明与清单。

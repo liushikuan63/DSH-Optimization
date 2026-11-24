@@ -48,7 +48,7 @@ function nativeHarness(config={}){
   {name:'cordis_inspect_list',description:'Inspect providers',parameters:{type:'object',properties:{}}},
   {name:'cordis_inspect_query',description:'Inspect query',parameters:{type:'object',properties:{}}},
   {name:'plugin_manager',description:'Plugin management',parameters:{type:'object',properties:{action:{type:'string'}}}}]
- const registry={schemas:()=>tools}
+ const registry={schemas:()=>tools,presentAs:()=>()=>{}}
  const ctx={effect(factory){return factory()},on(event,listener){handlers.set(event,listener)},get(key){return key==='tools'?registry:undefined},logger:{warn(){}}}
  const agent={ctx:{tools:registry},session:{events,surface:{nodes:[]}}}
  apply(ctx,{presentation:'native',pagedToolPatterns:['cordis_inspect_*','plugin_*'],maxActiveNamespaces:1,...config})

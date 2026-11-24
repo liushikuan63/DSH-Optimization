@@ -2,6 +2,7 @@
 // The durable event log still owns activation; this cache only answers which
 // namespaces the exact scope may request after our own mask is lifted.
 const surfaces = new WeakMap()
+const executions = new WeakMap()
 
 export function publishPagingSurface(owner, agent, schemas) {
   if (!owner.active || !agent?.ctx) return
@@ -13,4 +14,13 @@ export function pagingSurface(agent) {
 }
 export function clearPagingSurface(owner, agent) {
   if (agent && surfaces.get(agent)?.owner === owner) surfaces.delete(agent)
+}
+
+export function publishPagingExecution(owner, agent, toolSet, page, settings) {
+  executions.set(toolSet, { owner, agent, page, settings })
+}
+
+export function pagingExecution(agent, toolSet) {
+  const value = toolSet && executions.get(toolSet)
+  return value?.owner.active && value.agent === agent ? value : undefined
 }

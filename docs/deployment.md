@@ -1,6 +1,6 @@
 # 部署、升级与恢复
 
-1.0.0现役Ultimate-Model为`1.4.4`；相对已物化本机review.7只改五项元数据/说明，210文件及原物化patch保留。可选精确字节运行修复与开发者限时接口见[运行修复](runtime-repairs.md)。0.1.4中记录的“现役review.6 / 维护HOLD”是当时的快照，后续批准及本次完成事实见[验收报告](acceptance.md)。这不构成后续维护的长期许可，也不自动延长已经使用的诊断预算。
+分享包 1.1.0 内含 Ultimate-Model 1.5.0。升级既有 profile 前先核对同 ID 的覆盖行、实际链接目录及自定义工具配置；用独立 profile 验证加载。完成用户授权的重启后，以真实模式列表和新建会话核对现场生效。适配及范围见[本版验收](acceptance-1.1.0.md)；旧版真实环境的结果见[历史验收](acceptance.md)。
 
 [English](en/deployment.md) | 简体中文
 

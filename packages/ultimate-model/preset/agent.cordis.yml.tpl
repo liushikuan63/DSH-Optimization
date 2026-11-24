@@ -134,7 +134,9 @@
       },
       {
         "id": "tool-subagent-list-agents",
-        "name": "@deepseek-ai/dsh-tool-subagent-control/list-agents"
+        "name": {
+          "__jsExpr": "(() => {\nconst path = process.getBuiltinModule(\"node:path\");\nconst { createRequire } = process.getBuiltinModule(\"node:module\");\nconst root = path.dirname(createRequire(baseUrl).resolve(\"@local/ultimate-model/package.json\"));\nreturn path.join(root, \"./preset/lib/list-agents-compat.mjs\");\n})()"
+        }
       },
       {
         "id": "tool-subagent",
@@ -251,7 +253,9 @@
         "team_task_*",
         "browser_*",
         "cordis_inspect_*",
-        "plugin_*"
+        "plugin_*",
+        "ppt_*",
+        "minimax_*"
       ],
       "maxActiveNamespaces": 3,
       "maxResidentTokens": 16000,
@@ -272,7 +276,9 @@
         "team_task_*",
         "browser_*",
         "cordis_inspect_*",
-        "plugin_*"
+        "plugin_*",
+        "ppt_*",
+        "minimax_*"
       ],
       "maxActiveNamespaces": 3
     }

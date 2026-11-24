@@ -1,8 +1,8 @@
 # Ultimate-Model (optional preset addon)
 
-本地社区正式版 **1.4.4**，由 review.7 晋级；预设、工具、运行代码、守卫与兼容范围保持相同。仅版本元数据和发布说明改变，真实部署结果以本版验收报告为准。
+社区组件 **1.5.0**，保留预设 ID `ultimate-model`。工具分页按正在运行的 DSH Host 接口选择适配器；现有会话、预设选择和工具名称不需要迁移。
 
-Community stable release **1.4.4**, promoted from review.7. Preset IDs, tools, execution code, guards and compatibility are unchanged. Only version metadata and release documentation change; consult the version-specific acceptance report for actual deployment evidence.
+Community component **1.5.0** keeps preset ID `ultimate-model` and selects its paging adapter from the running DSH Host's tool interface.
 
 按需技能、原生工具分页、证据驱动交付、有边界持续学习与防压缩本地检查点。**只在显式选择 Ultimate-Model（preset id: ultimate-model）时装载**，不覆盖目标机规则、模型、凭据、现有预设或 MCP。
 
@@ -12,9 +12,9 @@ Community stable release **1.4.4**, promoted from review.7. Preset IDs, tools, e
 
 ## 安装与选择
 
-前置：DSH core `>=0.2.1-rc.2 <0.2.2-0`（见 [package.json](package.json)）；Node 22+，可选命令 hooks 测试需要 pwsh 7。此范围明确排除全部 0.2.2 预发布版及后续版本；DSH NEXT 2.0.22-next / core 0.2.2-rc.1 的破坏性接口变更尚未适配、未验收，请勿用 `allow-version` 强行安装。版本判断针对 core，不是桌面 NEXT 版本。Windows/Unix 本地路径可解析；UNC 部署未验收。
+前置：Node.js 22+ 和可工作的 DSH Host；可选 hooks 测试需要 PowerShell 7。组件的 `engines.dsh` 使用 `*`，实际装载时识别旧式工具呈现接口或新版作用域执行器；接口不完整时，Ultimate Model 会给出错误，其他模式仍可选择。不要用 `allow-version` 跳过宿主门禁。新版本先用临时 profile 验证新建和分页，再用于日常会话。
 
-Compatibility: DSH core `>=0.2.1-rc.2 <0.2.2-0`; all 0.2.2 prereleases and later versions are excluded. DSH NEXT 2.0.22-next / core 0.2.2-rc.1 is not adapted or validated. Do not bypass the compatibility guard with `allow-version`. The boundary tests exercise version metadata; they are not acceptance tests of a new SDK.
+Requirements: Node.js 22+ and a working DSH Host. The package declares `engines.dsh: "*"` and detects the legacy presentation interface or the newer scoped executor at load time. An incompatible interface makes this preset unavailable with a diagnostic. Verify session creation and paging in a separate profile before adopting a new Host version.
 
 1. 解压后将完整目录交给 DSH 内 AI，先读 [INSTALL-AI.md](INSTALL-AI.md)。
 2. 用官方 `plugin_manager` 的 `install_bundle` 安装，target 为**包目录的绝对路径**。不要手写 profile 的 package.json/patch，不使用旧文件覆盖安装器。
@@ -29,7 +29,7 @@ Compatibility: DSH core `>=0.2.1-rc.2 <0.2.2-0`; all 0.2.2 prereleases and later
 - **轻量契约**：[jizhi-mode](preset/skills/jizhi-mode/SKILL.md)与[规则参考](rules/AGENTS.md)按需读；不再重复常驻长persona。
 - **本地技能层**：`skills/local` 由目标机技能层脱敏派生（维护类流程与用户级补充），与 core、preset 同时挂载；仓库源码维护与已安装副本分离，包内项目名与路径已环境化；用户 home 定制独立保留。
 - **技能**：core为高频地图，library按需。`jizhi_skill_search`返回实际路径，read后才算读取；查询实时、只读、不信任旧索引。同名项保留来源，不冒充宿主全量目录。
-- **工具分页**：目录与激活器同配置；只有成功结果才激活。最多3族，LRU可重载；可选 PTC 通过同一 scope 的分页前元数据完成激活，不绕过其他权限过滤；native不重复列resident完整签名。memory等resident能力不需要伪激活。
+- **工具分页**：目录和激活器共享页面；新版执行器同时限制模型看到的工具和本步可调用范围，保留 Host 的工具权限。成功调用结算后，下一步可用；默认最多保留 3 族，按最近使用更新。原生模式默认只摘要未激活族，PTC 将同一页面用于生成 SDK。安装前以目标 Host 实际支持的工具为准。
 - **安全**：预设作用域内注册单调拒绝守卫，win_bash包含在判定范围；SQL逐语句检查，别的WHERE、字符串/子查询不提供放行。它是有限预检，不是完整SQL解析器或数据库权限边界。
 - **意图澄清**：[按需流程](skills/core/intent-clarification/SKILL.md)保留原意给出改写、合理选项和建议理由，询问是否符合；事实先查、明确请求不重复确认，推荐/超时/自动答复不等于用户确认或执行授权。它是提示词工作流，不是强制语义分类器。
 - **持续学习**：经验模块随选择该模式启用，按工作区隔离、去重、有界保存并按需召回；派发成功事实、明确反馈与待评估候选区分，语义教训仍待审。详见 [持续学习入口](skills/core/experience-loop/SKILL.md)。安全、权限、凭据、模型及MCP访问范围不自动改写；代码型升级仍需验证与适当授权。

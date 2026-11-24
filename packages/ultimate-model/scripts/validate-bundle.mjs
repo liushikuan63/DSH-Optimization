@@ -5,7 +5,7 @@ import crypto from 'node:crypto'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { createRequire } from 'node:module'
 import { collect } from './build-skills-index.mjs'
-import { resolvePackageExpression } from './package-resource.mjs'
+import { compositionChildren, resolvePackageExpression } from './package-resource.mjs'
 import { validateManifestCoverage } from './distribution.mjs'
 import { auditReferences } from './audit-references.mjs'
 import { OFFICIAL_SKILLS } from './official-skills.mjs'
@@ -52,7 +52,7 @@ export function validateBundle(root = path.resolve(path.dirname(fileURLToPath(im
   const portableRows = template[0].insert.find(r => r.id === 'preset-ultimate-model').config.plugins
   assert.deepEqual(yaml.load(fs.readFileSync(path.join(root, 'preset/agent.cordis.yml.tpl'), 'utf8')), portableRows, 'compatibility mirror must be generated from the one template')
   assert.deepEqual(portableRows.find(r => r.id === 'tool-catalog').config.pagedToolPatterns, catalog.config.pagedToolPatterns)
-  const baseUrl = pathToFileURL(path.join(root, 'cordis.patch.yml')).href, actualRoot = fs.realpathSync(root)
+  const actualRoot = fs.realpathSync(root)
   const inside = (target, label) => {
     const resolved = fs.realpathSync(target), relative = path.relative(actualRoot, resolved)
     assert.ok(relative === '' || (!relative.startsWith('..') && !path.isAbsolute(relative)), label + ': outside this package copy')
@@ -65,7 +65,8 @@ export function validateBundle(root = path.resolve(path.dirname(fileURLToPath(im
   }
   // Bundle-level observers are executable entries too; checking only the
   // preset subtree could accept a missing or foreign checkpoint/experience row.
-  for (const row of [...declaration, ...rows]) {
+  const allRows = entries => entries.flatMap(row => [row, ...allRows(compositionChildren(row))])
+  for (const row of allRows(declaration)) {
     try {
       if (row.name && typeof row.name === 'object') assert.ok(fs.statSync(resolveEntry(row.name, row.id)).isFile())
       if (typeof row.name === 'string' && row.name.startsWith('file:')) assert.ok(fs.statSync(inside(fileURLToPath(row.name), row.id)).isFile())

@@ -35,6 +35,22 @@ function resources(doc) {
   return { observer: rows.find(row => row.id === 'ultimate-model-context-checkpoint'), skills: plugins.find(row => row.id === 'skill-filesystem').config.customSkillDirs }
 }
 
+test('materialization resolves and validates plugin names inside Cordis groups', t => {
+  const f = stage(t)
+  assert.equal(f.run().status, 0)
+  const materialized = JSON.parse(fs.readFileSync(path.join(f.dir, 'cordis.patch.yml'), 'utf8'))
+  const nested = materialized[0].insert[0].config.plugins.find(row => row.id === 'delegation')
+    .config.find(row => row.id === 'tool-subagent-list-agents')
+  assert.equal(nested.name, pathToFileURL(path.join(f.dir, 'preset/lib/list-agents-compat.mjs')).href)
+  const source = f.read()
+  source[0].insert[0].config.plugins.find(row => row.id === 'delegation')
+    .config.find(row => row.id === 'tool-subagent-list-agents').name = pathToFileURL(path.join(f.dir, 'absent.mjs')).href
+  f.write(source)
+  const result = f.run('--check')
+  assert.notEqual(result.status, 0)
+  assert.match(result.stderr, /tool-subagent-list-agents.*does not exist/)
+})
+
 test('unknown, duplicate and empty materializer options fail before any file changes', t => {
   const f = stage(t)
   for (const args of [['--chek'], ['--check=false'], ['--check', '--check'], ['--out='], ['--template='], ['--out=a.yml', '--out=b.yml']]) {

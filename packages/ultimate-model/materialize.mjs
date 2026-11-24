@@ -22,7 +22,7 @@ import { createHash } from 'node:crypto'
 import { pathToFileURL } from 'node:url'
 import { dirname, basename, join, resolve, sep, relative, isAbsolute } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { resolvePackageExpression } from './scripts/package-resource.mjs'
+import { compositionChildren, resolvePackageExpression } from './scripts/package-resource.mjs'
 import { publishMetadataPair, captureMetadataPreimages } from './scripts/metadata-transaction.mjs'
 
 const PACKAGE = '@local/ultimate-model'
@@ -123,7 +123,7 @@ const walkRow = (row, where) => {
       } catch (error) { failures.push(String(error.message)); return entry }
     })
   }
-  for (const child of row.config?.plugins ?? []) walkRow(child, `${where}/${row.id ?? '?'}`)
+  for (const child of compositionChildren(row)) walkRow(child, `${where}/${row.id ?? '?'}`)
 }
 for (const layer of document) for (const row of layer.insert ?? []) walkRow(row, 'layer')
 
@@ -146,7 +146,7 @@ if (checkOnly) {
       for (const entry of row?.config?.customSkillDirs ?? []) {
         if (entry !== null && typeof entry === 'object' && typeof entry.__jsExpr === 'string') pending.push(`${where}/${row.id ?? '?'}/customSkillDirs`)
       }
-      findPending(row?.config?.plugins, `${where}/${row.id ?? '?'}`)
+      findPending(compositionChildren(row), `${where}/${row.id ?? '?'}`)
     }
   }
   for (const layer of roundTrip) findPending(layer.insert, 'layer')

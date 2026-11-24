@@ -2,6 +2,8 @@
 
 本目录是正式 DSH bundle，不是向home复制文件的脚本包。先读取 [package.json](package.json)、[cordis.patch.yml](cordis.patch.yml)、[README.md](README.md)与[manifest.json](manifest.json)，确认版本兼容和用户目标。
 
+`engines.dsh: "*"` 允许宿主加载后检测工具接口；它不代表任意 DSH 版本都已验证。检查预设是否损坏，再创建新会话，核对首轮工具列表及一次实际激活后的变化。若 Host 报不支持接口，先使用其他模式并记录具体错误。
+
 ## 关于行名与“物化”
 
 `cordis.patch.yml` 在归档中保留可移植表达式（发行物禁止携带作者物化路径）；导入前，必须物化 bundle 插件的**字面绝对路径**。原因：

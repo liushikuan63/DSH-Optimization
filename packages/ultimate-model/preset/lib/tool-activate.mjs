@@ -33,7 +33,7 @@ import {
   replayActivations,
   validatePagedToolPatterns,
 } from './paging.mjs'
-import { pagingSurface } from './paging-state.mjs'
+import { pagingExecution, pagingSurface } from './paging-state.mjs'
 
 /** Cordis plugin name used by loader diagnostics. */
 export const name = 'ultimate-model-tool-activate'
@@ -123,7 +123,13 @@ export function apply(ctx, config) {
     async execute(args, exec) {
       const namespace = args.namespace
       const agent = exec?.agent
-      const schemas = schemasFor(agent)
+      const modelPage = pagingExecution(agent, exec?.toolSet)
+      if (typeof ctx.tools?.setExecutor === 'function' && modelPage === undefined) {
+        throw new Error('tool_activate needs an admitted model step with Ultimate Model paging enabled')
+      }
+      const patterns = modelPage?.settings.patterns ?? pagedToolPatterns
+      const capacity = modelPage?.settings.capacity ?? maxActiveNamespaces
+      const schemas = modelPage?.page.full ?? schemasFor(agent)
 
       // The paged namespaces the session actually carries, with their tools in
       // stable name order for deterministic reporting.
@@ -131,7 +137,7 @@ export function apply(ctx, config) {
       for (const schema of schemas) {
         const toolName = schema?.name
         if (typeof toolName !== 'string' || toolName === 'tool_activate') continue
-        const owner = namespaceOf(toolName, pagedToolPatterns)
+        const owner = namespaceOf(toolName, patterns)
         if (owner === undefined) continue
         let group = paged.get(owner)
         if (group === undefined) {
@@ -151,27 +157,22 @@ export function apply(ctx, config) {
       // call: the harness appends the tool/call event before executing, so the
       // stream may already carry it, and counting it would misreport the target
       // as already active.
-      const selfCallId = exec?.callId
-      const events = sessionEvents(agent?.session).filter(event => !(
-        event?.type === 'tool/call'
-        && selfCallId !== undefined
-        && event.data?.name === 'tool_activate'
-        && String(event.data?.callId) === String(selfCallId)
-      ))
-      const { active } = replayActivations(events, maxActiveNamespaces, pagedToolPatterns)
+      const active = modelPage?.page.active ?? replayActivations(sessionEvents(agent?.session), capacity, patterns).active
       if (active.includes(namespace)) {
         throw new Error(`namespace "${namespace}" is already active; its tools are on the wire`)
       }
 
       const next = [...active, namespace]
-      const evicted = next.length > maxActiveNamespaces ? next.shift() : undefined
+      const evicted = next.length > capacity ? next.shift() : undefined
       const tools = paged.get(namespace)
       const lines = [
         `Activated namespace "${namespace}" (${tools.length} tool${tools.length === 1 ? '' : 's'}): ${tools.join(', ')}.`,
-        'Its tools are on the wire from the next request; call them directly by name.',
+        modelPage?.settings.presentation === 'ptc'
+          ? 'Use its tools from the run_code SDK on the next request.'
+          : 'Its tools are on the wire from the next request; call them directly by name.',
       ]
       if (evicted !== undefined) {
-        lines.push(`Least recently used namespace "${evicted}" was paged out (capacity ${maxActiveNamespaces}); its summary stays in the catalog and tool_activate can reload it.`)
+        lines.push(`Least recently used namespace "${evicted}" was paged out (capacity ${capacity}); its summary stays in the catalog and tool_activate can reload it.`)
       }
       return { text: lines.join(' ') }
     },
