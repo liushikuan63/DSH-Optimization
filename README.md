@@ -144,3 +144,11 @@ GitHub 自动生成的 Source code 是源码快照，需精确验收字节时选
 可信源码与现役副本分开保存，升级前核查旧版、本地、新版三方差异并保留定制。构建器只导出白名单公开源码，不导出Home/配置、凭据、经验/检查点、会话、私有日志、应用二进制或诊断探针。反馈时提供脱敏版本、步骤、结果与最小日志。
 
 这是社区适配，不是DSH、Qoder或OpenAI官方发行。公开可见不等于给整个附件重新授权；来源和许可见[第三方说明](THIRD-PARTY-NOTICES.md)及[组件来源](packages/ultimate-model/SOURCES.md)。
+
+### 其他独立分享包 / Other independent toolkits
+
+这些仓库面向不同客户端，内容、安装方式和权限边界各自独立：
+
+- [ClaudeCode-Optimization](https://github.com/liushikuan63/ClaudeCode-Optimization) — Claude Code 按需技能、提示 hook 与可选恢复网关。
+- [Qoder-Optimization](https://github.com/liushikuan63/Qoder-Optimization) — Qoder rules、skills、hooks、commands 与 MCP 模板。
+- [Codex-Optimization](https://github.com/liushikuan63/Codex-Optimization) — Codex 技能、项目规则与文档连接示例。
